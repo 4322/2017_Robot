@@ -50,14 +50,23 @@
 			<format property="BUILDTIME" pattern="MM-dd-yyyy hh:mm:ss" locale="en,US"/>
 		</tstamp>
 	 	<git:settings refId="git.testing"
-	 	 username="xxxtesting"
-	 	 password="xxxtesting"
-	 	 name="xxxtesting"
-	 	 email="xxxtesting@gmail.com"/>
+	 	 username="Nico1999"
+	 	 password="Bugaloo100"
+	 	 name="Auto-Committer"
+	 	 email="software@frc4322.com"/>
 	 	<git:git directory="." settingsRef="git.testing">
-	 	  <git:commit message="Initial commit" revCommitIdProperty="revcommit"/>
+	 		<git:uptodate modificationexistproperty="uptodate" failonerror="false"/>
 	 		<git:ref directory="." property="hash"/>
 		</git:git>
+		<if>
+	 		<isset property="uptodate"/>
+	 		<then>
+		 		<git:git directory="." settingsRef="git.testing">
+	 				<git:commit message="Auto-commit" revCommitIdProperty="revcommit" unless="${uptodate}" failonerror="false"/>
+				</git:git>
+	 		</then>
+		</if>
+
 	    <jar destfile="${dist.jar}" update="false">
 	      <manifest>
 	    	<attribute name="Main-Class" value="edu.wpi.first.wpilibj.RobotBase"/>
