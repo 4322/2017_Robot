@@ -1,10 +1,12 @@
 
-package org.usfirst.frc.team9322.robot;
+package org.usfirst.frc.team4322.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
+import org.usfirst.frc.team4322.dashboard.*;
+import org.usfirst.frc.team4322.logging.RobotLogger;
+import org.usfirst.frc.team4322.configuration.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,7 +25,18 @@ public class Robot extends IterativeRobot
      */
     public void robotInit()
     {
+        //Start Logger
+        RobotLogger.getInstance().update(false);
+        //Start Subsystems (Mind Dependencies!)
+        
+        //Start OI
         oi = new OI();
+        //Link Classes 
+        MapSynchronizer.getInstance().link(RobotMap.class);
+        //Load Config
+        RobotConfigFileReader.getInstance().runRobotFileReader(RobotMap.class);
+        //Load Persistent Values
+        MapSynchronizer.getInstance().loadPersistentValues();
         
     }
 
@@ -34,7 +47,8 @@ public class Robot extends IterativeRobot
      */
     public void disabledInit()
     {
-
+        //Write Persistence File
+        RobotPersistenceFileWriter.getInstance().write();
     }
 
     public void disabledPeriodic()
