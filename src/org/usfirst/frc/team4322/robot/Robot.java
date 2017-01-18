@@ -39,9 +39,6 @@ public class Robot extends IterativeRobot
         //Link Classes 
         MapSynchronizer.getInstance().link(RobotMap.class);
         MapSynchronizer.getInstance().link(DriveBase_PIDDrive.class);
-
-        //Load Config
-        RobotConfigFileReader.getInstance().runRobotFileReader(RobotMap.class);
         //Load Persistent Values
         MapSynchronizer.getInstance().loadPersistentValues();
         
