@@ -38,10 +38,7 @@ public class Robot extends IterativeRobot
         oi = new OI();
         //Link Classes 
         MapSynchronizer.getInstance().link(RobotMap.class);
-        MapSynchronizer.getInstance().link(DriveBase_PIDDrive.class);
-        //Load Persistent Values
-        MapSynchronizer.getInstance().loadPersistentValues();
-        
+        MapSynchronizer.getInstance().link(DriveBase_PIDDrive.class);        
     }
 
     /**
@@ -51,8 +48,7 @@ public class Robot extends IterativeRobot
      */
     public void disabledInit()
     {
-        //Write Persistence File
-        RobotPersistenceFileWriter.getInstance().write();
+
     }
 
     public void disabledPeriodic()
