@@ -11,11 +11,11 @@ import org.usfirst.frc.team4322.dashboard.DashboardInputField;
 public class RobotMap
 {
     @DashboardInputField(field="Drivebase Aim P: ")
-    public static double DRIVEBASE_AIM_P = -1.25;
+    public static double DRIVEBASE_AIM_P = -1.3;
     @DashboardInputField(field="Drivebase Aim I: ")
-    public static double DRIVEBASE_AIM_I = -.25;
+    public static double DRIVEBASE_AIM_I = -.120;
     @DashboardInputField(field="Drivebase Aim IZone: ")
-    public static double DRIVEBASE_AIM_IZONE = .1;
+    public static double DRIVEBASE_AIM_IZONE = .135;
     @DashboardInputField(field="Drivebase Aim D: ")
-    public static double DRIVEBASE_AIM_D = -1;
+    public static double DRIVEBASE_AIM_D = -1.30;
 }
