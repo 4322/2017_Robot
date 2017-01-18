@@ -7,6 +7,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4322.dashboard.*;
 import org.usfirst.frc.team4322.logging.RobotLogger;
 import org.usfirst.frc.team4322.configuration.*;
+import org.usfirst.frc.team4322.robot.commands.*;
+import org.usfirst.frc.team4322.robot.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -18,7 +20,9 @@ import org.usfirst.frc.team4322.configuration.*;
 public class Robot extends IterativeRobot
 {
     public static OI oi;
-
+    public static DriveBase driveBase;
+   
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -28,11 +32,14 @@ public class Robot extends IterativeRobot
         //Start Logger
         RobotLogger.getInstance().update(false);
         //Start Subsystems (Mind Dependencies!)
-        
+        driveBase = new DriveBase();
+       
         //Start OI
         oi = new OI();
         //Link Classes 
         MapSynchronizer.getInstance().link(RobotMap.class);
+        MapSynchronizer.getInstance().link(DriveBase_PIDDrive.class);
+
         //Load Config
         RobotConfigFileReader.getInstance().runRobotFileReader(RobotMap.class);
         //Load Persistent Values
