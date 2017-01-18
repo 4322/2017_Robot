@@ -16,7 +16,7 @@ public class OI {
     public OI()
     {
         pilot = new XboxController(0);
-        pilot.x.whenPressed(new DriveBase_PIDDrive(() -> {return SmartDashboard.getNumber("Vision Center X:",0.5) -.5;}));
+        pilot.x.whenPressed(new DriveBase_PIDDrive(() -> {return SmartDashboard.getNumber("Vision Center X: ",0.5) -.5;}));
         pilot.x.whenReleased(new Command_Interrupt());
     }
 }
