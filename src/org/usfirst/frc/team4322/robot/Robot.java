@@ -21,6 +21,7 @@ public class Robot extends IterativeRobot
 {
     public static OI oi;
     public static DriveBase driveBase;
+    public static Shooter shooter;
    
     
     /**
@@ -33,7 +34,8 @@ public class Robot extends IterativeRobot
         RobotLogger.getInstance().update(false);
         //Start Subsystems (Mind Dependencies!)
         driveBase = new DriveBase();
-       
+        shooter = new Shooter();
+        
         //Start OI
         oi = new OI();
         //Link Classes 
