@@ -24,6 +24,8 @@ public class OI {
         pilot.a.whenPressed(new Shooter_Spin());
         pilot.b.whenPressed(new Shooter_Spin_Slow());
         pilot.rt.whenPressed(new Shooter_Stop());
+        pilot.lb.whenPressed(new Indexer_Index());
+        pilot.rb.whenPressed(new Indexer_Stop());
     }
 }
 

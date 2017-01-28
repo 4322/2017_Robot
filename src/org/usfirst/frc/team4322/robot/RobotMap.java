@@ -22,4 +22,6 @@ public class RobotMap
     public static double DRIVEBASE_AIM_IZONE = .135;
     @DashboardInputField(field="Drivebase Aim D: ")
     public static double DRIVEBASE_AIM_D = -1.30;
+    @DashboardInputField(field="Indexer Speed: ")
+    public static double INDEXER_PV = 2400;
 }

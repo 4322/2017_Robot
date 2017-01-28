@@ -22,6 +22,7 @@ public class Robot extends IterativeRobot
     public static OI oi;
     public static DriveBase driveBase;
     public static Shooter shooter;
+    public static Indexer indexer;
    
     
     /**
@@ -35,6 +36,7 @@ public class Robot extends IterativeRobot
         //Start Subsystems (Mind Dependencies!)
         driveBase = new DriveBase();
         shooter = new Shooter();
+        indexer = new Indexer();
         
         //Start OI
         oi = new OI();
