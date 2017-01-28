@@ -3,7 +3,6 @@ package org.usfirst.frc.team4322.robot;
 import org.usfirst.frc.team4322.input.XboxController;
 import org.usfirst.frc.team4322.robot.commands.*;
 
-import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -22,7 +21,8 @@ public class OI {
                     }
                 ));
         pilot.y.whenPressed(new Command_Interrupt());
-        pilot.lt.whenPressed(new Shooter_Spin());
+        pilot.a.whenPressed(new Shooter_Spin_Slow());
+        pilot.b.whenPressed(new Shooter_Spin());
         pilot.rt.whenPressed(new Shooter_Stop());
     }
 }
