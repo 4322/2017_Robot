@@ -21,8 +21,8 @@ public class OI {
                     }
                 ));
         pilot.y.whenPressed(new Command_Interrupt());
-        pilot.a.whenPressed(new Shooter_Spin_Slow());
-        pilot.b.whenPressed(new Shooter_Spin());
+        pilot.a.whenPressed(new Shooter_Spin());
+        pilot.b.whenPressed(new Shooter_Spin_Slow());
         pilot.rt.whenPressed(new Shooter_Stop());
     }
 }
