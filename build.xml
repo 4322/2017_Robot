@@ -72,9 +72,7 @@
 				<attribute name="Build-Time" value="${BUILDTIME}" />
 				<attribute name="Build-Hash" value="${hash}" />
 			</manifest>
-
 			<fileset dir="${build.dir}" includes="**/*.class" />
-
 			<zipgroupfileset dir="${build.jars}" />
 		</jar>
 	</target>
