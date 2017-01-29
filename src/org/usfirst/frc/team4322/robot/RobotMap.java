@@ -10,10 +10,29 @@ import org.usfirst.frc.team4322.dashboard.DashboardInputField;
  */
 public class RobotMap
 {
+    // ************************
+    // ** SHOOTER MAP VALUES **
+    // ************************
     @DashboardInputField(field="Shooter Target RPM (Double): ")
     public static double SHOOTER_RPM_DOUBLE = 2400;
     @DashboardInputField(field="Shooter Target RPM (Single): ")
     public static double SHOOTER_RPM_SINGLE = 2400;
+    @DashboardInputField(field="Shooter P: ")
+    public static double SHOOTER_P = 0.45;
+    @DashboardInputField(field="Shooter I: ")
+    public static double SHOOTER_I = 0.002;
+    @DashboardInputField(field="Shooter D: ")
+    public static double SHOOTER_D = 5.50;
+    @DashboardInputField(field="Shooter F: ")
+    public static double SHOOTER_F = 0.05;
+    @DashboardInputField(field="Shooter IZ: ")
+    public static int SHOOTER_IZ = 300;
+    @DashboardInputField(field="Shooter R: ")
+    public static double SHOOTER_R = 0.00;
+    
+    // *********************************
+    // ** DRIVEBASE AIMING MAP VALUES **
+    // *********************************
     @DashboardInputField(field="Drivebase Aim P: ")
     public static double DRIVEBASE_AIM_P = -1.3;
     @DashboardInputField(field="Drivebase Aim I: ")
@@ -22,6 +41,22 @@ public class RobotMap
     public static double DRIVEBASE_AIM_IZONE = .135;
     @DashboardInputField(field="Drivebase Aim D: ")
     public static double DRIVEBASE_AIM_D = -1.30;
+
+    // ************************
+    // ** INDEXER MAP VALUES **
+    // ************************
     @DashboardInputField(field="Indexer Target RPM: ")
-    public static double INDEXER_RPM = 500;
+    public static double INDEXER_RPM = 700.00;
+    @DashboardInputField(field="Indexer P: ")
+    public static double INDEXER_P = 0.10;
+    @DashboardInputField(field="Indexer I: ")
+    public static double INDEXER_I = 0.002;
+    @DashboardInputField(field="Indexer D: ")
+    public static double INDEXER_D = 4.50;
+    @DashboardInputField(field="Indexer F: ")
+    public static double INDEXER_F = 0.10;
+    @DashboardInputField(field="Indexer IZ: ")
+    public static int INDEXER_IZ = 300;
+    @DashboardInputField(field="Indexer R: ")
+    public static double INDEXER_R = 0.00;
 }

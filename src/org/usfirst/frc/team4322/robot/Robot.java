@@ -18,9 +18,13 @@ import org.usfirst.frc.team4322.robot.subsystems.*;
  */
 public class Robot extends IterativeRobot
 {
+    // Controls Class
     public static OI oi;
+    // Drivebase Subsystem Class
     public static DriveBase driveBase;
+    // Shooter Subsystem Class
     public static Shooter shooter;
+    // Indexer Subsystem Class
     public static Indexer indexer;
    
     /**
