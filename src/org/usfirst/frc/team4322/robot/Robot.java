@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team4322.dashboard.*;
 import org.usfirst.frc.team4322.logging.RobotLogger;
-import org.usfirst.frc.team4322.configuration.*;
 import org.usfirst.frc.team4322.robot.commands.*;
 import org.usfirst.frc.team4322.robot.subsystems.*;
 
@@ -24,7 +23,6 @@ public class Robot extends IterativeRobot
     public static Shooter shooter;
     public static Indexer indexer;
    
-    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -40,7 +38,8 @@ public class Robot extends IterativeRobot
         
         //Start OI
         oi = new OI();
-        //Link Classes 
+        
+        //Link Classes for the Robot Map @DashboardInputField magic 
         MapSynchronizer.getInstance().link(RobotMap.class);
         MapSynchronizer.getInstance().link(DriveBase_PIDDrive.class);        
     }

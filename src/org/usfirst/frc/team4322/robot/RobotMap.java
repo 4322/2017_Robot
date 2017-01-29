@@ -10,9 +10,9 @@ import org.usfirst.frc.team4322.dashboard.DashboardInputField;
  */
 public class RobotMap
 {
-    @DashboardInputField(field="Shooter RPM: ")
+    @DashboardInputField(field="Shooter Target RPM (Double): ")
     public static double SHOOTER_RPM = 2400;
-    @DashboardInputField(field="Shooter RPM (Slow): ")
+    @DashboardInputField(field="Shooter target RPM (Single): ")
     public static double SHOOTER_RPM_SLOW = 2400;
     @DashboardInputField(field="Drivebase Aim P: ")
     public static double DRIVEBASE_AIM_P = -1.3;
@@ -22,6 +22,6 @@ public class RobotMap
     public static double DRIVEBASE_AIM_IZONE = .135;
     @DashboardInputField(field="Drivebase Aim D: ")
     public static double DRIVEBASE_AIM_D = -1.30;
-    @DashboardInputField(field="Indexer Speed: ")
-    public static double INDEXER_PV = 2400;
+    @DashboardInputField(field="Indexer Target RPM: ")
+    public static double INDEXER_RPM = 500;
 }
