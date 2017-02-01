@@ -18,15 +18,15 @@ public class RobotMap
     @DashboardInputField(field="Shooter Target RPM (Single): ")
     public static double SHOOTER_RPM_SINGLE = 2400;
     @DashboardInputField(field="Shooter P: ")
-    public static double SHOOTER_P = 0.45;
+    public static double SHOOTER_P = 0.55;
     @DashboardInputField(field="Shooter I: ")
-    public static double SHOOTER_I = 0.002;
+    public static double SHOOTER_I = 0.00325;
     @DashboardInputField(field="Shooter D: ")
-    public static double SHOOTER_D = 5.50;
+    public static double SHOOTER_D = 6.50;
     @DashboardInputField(field="Shooter F: ")
     public static double SHOOTER_F = 0.05;
     @DashboardInputField(field="Shooter IZ: ")
-    public static int SHOOTER_IZ = 300;
+    public static int SHOOTER_IZ = 250;
     @DashboardInputField(field="Shooter R: ")
     public static double SHOOTER_R = 0.00;
     
@@ -41,7 +41,6 @@ public class RobotMap
     public static double DRIVEBASE_AIM_IZONE = .135;
     @DashboardInputField(field="Drivebase Aim D: ")
     public static double DRIVEBASE_AIM_D = -1.30;
-
     // ************************
     // ** INDEXER MAP VALUES **
     // ************************
