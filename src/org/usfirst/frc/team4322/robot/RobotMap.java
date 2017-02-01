@@ -10,6 +10,19 @@ import org.usfirst.frc.team4322.dashboard.DashboardInputField;
  */
 public class RobotMap
 {
+   
+    // *******************************
+    // ** MOTOR CONTROLLER MAPPINGS ** 
+    // *******************************
+    public static final int DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR = 10;
+    public static final int DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR = 11;
+    public static final int DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR = 12;
+    public static final int DRIVEBASE_MOTORCONTROLLER_RIGHT_SLAVE_ADDR = 13;
+    public static final int SHOOTER_MOTORCONTROLLER_MASTER_ADDR = 20;
+    public static final int SHOOTER_MOTORCONTROLLER_SLAVE_ADDR = 21;
+    public static final int INDEXER_MOTORCONTROLLER_ADDR = 30;
+    
+    
     // ************************
     // ** SHOOTER MAP VALUES **
     // ************************
