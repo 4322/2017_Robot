@@ -18,26 +18,38 @@ public class DriveBase extends Subsystem
     private CANTalon leftMaster,leftSlave,rightMaster,rightSlave;
     private AHRS navx;
     private RobotDrive drive;
-    
+    private static final double ticksToDist = Math.PI/64;
+
     public DriveBase()
     {
         leftMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
         leftMaster.changeControlMode(TalonControlMode.Voltage);
+        leftMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+        leftMaster.configEncoderCodesPerRev(256);
         rightMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
         rightMaster.changeControlMode(TalonControlMode.Voltage);
+        rightMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+        rightMaster.configEncoderCodesPerRev(256);
         leftSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR);
         leftSlave.changeControlMode(TalonControlMode.Follower);
+        leftSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
         rightSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_SLAVE_ADDR);
         rightSlave.changeControlMode(TalonControlMode.Follower);
-        drive = new RobotDrive(left,right);
+        rightSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
+        drive = new RobotDrive(leftMaster,rightMaster);
         navx = new AHRS(Port.kMXP);
     }
-    
     @Override
     protected void initDefaultCommand()
     {
         setDefaultCommand(new DriveBase_DriveManual());
     }
+
+    public double getDist()
+    {
+        return ticksToDist*leftMaster.getEncPosition();
+    }
+
     
     public void set(double pow, double rot)
     {

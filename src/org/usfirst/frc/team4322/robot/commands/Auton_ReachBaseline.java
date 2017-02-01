@@ -15,6 +15,7 @@ public class Auton_ReachBaseline extends Command {
         requires(Robot.driveBase);
     }
 
+
     // Called just before this Command runs the first time
     protected void initialize() {
     }
@@ -22,7 +23,14 @@ public class Auton_ReachBaseline extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() 
     {
-        
+        if (Robot.driveBase.getDist() < 10)
+        {
+            Robot.driveBase.set(.6, 0);
+        }
+        else
+        {
+            Robot.driveBase.set(0,0);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()

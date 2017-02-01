@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="TalonSRXLibJava">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/wpilib/user/java/lib/TalonSRXLibJava.jar!/" />
+      <root url="jar://$USER_HOME$/wpilib/user/java/lib/navx_frc.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/wpilib/user/java/lib/navx_frc.jar!/docs" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$USER_HOME$/wpilib/user/java/src" />
+    </SOURCES>
+  </library>
+</component>
