@@ -30,6 +30,18 @@ public class DriveBase_PIDDrive extends Command
     }
 
     @Override
+    protected void interrupted()
+    {
+
+    }
+
+    @Override
+    protected void initialize()
+    {
+
+    }
+
+    @Override
     protected void execute()
     {
         double current = err.getAsDouble();
