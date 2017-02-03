@@ -26,6 +26,12 @@ public class Robot extends IterativeRobot
     public static Shooter shooter;
     // Indexer Subsystem Class
     public static Indexer indexer;
+    // Climber Subsystem Class
+    public static Climber climber;
+    // Vision Subsystem Class
+    public static Vision vision;
+    // GearGrabber Subsystem Class
+    public static GearGrabber gearGrabber;
    
     /**
      * This function is run when the robot is first started up and should be
@@ -39,6 +45,9 @@ public class Robot extends IterativeRobot
         driveBase = new DriveBase();
         shooter = new Shooter();
         indexer = new Indexer();
+        climber = new Climber();
+        vision = new Vision();
+        gearGrabber = new GearGrabber();
         
         //Start OI
         oi = new OI();
