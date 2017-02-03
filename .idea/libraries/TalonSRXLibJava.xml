@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="TalonSRXLibJava">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/FRC 2017/Software/3rd Party Libraries/CTRE Libraries/CTRE_FRCLibs_NON-WINDOWS/java/lib/TalonSRXLibJava.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -15,5 +15,6 @@
     <orderEntry type="library" name="cscore" level="project" />
     <orderEntry type="library" name="niVisionWPI" level="project" />
     <orderEntry type="library" name="4322Utils" level="project" />
+    <orderEntry type="library" name="TalonSRXLibJava" level="project" />
   </component>
 </module>
