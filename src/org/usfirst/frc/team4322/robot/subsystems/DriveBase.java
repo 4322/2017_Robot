@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4322.robot.subsystems;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.commands.DriveBase_DriveManual;
 
@@ -18,7 +19,9 @@ public class DriveBase extends Subsystem
     private CANTalon leftMaster,leftSlave,rightMaster,rightSlave;
     private AHRS navx;
     private RobotDrive drive;
+    private AnalogGyro gyro;
     private static final double ticksToDist = Math.PI/64;
+
 
     public DriveBase()
     {
@@ -38,6 +41,7 @@ public class DriveBase extends Subsystem
         rightSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
         drive = new RobotDrive(leftMaster,rightMaster);
         navx = new AHRS(Port.kMXP);
+        gyro = new AnalogGyro(1);
     }
     @Override
     protected void initDefaultCommand()
@@ -50,6 +54,10 @@ public class DriveBase extends Subsystem
         return ticksToDist*leftMaster.getEncPosition();
     }
 
+    public double getAngle()
+    {
+        return gyro.getAngle();
+    }
     
     public void set(double pow, double rot)
     {
