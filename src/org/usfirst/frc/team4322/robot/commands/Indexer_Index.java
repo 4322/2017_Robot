@@ -12,19 +12,18 @@ public class Indexer_Index extends Command
     {
         requires(Robot.indexer);
     }
-    
+    public static int i = 0;
     @Override
     public void execute()
     {
-        Robot.indexer.set(RobotMap.INDEXER_POS);
-        SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
+        Robot.indexer.set(RobotMap.INDEXER_POS+180.0*i++);
     }
     
     @Override
     protected boolean isFinished()
     {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
 }
