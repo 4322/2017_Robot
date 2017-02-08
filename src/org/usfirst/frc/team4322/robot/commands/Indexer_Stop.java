@@ -15,6 +15,7 @@ public class Indexer_Stop extends Command
     public void execute()
     {
         Robot.indexer.set(0);
+        Robot.indexer.resetEncoder();
     }
     
     @Override

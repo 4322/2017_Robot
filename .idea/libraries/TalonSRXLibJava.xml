@@ -1,9 +1,11 @@
 <component name="libraryTable">
   <library name="TalonSRXLibJava">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/FRC 2017/Software/3rd Party Libraries/CTRE Libraries/CTRE_FRCLibs_NON-WINDOWS/java/lib/TalonSRXLibJava.jar!/" />
+      <root url="jar://$USER_HOME$/wpilib/user/java/lib/TalonSRXLibJava.jar!/" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="http://www.ctr-electronics.com/downloads/api/java/html/index.html" />
+    </JAVADOC>
     <SOURCES />
   </library>
 </component>

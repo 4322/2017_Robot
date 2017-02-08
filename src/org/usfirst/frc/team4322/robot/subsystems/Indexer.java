@@ -38,6 +38,13 @@ public class Indexer extends Subsystem
         return indexer.getSpeed();
     }
 
+    public void resetEncoder()
+    {
+        indexer.setEncPosition(0);
+        indexer.setForwardSoftLimit(4096);
+        indexer.enableForwardSoftLimit(true);
+    }
+
     public void set(double rpm)
     {
         // If we are stopping the indexer...

@@ -102,5 +102,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="TalonSRXLibJava" level="project" />
   </component>
 </module>
