@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Indexer extends Subsystem
 {
     private CANTalon indexer;
-    
+    public static final double tickstoRev = 1/8192;
+
     public Indexer()
     {
         // Indexer on CAN Channel 30
@@ -20,7 +21,7 @@ public class Indexer extends Subsystem
         // Use the MAG Encoder in the Versa-Planetary as the feedback device
         indexer.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
         // Let's run closed-loop velocity control mode
-        indexer.changeControlMode(TalonControlMode.Position);
+        indexer.changeControlMode(TalonControlMode.Voltage);
         // Our encoder generates 4096 ticks per rev
         indexer.configEncoderCodesPerRev(8192);
         // Set our starting PID Control Values (P, I, D, FF, IZ, RR, Profile)
@@ -36,6 +37,10 @@ public class Indexer extends Subsystem
     public double get()
     {
         return indexer.getSpeed();
+    }
+    public double getPos()
+    {
+        return indexer.getEncPosition();
     }
 
     public void set(double pos)
