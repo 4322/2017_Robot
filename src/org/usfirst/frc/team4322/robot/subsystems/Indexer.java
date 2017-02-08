@@ -40,7 +40,7 @@ public class Indexer extends Subsystem
     }
     public double getPos()
     {
-        return indexer.getEncPosition();
+        return indexer.getEncPosition()*tickstoRev;
     }
 
     public void set(double pos)
