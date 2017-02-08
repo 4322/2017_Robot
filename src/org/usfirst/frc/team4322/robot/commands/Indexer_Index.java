@@ -16,8 +16,8 @@ public class Indexer_Index extends Command
     @Override
     public void execute()
     {
-        Robot.indexer.set(RobotMap.INDEXER_RPM);
-        SmartDashboard.putNumber("Indexer Actual RPM: ", Robot.indexer.get());
+        Robot.indexer.set(RobotMap.INDEXER_POS);
+        SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
     }
     
     @Override
