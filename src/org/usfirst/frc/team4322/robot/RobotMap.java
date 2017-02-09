@@ -75,7 +75,7 @@ public class RobotMap
     @DashboardInputField(field="Indexer I: ")
     public static double INDEXER_I = 0.002;
     @DashboardInputField(field="Indexer D: ")
-    public static double INDEXER_D = -4.50;
+    public static double INDEXER_D = 4.50;
     @DashboardInputField(field="Indexer F: ")
     public static double INDEXER_F = 0.10;
     @DashboardInputField(field="Indexer IZ: ")
