@@ -18,7 +18,7 @@ public class Indexer extends Subsystem
         // Indexer on CAN Channel 30
         indexer = new CANTalon(RobotMap.INDEXER_MOTORCONTROLLER_ADDR);
         // Use the MAG Encoder in the Versa-Planetary as the feedback device
-        indexer.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
+        indexer.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Absolute);
         // Let's run closed-loop velocity control mode
         indexer.changeControlMode(TalonControlMode.Position);
         // Our encoder generates 4096 ticks per rev
@@ -41,7 +41,7 @@ public class Indexer extends Subsystem
     public void set(double pos)
     {
         // Always set the target RPMs
-        indexer.set(-pos);
+        indexer.set(pos);
     }
     public void reset()
     {
