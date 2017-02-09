@@ -24,7 +24,7 @@ public class Indexer extends Subsystem
         // Our encoder generates 4096 ticks per rev
         indexer.configEncoderCodesPerRev(4096);
         // Set our starting PID Control Values (P, I, D, FF, IZ, RR, Profile)
-        indexer.setPID(RobotMap.INDEXER_P, RobotMap.INDEXER_I , RobotMap.INDEXER_D, RobotMap.INDEXER_F, RobotMap.INDEXER_IZ, RobotMap.INDEXER_R, 0);
+        indexer.setPID(-RobotMap.INDEXER_P, -RobotMap.INDEXER_I , -RobotMap.INDEXER_D, -RobotMap.INDEXER_F, RobotMap.INDEXER_IZ, RobotMap.INDEXER_R, 0);
         
     }
     
