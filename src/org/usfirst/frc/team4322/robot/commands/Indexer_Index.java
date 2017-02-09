@@ -18,6 +18,7 @@ public class Indexer_Index extends Command
     @Override
     protected void end()
     {
+        Robot.indexer.reset();
     }
     @Override
     public void execute()
