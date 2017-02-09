@@ -6,25 +6,27 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import java.util.function.DoubleSupplier;
+
 public class Indexer_Index extends Command
 {
     public Indexer_Index()
     {
         requires(Robot.indexer);
     }
-    
+    public static int i = 0;
     @Override
     public void execute()
     {
-        Robot.indexer.set(RobotMap.INDEXER_RPM);
-        SmartDashboard.putNumber("Indexer Actual RPM: ", Robot.indexer.get());
+        Robot.indexer.set(RobotMap.INDEXER_POS);
     }
     
     @Override
     protected boolean isFinished()
     {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
 }
+ 

@@ -54,11 +54,22 @@ public class RobotMap
     public static double DRIVEBASE_AIM_IZONE = .135;
     @DashboardInputField(field="Drivebase Aim D: ")
     public static double DRIVEBASE_AIM_D = -1.30;
+    // *********************************
+    // ** DRIVEBASE DRIVING MAP VALUES **
+    // *********************************
+    @DashboardInputField(field="Drivebase Aim P: ")
+    public static double DRIVEBASE_DRIVE_P = -1.3;
+    @DashboardInputField(field="Drivebase Aim I: ")
+    public static double DRIVEBASE_DRIVE_I = -.120;
+    @DashboardInputField(field="Drivebase Aim IZone: ")
+    public static double DRIVEBASE_DRIVE_IZONE = .135;
+    @DashboardInputField(field="Drivebase Aim D: ")
+    public static double DRIVEBASE_DRIVE_D = -1.30;
     // ************************
     // ** INDEXER MAP VALUES **
     // ************************
     @DashboardInputField(field="Indexer Target RPM: ")
-    public static double INDEXER_RPM = 700.00;
+    public static double INDEXER_POS = 197.302;
     @DashboardInputField(field="Indexer P: ")
     public static double INDEXER_P = 0.10;
     @DashboardInputField(field="Indexer I: ")
