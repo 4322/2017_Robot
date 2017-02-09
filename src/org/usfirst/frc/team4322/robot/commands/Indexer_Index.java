@@ -23,10 +23,7 @@ public class Indexer_Index extends Command
     @Override
     public void execute()
     {
-        if (Robot.indexer.get() != 1)
             Robot.indexer.set(RobotMap.INDEXER_POS);
-        else
-            return;
     }
     
     @Override
