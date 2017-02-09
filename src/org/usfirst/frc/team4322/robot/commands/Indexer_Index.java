@@ -23,14 +23,17 @@ public class Indexer_Index extends Command
     @Override
     public void execute()
     {
-        Robot.indexer.set(RobotMap.INDEXER_POS);
+        if (Robot.indexer.get() != 1)
+            Robot.indexer.set(RobotMap.INDEXER_POS);
+        else
+            return;
     }
     
     @Override
     protected boolean isFinished()
     {
         // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
 }
