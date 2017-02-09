@@ -18,13 +18,14 @@ public class Indexer_Index extends Command
     @Override
     protected void end()
     {
-        Robot.indexer.set(0);
-        Robot.indexer.reset();
     }
     @Override
     public void execute()
     {
-        Robot.indexer.set(RobotMap.INDEXER_POS);
+        if (Robot.indexer.get() != 1)
+            Robot.indexer.set(RobotMap.INDEXER_POS);
+        else
+            return;
     }
     
     @Override
