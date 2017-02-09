@@ -27,6 +27,8 @@ public class OI {
         pilot.rt.whenPressed(new Shooter_Stop());
         // Left Bumper to start the Indexer
         pilot.lb.whenPressed(new Indexer_Index());
+        // Right Bumper to stop Indexer
+        pilot.rb.whenPressed(new Indexer_Stop());
         //left joystick to start gear vision
 //        pilot.leftStick.whenPressed(new Vision_RunGear());
         //right joystick to start boiler vision
