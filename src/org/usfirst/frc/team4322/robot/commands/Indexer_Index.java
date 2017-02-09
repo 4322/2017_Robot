@@ -16,6 +16,12 @@ public class Indexer_Index extends Command
     }
     public static int i = 0;
     @Override
+    protected void end()
+    {
+        Robot.indexer.set(0);
+        Robot.indexer.reset();
+    }
+    @Override
     public void execute()
     {
         Robot.indexer.set(RobotMap.INDEXER_POS);
