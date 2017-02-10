@@ -107,7 +107,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopPeriodic()
     {
-
+        SmartDashboard.putNumber("Speed: ",Robot.driveBase.getSpeed());
         SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
         Scheduler.getInstance().run();
     }
