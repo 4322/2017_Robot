@@ -18,7 +18,7 @@ public class DriveBase_DriveManual extends Command
     protected void execute()
     {
         // TODO Auto-generated method stub
-        Robot.driveBase.set(OI.pilot.getY(Hand.kRight), OI.pilot.getX(Hand.kLeft));
+        Robot.driveBase.set(OI.pilot.leftStick.getY(), OI.pilot.rightStick.getX());
     }
 
     @Override
