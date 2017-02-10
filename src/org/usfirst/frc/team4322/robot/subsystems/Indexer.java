@@ -42,12 +42,9 @@ public class Indexer extends Subsystem
     {
         // Always set the target RPMs
         indexer.set(pos);
-<<<<<<< HEAD
     }
     public void reset()
     {
         indexer.setEncPosition(0);
-=======
->>>>>>> 8e76860f9f1af2d7588c9e69711fdfba4b9a1dc2
     }
 }

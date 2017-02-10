@@ -10,6 +10,10 @@ import org.usfirst.frc.team4322.logging.RobotLogger;
 import org.usfirst.frc.team4322.robot.commands.*;
 import org.usfirst.frc.team4322.robot.subsystems.*;
 
+import java.io.IOException;
+import java.util.jar.JarFile;
+import java.util.jar.Manifest;
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -52,7 +56,18 @@ public class Robot extends IterativeRobot
         
         //Start OI
         oi = new OI();
-        
+
+        try
+        {
+            Manifest mf = new JarFile(Robot.class.getProtectionDomain().getCodeSource().getLocation().getFile()).getManifest();
+            SmartDashboard.putString("Build Hash:",mf.getMainAttributes().getValue("Build-Hash"));
+            SmartDashboard.putString("Build Time:",mf.getMainAttributes().getValue("Build-Time"));
+        }
+        catch (IOException ex)
+        {
+
+        }
+
         //Link Classes for the Robot Map @DashboardInputField magic 
         MapSynchronizer.getInstance().link(RobotMap.class);
         MapSynchronizer.getInstance().link(DriveBase_PIDDrive.class);        
