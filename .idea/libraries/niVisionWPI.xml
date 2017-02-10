@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="niVisionWPI">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/jars/niVisionWPI.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
