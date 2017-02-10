@@ -14,10 +14,25 @@ public class Indexer_Index extends Command
     {
         requires(Robot.indexer);
     }
+    public static int i = 0;
+<<<<<<< HEAD
+    @Override
+    protected void end()
+    {
+
+    }
+    @Override
+    public void execute()
+    {
+        Robot.indexer.reset();
+        Robot.indexer.set(RobotMap.INDEXER_POS*i);
+        i++;
+=======
     @Override
     public void execute()
     {
         Robot.indexer.set(RobotMap.INDEXER_POS);
+>>>>>>> 8e76860f9f1af2d7588c9e69711fdfba4b9a1dc2
     }
     
     @Override
