@@ -61,7 +61,7 @@ public class DriveBase extends Subsystem
     
     public void set(double pow, double rot)
     {
-        drive.arcadeDrive(pow, rot);
+        drive.arcadeDrive(pow, -rot);
     }
 
 }
