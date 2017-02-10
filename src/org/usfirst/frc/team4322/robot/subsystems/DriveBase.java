@@ -54,7 +54,7 @@ public class DriveBase extends Subsystem
         return ticksToDist*leftMaster.getEncPosition();
     }
 
-    public double getSpeed() { return leftMaster.getSpeed(); }
+    public double getSpeed() { return leftMaster.getEncVelocity(); }
 
     public double getAngle()
     {
