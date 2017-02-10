@@ -26,11 +26,11 @@ public class DriveBase extends Subsystem
     public DriveBase()
     {
         leftMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
-        leftMaster.changeControlMode(TalonControlMode.Voltage);
+        leftMaster.changeControlMode(TalonControlMode.PercentVbus);
         leftMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
         leftMaster.configEncoderCodesPerRev(256);
         rightMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
-        rightMaster.changeControlMode(TalonControlMode.Voltage);
+        rightMaster.changeControlMode(TalonControlMode.PercentVbus);
         rightMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
         rightMaster.configEncoderCodesPerRev(256);
         leftSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR);
