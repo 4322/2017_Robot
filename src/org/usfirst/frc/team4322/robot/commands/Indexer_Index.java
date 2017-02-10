@@ -14,7 +14,6 @@ public class Indexer_Index extends Command
     {
         requires(Robot.indexer);
     }
-    public static int i = 0;
     @Override
     public void execute()
     {
