@@ -80,11 +80,12 @@ public class Robot extends IterativeRobot
      */
     public void disabledInit()
     {
-        Indexer_Index.i = (int)Robot.indexer.get()+2;
     }
 
     public void disabledPeriodic()
     {
+
+        Indexer_Index.i = (int)Robot.indexer.get();
         Scheduler.getInstance().run();
     }
 
