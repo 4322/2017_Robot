@@ -19,7 +19,7 @@ public class Indexer_Index extends Command
     }
     @Override
     public void execute() {
-        Robot.indexer.set(RobotMap.INDEXER_POS * i);
+        Robot.indexer.set(RobotMap.INDEXER_POS +i);
         i++;
     }
     
