@@ -114,6 +114,7 @@ public class Robot extends IterativeRobot
 
     public void teleopInit()
     {
+        Indexer_Index.i = (int)Robot.indexer.get()+2;
 
     }
 
