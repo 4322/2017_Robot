@@ -80,7 +80,7 @@ public class Robot extends IterativeRobot
      */
     public void disabledInit()
     {
-
+        Indexer_Index.i = (int)Robot.indexer.get()+2;
     }
 
     public void disabledPeriodic()
@@ -114,7 +114,7 @@ public class Robot extends IterativeRobot
 
     public void teleopInit()
     {
-        Indexer_Index.i = (int)Robot.indexer.get()+2;
+
 
     }
 
