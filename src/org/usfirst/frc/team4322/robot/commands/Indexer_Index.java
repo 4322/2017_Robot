@@ -10,7 +10,7 @@ public class Indexer_Index extends Command
     public Indexer_Index()
     {
         requires(Robot.indexer);
-        i = (int)Math.round(Robot.indexer.get()*2)/2;
+        i = (int)Math.round(Robot.indexer.get());
     }
     public static int i = 0;
     @Override
