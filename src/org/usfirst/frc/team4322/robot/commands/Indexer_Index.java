@@ -16,7 +16,7 @@ public class Indexer_Index extends Command
     @Override
     protected void end()
     {
-        i = (int)Robot.indexer.get()+1;
+        i = (int)Robot.indexer.get()+2;
     }
     @Override
     public void execute() {
