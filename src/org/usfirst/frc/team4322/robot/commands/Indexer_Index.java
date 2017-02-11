@@ -16,12 +16,11 @@ public class Indexer_Index extends Command
     @Override
     protected void end()
     {
-        i = (int)Robot.indexer.get()+2;
+        i = (int)Robot.indexer.get()+3;
     }
     @Override
     public void execute() {
         Robot.indexer.set(RobotMap.INDEXER_POS * i);
-        i++;
     }
     
     @Override
