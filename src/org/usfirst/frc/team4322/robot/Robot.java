@@ -37,6 +37,8 @@ public class Robot extends IterativeRobot
     public static Vision vision;
     // GearGrabber Subsystem Class
     public static GearGrabber gearGrabber;
+    // Collector Subsystem Class
+    public static Collector collector;
    
     /**
      * This function is run when the robot is first started up and should be
@@ -53,6 +55,7 @@ public class Robot extends IterativeRobot
         climber = new Climber();
         vision = new Vision();
         gearGrabber = new GearGrabber();
+        collector = new Collector();
         
         //Start OI
         oi = new OI();

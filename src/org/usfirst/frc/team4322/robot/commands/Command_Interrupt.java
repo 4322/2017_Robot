@@ -12,6 +12,7 @@ public class Command_Interrupt extends Command
         requires(Robot.driveBase);
         requires(Robot.shooter);
         requires(Robot.indexer);
+        requires(Robot.collector);
     }
 
     @Override

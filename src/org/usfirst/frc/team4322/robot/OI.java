@@ -15,24 +15,26 @@ public class OI {
     public OI()
     {
         pilot = new XboxController(0);
-        pilot.x.whenPressed(new DriveBase_PIDDrive(() -> {
-            return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
-        }));
+        //pilot.x.whenPressed(new DriveBase_PIDDrive(() -> {
+        //    return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
+        //}));
         pilot.y.whenPressed(new Command_Interrupt());
         // A button for double-barrel RPM
-        pilot.a.whenPressed(new Shooter_Spin());
+        //pilot.a.whenPressed(new Shooter_Spin());
         // B button for single-barrel RPM
-        pilot.b.whenPressed(new Shooter_Spin_Slow());
+        //pilot.b.whenPressed(new Shooter_Spin_Slow());
         // Right Trigger to stop the Shooter
-        pilot.rt.whenPressed(new Shooter_Stop());
-        // Left Bumper to start the Indexer
-        pilot.lb.whenPressed(new Indexer_Index());
+        //pilot.rt.whenPressed(new Shooter_Stop());
+        // Left Bumper to start the Collector
+        pilot.lb.whenPressed(new Collector_Start());
+        // Right Bumper to stop the Collector
+        pilot.rb.whenPressed(new Collector_Stop());
         //left joystick to start gear vision
-        pilot.leftStick.whenPressed(new Vision_RunGear());
+        //pilot.leftStick.whenPressed(new Vision_RunGear());
         //right joystick to start boiler vision
-        pilot.rightStick.whenPressed(new Vision_RunBoiler());
+        //pilot.rightStick.whenPressed(new Vision_RunBoiler());
         //start to end vision
-        pilot.start.whenPressed(new Vision_Stop());
+        //pilot.start.whenPressed(new Vision_Stop());
     }
 }
 

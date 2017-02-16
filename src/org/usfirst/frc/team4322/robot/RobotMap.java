@@ -21,7 +21,8 @@ public class RobotMap
     public static final int SHOOTER_MOTORCONTROLLER_MASTER_ADDR = 20;
     public static final int SHOOTER_MOTORCONTROLLER_SLAVE_ADDR = 21;
     public static final int INDEXER_MOTORCONTROLLER_ADDR = 30;
-    
+    public static final int COLLECTOR_MOTORCONTROLLER_ADDR = 40;
+
     
     // ************************
     // ** SHOOTER MAP VALUES **
