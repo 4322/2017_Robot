@@ -14,7 +14,7 @@ public class Indexer_Stop extends Command
     @Override
     public void execute()
     {
-        return;
+        Robot.indexer.set(Robot.indexer.get());
     }
     
     @Override
