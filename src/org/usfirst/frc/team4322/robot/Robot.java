@@ -88,7 +88,6 @@ public class Robot extends IterativeRobot
     public void disabledPeriodic()
     {
 
-        Indexer_Index.i = (int)Robot.indexer.get();
         Scheduler.getInstance().run();
     }
 

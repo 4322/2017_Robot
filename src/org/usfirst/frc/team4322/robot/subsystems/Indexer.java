@@ -46,6 +46,5 @@ public class Indexer extends Subsystem
     }
     public void reset()
     {
-        indexer.setEncPosition(0);
     }
 }
