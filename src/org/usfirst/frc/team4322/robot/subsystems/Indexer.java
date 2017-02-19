@@ -36,7 +36,7 @@ public class Indexer extends Subsystem
     
     // This gets the current measured RPM
     public double get() {
-        return indexer.getPosition();
+        return indexer.getPulseWidthPosition();
     }
 
     public void set(double pos)
