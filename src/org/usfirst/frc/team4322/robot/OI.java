@@ -25,6 +25,8 @@ public class OI {
         pilot.b.whenPressed(new Shooter_Spin_Slow());
         // Right Trigger to stop the Shooter
         pilot.rt.whenPressed(new Shooter_Stop());
+        // Left Trigger to index
+        pilot.lt.whenPressed(new Indexer_Index());
         // Left Bumper to run the Collector
         pilot.lb.whileHeld(new Collector_Start());
         // left joystick to start gear vision
