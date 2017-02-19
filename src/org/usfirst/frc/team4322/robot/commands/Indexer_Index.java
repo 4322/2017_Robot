@@ -10,13 +10,15 @@ public class Indexer_Index extends Command
     public Indexer_Index()
     {
         requires(Robot.indexer);
+        i = (int)Robot.indexer.get()+1;
+        Robot.indexer.set(i);
     }
     public static int i = 0;
 
     @Override
     public synchronized void start() {
         super.start();
-        i = (int)Robot.indexer.get()+1;
+
     }
 
     @Override
