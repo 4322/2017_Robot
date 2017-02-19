@@ -6,6 +6,7 @@ import com.ctre.CANTalon.FeedbackDevice;
 import com.ctre.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4322.robot.RobotMap;
+import org.usfirst.frc.team4322.robot.commands.Collector_Stop;
 
 public class Collector extends Subsystem
 {
@@ -29,6 +30,7 @@ public class Collector extends Subsystem
     @Override
     protected void initDefaultCommand()
     {
+        setDefaultCommand(new Collector_Stop());
     }
     
     // This gets the current measured RPM

@@ -10,7 +10,6 @@ import org.usfirst.frc.team4322.dashboard.DashboardInputField;
  */
 public class RobotMap
 {
-   
     // *******************************
     // ** MOTOR CONTROLLER MAPPINGS ** 
     // *******************************
