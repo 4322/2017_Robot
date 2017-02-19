@@ -25,7 +25,7 @@ public class Indexer_Index extends Command
     }
     @Override
     public void execute() {
-        Robot.indexer.set(0.5);
+        Robot.indexer.set(1.5);
         i++;
     }
     
