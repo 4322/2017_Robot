@@ -46,5 +46,6 @@ public class Indexer extends Subsystem
     }
     public void reset()
     {
+        indexer.setPulseWidthPosition(indexer.getPulseWidthPosition()%4096);
     }
 }
