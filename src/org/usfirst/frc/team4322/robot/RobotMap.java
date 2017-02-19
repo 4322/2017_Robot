@@ -22,7 +22,7 @@ public class RobotMap
     public static final int SHOOTER_MOTORCONTROLLER_SLAVE_ADDR = 21;
     public static final int INDEXER_MOTORCONTROLLER_ADDR = 30;
     public static final int COLLECTOR_MOTORCONTROLLER_ADDR = 40;
-
+    public static int GEAR_GRABBER_RELAY_PORT = 0;
     
     // ************************
     // ** SHOOTER MAP VALUES **
@@ -83,4 +83,5 @@ public class RobotMap
     public static int INDEXER_IZ = 100;
     @DashboardInputField(field="Indexer R: ")
     public static double INDEXER_R = 0.00;
+
 }
