@@ -11,7 +11,6 @@ public class Indexer_Index extends Command
     {
         requires(Robot.indexer);
     }
-    public static int i = 0;
 
     @Override
     public synchronized void start() {
@@ -25,8 +24,7 @@ public class Indexer_Index extends Command
     }
     @Override
     public void execute() {
-        Robot.indexer.set(1.5);
-        i++;
+        Robot.indexer.set(1);
     }
     
     @Override
