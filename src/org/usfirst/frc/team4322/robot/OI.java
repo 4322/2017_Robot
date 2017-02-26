@@ -48,7 +48,8 @@ public class OI {
         operator.x.whileHeld(new GearGrabber_EjectGear());
         //Left Bumper to CLIMP
         operator.lb.whileHeld(new Climper_Climp());
-        //
+        //Right Bumper to UNCLIMP
+        operator.rb.whileHeld(new Climper_Unclimp());
     }
 }
 
