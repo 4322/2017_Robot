@@ -2,6 +2,7 @@
 package org.usfirst.frc.team4322.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -31,14 +32,18 @@ public class Robot extends IterativeRobot
     public static Shooter shooter;
     // Indexer Subsystem Class
     public static Indexer indexer;
-    // Climber Subsystem Class
-    public static Climber climber;
+    // Climper Subsystem Class
+    public static Climper climper;
     // Vision Subsystem Class
     public static Vision vision;
     // GearGrabber Subsystem Class
     public static GearGrabber gearGrabber;
     // Collector Subsystem Class
     public static Collector collector;
+    // HopperFlopper Subsystem Class
+    public static HopperFlopper hopperFlopper;
+    // PDP Instance
+    public static PowerDistributionPanel pdp;
    
     /**
      * This function is run when the robot is first started up and should be
@@ -52,11 +57,12 @@ public class Robot extends IterativeRobot
         driveBase = new DriveBase();
         shooter = new Shooter();
         indexer = new Indexer();
-        climber = new Climber();
+        climper = new Climper();
         vision = new Vision();
         gearGrabber = new GearGrabber();
         collector = new Collector();
-        
+        hopperFlopper = new HopperFlopper();
+        pdp = new PowerDistributionPanel(0);
         //Start OI
         oi = new OI();
 
@@ -127,6 +133,11 @@ public class Robot extends IterativeRobot
     {
         SmartDashboard.putNumber("Speed: ",Robot.driveBase.getSpeed());
         SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
+        SmartDashboard.putNumber("Shooter Power Draw Master: ",pdp.getCurrent(RobotMap.PDP_SHOOTER_MASTER));
+        SmartDashboard.putNumber("Shooter Power Draw Slave: ",pdp.getCurrent(RobotMap.PDP_SHOOTER_SLAVE));
+        SmartDashboard.putNumber("Climper Power Draw: ",pdp.getCurrent(RobotMap.PDP_CLIMBER));
+        SmartDashboard.putNumber("Collector Power Draw: ",pdp.getCurrent(RobotMap.PDP_COLLECTOR));
+        SmartDashboard.putNumber("Total Power Draw: ",pdp.getTotalCurrent());
         Scheduler.getInstance().run();
     }
 

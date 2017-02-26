@@ -11,22 +11,18 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class OI {
     public static XboxController pilot;
+    public static XboxController operator;
     
     public OI()
     {
+        //DRIVER CONTROLS
         pilot = new XboxController(0);
         pilot.dPad.whenPressed(new DriveBase_PIDDrive(() -> {
             return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
         }));
         pilot.back.whenPressed(new Command_Interrupt());
-        // A button for double-barrel RPM
-        pilot.a.whenPressed(new Shooter_Spin());
-        // B button for single-barrel RPM
-        pilot.b.whenPressed(new Shooter_Spin_Slow());
-        // Right Trigger to stop the Shooter
-        pilot.rt.whenPressed(new Shooter_Stop());
-        // Left Trigger to index
-        pilot.lt.whenPressed(new Indexer_Index());
+
+
         // Left Bumper to run the Collector
         pilot.lb.whileHeld(new Collector_Start());
         // left joystick to start gear vision
@@ -35,8 +31,22 @@ public class OI {
         pilot.rightStick.whenPressed(new Vision_RunBoiler());
         // start to end vision
         pilot.start.whenPressed(new Vision_Stop());
-        pilot.y.whileHeld(new GearGrabber_PrepareForGear());
-        pilot.x.whileHeld(new GearGrabber_EjectGear());
+
+
+        //OPERATOR CONTROLS
+        // A button for double-barrel RPM
+        operator.a.whenPressed(new Shooter_Spin());
+        // B button for single-barrel RPM
+        operator.b.whenPressed(new Shooter_Spin_Slow());
+        // Right Trigger to stop the Shooter
+        operator.rt.whenPressed(new Shooter_Stop());
+        // Left Trigger to index
+        operator.lt.whenPressed(new Indexer_Index());
+        // X button to eject gear
+        operator.y.whileHeld(new Group_GrabGear());
+        operator.x.whileHeld(new GearGrabber_EjectGear());
+        //Left Bumper to CLIMP
+        operator.lb.whileHeld(new Climper_Climp());
     }
 }
 

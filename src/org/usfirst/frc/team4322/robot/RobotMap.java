@@ -11,7 +11,19 @@ import org.usfirst.frc.team4322.dashboard.DashboardInputField;
 public class RobotMap
 {
     // *******************************
-    // ** MOTOR CONTROLLER MAPPINGS ** 
+    // ** PDP MAPPINGS **
+    // *******************************
+    public static final int PDP_DRIVEBASE_LEFT_MASTER = 0;
+    public static final int PDP_DRIVEBASE_RIGHT_SLAVE = 1;
+    public static final int PDP_DRIVEBASE_LEFT_SLAVE = 2;
+    public static final int PDP_DRIVEBASE_RIGHT_MASTER = 3;
+    public static final int PDP_JETSON = 4;
+    public static final int PDP_CLIMBER = 9;
+    public static final int PDP_COLLECTOR = 13;
+    public static final int PDP_SHOOTER_SLAVE = 14;
+    public static final int PDP_SHOOTER_MASTER = 15;
+    // *******************************
+    // ** MOTOR CONTROLLER MAPPINGS **
     // *******************************
     public static final int DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR = 10;
     public static final int DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR = 11;
@@ -21,8 +33,11 @@ public class RobotMap
     public static final int SHOOTER_MOTORCONTROLLER_SLAVE_ADDR = 21;
     public static final int INDEXER_MOTORCONTROLLER_ADDR = 30;
     public static final int COLLECTOR_MOTORCONTROLLER_ADDR = 40;
-    public static int GEAR_GRABBER_RELAY_PORT = 0;
-    
+    public static final int GEAR_GRABBER_RELAY_PORT = 0;
+    public static final int HOPPER_FLOPPER_SPARK_PORT = 1;
+    public static final int CLIMPER_MOTORCONTROLLER_PORT = 0;
+
+
     // ************************
     // ** SHOOTER MAP VALUES **
     // ************************
