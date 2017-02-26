@@ -37,8 +37,8 @@ public class OI {
         //OPERATOR CONTROLS
         // A button for double-barrel RPM
         operator.a.whenPressed(new Shooter_Spin());
-        // B button for single-barrel RPM
-        operator.b.whenPressed(new Shooter_Spin_Slow());
+        // Flop the HopperFlopper
+        operator.b.whenPressed(new HopperFlopper_LoadHopper());
         // Right Trigger to stop the Shooter
         operator.rt.whenPressed(new Shooter_Stop());
         // Left Trigger to index
@@ -48,6 +48,7 @@ public class OI {
         operator.x.whileHeld(new GearGrabber_EjectGear());
         //Left Bumper to CLIMP
         operator.lb.whileHeld(new Climper_Climp());
+        //
     }
 }
 
