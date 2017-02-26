@@ -17,6 +17,7 @@ public class OI {
     {
         //DRIVER CONTROLS
         pilot = new XboxController(0);
+        operator = new XboxController(1);
         pilot.dPad.whenPressed(new DriveBase_PIDDrive(() -> {
             return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
         }));
