@@ -23,7 +23,7 @@ public class Indexer_Index extends Command
     }
     @Override
     public void execute() {
-        Robot.indexer.set(0.225);
+        Robot.indexer.set(-0.225);
     }
     
     @Override
