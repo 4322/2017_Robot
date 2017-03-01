@@ -30,7 +30,7 @@ public class Indexer_Index extends Command
     protected boolean isFinished()
     {
         // TODO Auto-generated method stub
-        return true;
+        return false;
     }
 
 }
