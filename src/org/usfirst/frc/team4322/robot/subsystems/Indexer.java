@@ -9,6 +9,7 @@ import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4322.robot.commands.Indexer_Index;
+import org.usfirst.frc.team4322.robot.commands.Indexer_Stop;
 
 public class Indexer extends Subsystem
 {
@@ -33,7 +34,7 @@ public class Indexer extends Subsystem
     @Override
     protected void initDefaultCommand()
     {
-        setDefaultCommand(new Indexer_Index());
+        setDefaultCommand(new Indexer_Stop());
     }
     
     // This gets the current measured RPM
