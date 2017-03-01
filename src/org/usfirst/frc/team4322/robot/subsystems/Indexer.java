@@ -34,7 +34,7 @@ public class Indexer extends Subsystem
     @Override
     protected void initDefaultCommand()
     {
-        setDefaultCommand(new Indexer_Stop());
+        setDefaultCommand(new Indexer_Stop() );
     }
     
     // This gets the current measured RPM
