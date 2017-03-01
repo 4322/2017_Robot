@@ -15,7 +15,7 @@ public class HopperFlopper_LoadGear extends Command {
     }
     @Override
     protected void execute() {
-        Robot.hopperFlopper.set(1);
+        Robot.hopperFlopper.set(Relay.Value.kReverse);
     }
 
     @Override

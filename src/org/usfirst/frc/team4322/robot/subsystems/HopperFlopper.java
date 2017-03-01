@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4322.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4322.robot.RobotMap;
@@ -10,10 +11,10 @@ import org.usfirst.frc.team4322.robot.commands.HopperFlopper_Idle;
  */
 public class HopperFlopper extends Subsystem {
 
-    private Spark spark;
+    private Relay spike;
 
     public HopperFlopper() {
-        spark = new Spark(RobotMap.HOPPER_FLOPPER_SPARK_PORT);
+        spike = new Relay(RobotMap.HOPPER_FLOPPER_RELAY_PORT);
     }
 
     @Override
@@ -21,8 +22,8 @@ public class HopperFlopper extends Subsystem {
         setDefaultCommand(new HopperFlopper_Idle());
     }
 
-    public void set(double power)
+    public void set(Relay.Value val)
     {
-        spark.set(power);
+        spike.set(val);
     }
 }

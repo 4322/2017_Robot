@@ -15,7 +15,6 @@ public class Indexer_Index extends Command
     @Override
     public synchronized void start() {
         super.start();
-        Robot.indexer.reset();
     }
 
     @Override

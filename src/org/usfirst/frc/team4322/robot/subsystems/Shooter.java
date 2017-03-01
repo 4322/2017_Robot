@@ -25,12 +25,14 @@ public class Shooter extends Subsystem
         master.configEncoderCodesPerRev(4096);
         // Set our starting PID Control Values (P, I, D, FF, IZ, RR, Profile)
         master.setPID(RobotMap.SHOOTER_P, RobotMap.SHOOTER_I , RobotMap.SHOOTER_D, RobotMap.SHOOTER_F, RobotMap.SHOOTER_IZ, RobotMap.SHOOTER_R, 0);
+        master.enableBrakeMode(false);
         // Shooter slave on CAN Channel 13
         slave = new CANTalon(RobotMap.SHOOTER_MOTORCONTROLLER_SLAVE_ADDR);
         // Tell the slave to be a follower
         slave.changeControlMode(TalonControlMode.Follower);
         // Tell the slave to follow the master on Channel 11
         slave.set(RobotMap.SHOOTER_MOTORCONTROLLER_MASTER_ADDR);
+        slave.enableBrakeMode(false);
     }
     
     @Override
