@@ -14,7 +14,7 @@ public class Indexer_Stop extends Command
     @Override
     public void execute()
     {
-        Robot.indexer.set(0.5);
+        Robot.indexer.set(0.75);
     }
     
     @Override

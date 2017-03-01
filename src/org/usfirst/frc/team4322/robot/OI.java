@@ -42,7 +42,7 @@ public class OI {
         // Right Trigger to stop the Shooter
         operator.rt.whenPressed(new Shooter_Stop());
         // Left Trigger to index
-        operator.lt.whenPressed(new Indexer_Index());
+        operator.lt.whileHeld(new Indexer_Index());
         // X button to eject gear
         operator.y.whileHeld(new Group_GrabGear());
         operator.x.whileHeld(new GearGrabber_EjectGear());
