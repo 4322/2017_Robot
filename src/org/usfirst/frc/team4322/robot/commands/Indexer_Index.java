@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4322.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
 
@@ -10,6 +11,7 @@ public class Indexer_Index extends Command
     public Indexer_Index()
     {
         requires(Robot.indexer);
+        SmartDashboard.putNumber("Indexer Start: ",0.5);
     }
 
     @Override
@@ -23,7 +25,7 @@ public class Indexer_Index extends Command
     }
     @Override
     public void execute() {
-        Robot.indexer.set(-1.5);
+        Robot.indexer.set(SmartDashboard.getNumber("Indexer Start: ",0.5));
     }
     
     @Override
