@@ -86,13 +86,13 @@ public class RobotMap
     @DashboardInputField(field="Indexer Target RPM: ")
     public static double INDEXER_POS = .5;
     @DashboardInputField(field="Indexer P: ")
-    public static double INDEXER_P = 0.10;
+    public static double INDEXER_P = 0.20;
     @DashboardInputField(field="Indexer I: ")
-    public static double INDEXER_I = 0.002;
+    public static double INDEXER_I = 0.05;
     @DashboardInputField(field="Indexer D: ")
     public static double INDEXER_D = 4.50;
     @DashboardInputField(field="Indexer F: ")
-    public static double INDEXER_F = 0.1125;
+    public static double INDEXER_F = 0.1;
     @DashboardInputField(field="Indexer IZ: ")
     public static int INDEXER_IZ = 100;
     @DashboardInputField(field="Indexer R: ")

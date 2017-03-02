@@ -11,7 +11,6 @@ public class Indexer_Index extends Command
     public Indexer_Index()
     {
         requires(Robot.indexer);
-        SmartDashboard.putNumber("Indexer Start: ",0.5);
     }
 
     @Override
@@ -25,7 +24,7 @@ public class Indexer_Index extends Command
     }
     @Override
     public void execute() {
-        Robot.indexer.set(SmartDashboard.getNumber("Indexer Start: ",0.5));
+        Robot.indexer.set(0.5);
     }
     
     @Override

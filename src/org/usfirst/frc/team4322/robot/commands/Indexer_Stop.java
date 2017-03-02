@@ -10,13 +10,12 @@ public class Indexer_Stop extends Command
     public Indexer_Stop()
     {
         requires(Robot.indexer);
-        SmartDashboard.putNumber("Indexer Stop: ",0.5);
     }
     
     @Override
     public void execute()
     {
-        Robot.indexer.set(SmartDashboard.getNumber("Indexer Stop: ",0.0));
+        Robot.indexer.set(0.2);
     }
     
     @Override
