@@ -22,13 +22,12 @@ public class Indexer extends Subsystem
         // Use the MAG Encoder in the Versa-Planetary as the feedback device
         indexer.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Absolute);
         // Let's run closed-loop velocity control mode
-        indexer.changeControlMode(TalonControlMode.Position);
+        indexer.changeControlMode(TalonControlMode.Speed);
         // Our encoder generates 4096 ticks per rev
         indexer.configEncoderCodesPerRev(4096);
         // Set our starting PID Control Values (P, I, D, FF, IZ, RR, Profile)
         indexer.setPID(RobotMap.INDEXER_P, RobotMap.INDEXER_I , RobotMap.INDEXER_D, RobotMap.INDEXER_F, RobotMap.INDEXER_IZ, RobotMap.INDEXER_R, 0);
         indexer.reverseSensor(true);
-        reset();
     }
     
     @Override
@@ -46,9 +45,5 @@ public class Indexer extends Subsystem
     {
         // Always set the target RPMs
         indexer.set(pos);
-    }
-    public void reset()
-    {
-        indexer.setPulseWidthPosition(indexer.getPulseWidthPosition()%4096);
     }
 }

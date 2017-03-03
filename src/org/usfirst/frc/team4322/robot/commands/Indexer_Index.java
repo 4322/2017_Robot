@@ -13,10 +13,6 @@ public class Indexer_Index extends Command
         requires(Robot.indexer);
     }
 
-    @Override
-    public synchronized void start() {
-        super.start();
-    }
 
     @Override
     protected void end()
@@ -24,7 +20,7 @@ public class Indexer_Index extends Command
     }
     @Override
     public void execute() {
-        Robot.indexer.set(0.5);
+        Robot.indexer.set(RobotMap.INDEXER_RPM);
     }
     
     @Override

@@ -84,7 +84,7 @@ public class RobotMap
     // ** INDEXER MAP VALUES **
     // ************************
     @DashboardInputField(field="Indexer Target RPM: ")
-    public static double INDEXER_POS = .5;
+    public static double INDEXER_RPM = 360;
     @DashboardInputField(field="Indexer P: ")
     public static double INDEXER_P = 0.20;
     @DashboardInputField(field="Indexer I: ")
