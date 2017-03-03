@@ -15,7 +15,7 @@ public class GearGrabber_HoldGear extends Command {
     }
     @Override
     protected void execute() {
-        Robot.gearGrabber.set(-0.3);
+        Robot.gearGrabber.set(0);
     }
 
     @Override
