@@ -43,6 +43,10 @@ public class Indexer extends Subsystem
 
     public void set(double pos)
     {
+        if(pos == 0)
+            indexer.disableControl();
+        else
+            indexer.enableControl();
         // Always set the target RPMs
         indexer.set(pos);
     }
