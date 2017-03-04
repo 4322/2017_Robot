@@ -18,7 +18,7 @@ public class GearGrabber_RetractGrabber extends Command
     @Override
     protected void execute()
     {
-        Robot.gearGrabber.set(-1.0);
+        Robot.gearGrabber.set(1.0);
         cycleCounter++;
     }
 
