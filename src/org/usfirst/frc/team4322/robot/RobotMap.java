@@ -46,15 +46,15 @@ public class RobotMap
     @DashboardInputField(field="Shooter Target RPM (Single): ")
     public static double SHOOTER_RPM_SINGLE = 2400;
     @DashboardInputField(field="Shooter P: ")
-    public static double SHOOTER_P = 0.55;
+    public static double SHOOTER_P = 0.4;
     @DashboardInputField(field="Shooter I: ")
-    public static double SHOOTER_I = 0.00325;
+    public static double SHOOTER_I = 0.0005;
     @DashboardInputField(field="Shooter D: ")
-    public static double SHOOTER_D = 6.50;
+    public static double SHOOTER_D = 35.5;
     @DashboardInputField(field="Shooter F: ")
-    public static double SHOOTER_F = 0.05;
+    public static double SHOOTER_F = 0.04;
     @DashboardInputField(field="Shooter IZ: ")
-    public static int SHOOTER_IZ = 250;
+    public static int SHOOTER_IZ = 65;
     @DashboardInputField(field="Shooter R: ")
     public static double SHOOTER_R = 0.00;
     

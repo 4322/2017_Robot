@@ -18,7 +18,6 @@ public class DriveBase extends Subsystem
     private CANTalon leftMaster,leftSlave,rightMaster,rightSlave;
     private AHRS navx;
     private RobotDrive drive;
-    private AnalogGyro gyro;
     private static final double ticksToDist = Math.PI/64;
 
 
@@ -44,7 +43,6 @@ public class DriveBase extends Subsystem
         rightSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
         drive = new RobotDrive(leftMaster,rightMaster);
         navx = new AHRS(Port.kMXP);
-        gyro = new AnalogGyro(1);
     }
     @Override
     protected void initDefaultCommand()
@@ -61,7 +59,12 @@ public class DriveBase extends Subsystem
 
     public double getAngle()
     {
-        return gyro.getAngle();
+        return navx.getYaw();
+    }
+
+    public void resetNavX()
+    {
+        navx.zeroYaw();
     }
     
     public void set(double pow, double rot)
