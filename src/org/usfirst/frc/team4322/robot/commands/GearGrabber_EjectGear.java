@@ -7,19 +7,23 @@ import org.usfirst.frc.team4322.robot.Robot;
 /**
  * Created by software on 2/19/17.
  */
-public class GearGrabber_EjectGear extends Command {
+public class GearGrabber_EjectGear extends Command
+{
 
     public GearGrabber_EjectGear()
     {
         requires(Robot.gearGrabber);
     }
+
     @Override
-    protected void execute() {
+    protected void execute()
+    {
         Robot.gearGrabber.set(1);
     }
 
     @Override
-    protected boolean isFinished() {
+    protected boolean isFinished()
+    {
         return true;
     }
 }
