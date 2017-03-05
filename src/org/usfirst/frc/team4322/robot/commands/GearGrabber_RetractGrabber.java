@@ -18,14 +18,14 @@ public class GearGrabber_RetractGrabber extends Command
     @Override
     protected void execute()
     {
-        Robot.gearGrabber.set(1.0);
+        Robot.gearGrabber.set(0.75);
         cycleCounter++;
     }
 
     @Override
     protected boolean isFinished()
     {
-        if(cycleCounter > 50)
+        if(cycleCounter > 1)
         {
             cycleCounter = 0;
             return true;
