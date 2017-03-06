@@ -9,7 +9,7 @@ public class Group_StartIndex extends CommandGroup
 {
     public Group_StartIndex()
     {
-        addSequential(new Conveyor_Convey());
         addParallel(new Indexer_Index());
+        addSequential(new Conveyor_Convey());
     }
 }
