@@ -69,6 +69,7 @@ public class Robot extends IterativeRobot
         gearGrabber = new GearGrabber();
         collector = new Collector();
         hopperFlopper = new HopperFlopper();
+        conveyor = new Conveyor();
         pdp = new PowerDistributionPanel(0);
         //Start OI
         oi = new OI();
