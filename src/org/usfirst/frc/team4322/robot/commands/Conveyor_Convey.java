@@ -2,15 +2,17 @@ package org.usfirst.frc.team4322.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4322.robot.Robot;
+import org.usfirst.frc.team4322.robot.subsystems.Conveyor;
 
-public class Collector_Stop extends Command
+/**
+ * Created by Garrett Luu on 3/5/2017.
+ */
+public class Conveyor_Convey extends Command
 {
-    public Collector_Stop()
-
+    public Conveyor_Convey()
     {
-        requires(Robot.collector);
+        requires(Robot.conveyor);
     }
-
     @Override
     protected void initialize()
     {
@@ -18,16 +20,15 @@ public class Collector_Stop extends Command
     }
 
     @Override
-    public void execute()
+    protected void execute()
     {
-        Robot.collector.set(0);
+        Robot.conveyor.set(1);
     }
-    
+
     @Override
     protected boolean isFinished()
     {
-        // TODO Auto-generated method stub
-        return true;
+        return false;
     }
 
     @Override
@@ -41,5 +42,4 @@ public class Collector_Stop extends Command
     {
 
     }
-
 }

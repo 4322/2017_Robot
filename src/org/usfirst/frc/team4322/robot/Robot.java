@@ -44,6 +44,8 @@ public class Robot extends IterativeRobot
     public static Collector collector;
     // HopperFlopper Subsystem Class
     public static HopperFlopper hopperFlopper;
+    // Conveyor Subsystem Class
+    public static Conveyor conveyor;
     // PDP Instance
     public static PowerDistributionPanel pdp;
     //Autonomous

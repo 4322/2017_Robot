@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CANJaguar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build/jars/CANJaguar.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -41,8 +41,8 @@ public class OI {
         operator.b.whenPressed(new HopperFlopper_LoadHopper());
         // Right Trigger to stop the Shooter
         operator.rt.whenPressed(new Shooter_Stop());
-        // Left Trigger to index
-        operator.lt.whileHeld(new Indexer_Index());
+        // Left Trigger to index and convey
+        operator.lt.whileHeld(new Group_Index());
         // Prepare to collect a gear
         operator.y.whileHeld(new Group_GrabGear());
         // X button to eject gear
