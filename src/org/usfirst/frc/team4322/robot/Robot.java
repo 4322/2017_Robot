@@ -3,8 +3,10 @@ package org.usfirst.frc.team4322.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.dashboard.*;
 import org.usfirst.frc.team4322.logging.RobotLogger;
@@ -44,6 +46,9 @@ public class Robot extends IterativeRobot
     public static HopperFlopper hopperFlopper;
     // PDP Instance
     public static PowerDistributionPanel pdp;
+    //Autonomous
+    public static Command autonomousCommand;
+    public static SendableChooser autoChooser;
    
     /**
      * This function is run when the robot is first started up and should be
@@ -65,6 +70,9 @@ public class Robot extends IterativeRobot
         pdp = new PowerDistributionPanel(0);
         //Start OI
         oi = new OI();
+
+        autoChooser = null;
+
 
         try
         {
@@ -95,6 +103,11 @@ public class Robot extends IterativeRobot
     {
 
         Scheduler.getInstance().run();
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Do Nothing: ", new AutoGroup_DoNothing());
+        autoChooser.addObject("Reach Baseline: ", new Auton_ReachBaseline());
+        autoChooser.addObject("Gear Middle: ", new AutoGroup_GearMiddle());
+        SmartDashboard.putData("AUTO MODES: ", autoChooser);
     }
 
     /**
@@ -110,7 +123,8 @@ public class Robot extends IterativeRobot
      */
     public void autonomousInit()
     {
-
+        autonomousCommand = ((Command)autoChooser.getSelected());
+        autonomousCommand.start();
     }
 
     /**
