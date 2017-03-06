@@ -28,7 +28,7 @@ public class Conveyor_Convey extends Command
     @Override
     protected boolean isFinished()
     {
-        return true;
+        return false;
     }
 
     @Override
