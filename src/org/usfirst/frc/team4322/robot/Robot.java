@@ -86,10 +86,18 @@ public class Robot extends IterativeRobot
         {
 
         }
+        autoChooser = new SendableChooser();
+        autoChooser.addDefault("Do Nothing: ", new AutoGroup_DoNothing());
+        autoChooser.addObject("Reach Baseline: ", new Auton_ReachBaseline());
+        autoChooser.addObject("Gear Middle: ", new AutoGroup_GearMiddle());
+        autoChooser.addObject("Gear Left: ", new AutoGroup_GearLeft());
+        autoChooser.addObject("Gear Right: ", new AutoGroup_GearRight());
+        autoChooser.addObject("Hopper + Shoot: ", new AutoGroup_Hopper());
 
-        //Link Classes for the Robot Map @DashboardInputField magic 
+        SmartDashboard.putData("AUTO MODES: ", autoChooser);
+        //Link Classes for the @DashboardInputField magic
         MapSynchronizer.getInstance().link(RobotMap.class);
-        MapSynchronizer.getInstance().link(DriveBase_PIDDrive.class);        
+        MapSynchronizer.getInstance().link(DriveBase_VisionTurn.class);
     }
 
     /**
@@ -105,11 +113,7 @@ public class Robot extends IterativeRobot
     {
 
         Scheduler.getInstance().run();
-        autoChooser = new SendableChooser();
-        autoChooser.addDefault("Do Nothing: ", new AutoGroup_DoNothing());
-        autoChooser.addObject("Reach Baseline: ", new Auton_ReachBaseline());
-        autoChooser.addObject("Gear Middle: ", new AutoGroup_GearMiddle());
-        SmartDashboard.putData("AUTO MODES: ", autoChooser);
+
     }
 
     /**
@@ -139,7 +143,8 @@ public class Robot extends IterativeRobot
 
     public void teleopInit()
     {
-        Robot.indexer.set(0);
+        new Group_StopIndex().start();
+        new Shooter_Stop().start();
     }
 
     /**

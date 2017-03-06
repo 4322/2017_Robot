@@ -1,7 +1,6 @@
 package org.usfirst.frc.team4322.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.robot.Robot;
 
 /**
@@ -9,25 +8,27 @@ import org.usfirst.frc.team4322.robot.Robot;
  */
 public class DriveBase_Turn extends Command
 {
-    private double Angle;
-    private double Power;
-    public DriveBase_Turn(double Angle, double Power)
+    private double angle;
+    private double power;
+    public DriveBase_Turn(double angle, double power)
     {
-        this.Angle = Angle;
-        this.Power = Power;
+        this.angle = angle;
+        this.power = power;
         requires(Robot.driveBase);
     }
 
     @Override
-    protected void initialize()
+    public synchronized void start()
     {
-
+        super.start();
+        Robot.driveBase.resetNavX();
     }
+
 
     @Override
     public void end()
     {
-        Robot.driveBase.set(0,0);
+        Robot.driveBase.drive(0,0);
     }
 
     @Override
@@ -39,19 +40,8 @@ public class DriveBase_Turn extends Command
     @Override
     public void execute()
     {
-        if (Robot.driveBase.getAngle() < Angle)
-        {
-            Robot.driveBase.set(0,Power);
-        }
-        else if (Robot.driveBase.getAngle() > Angle)
-        {
-            Robot.driveBase.set(0,-Power);
-        }
-        else
-        {
-            Robot.driveBase.set(0,0);
-            return;
-        }
+        double err = angle - Robot.driveBase.getAngle();
+        Robot.driveBase.drive(0,power*-err);
     }
 
     @Override

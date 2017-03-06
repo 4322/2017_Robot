@@ -1,60 +1,53 @@
 package org.usfirst.frc.team4322.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team4322.dashboard.DashboardInputField;
 import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
-import org.usfirst.frc.team4322.robot.subsystems.DriveBase;
-
-import java.util.function.DoubleSupplier;
 
 /**
  * Created by software on 2/2/17.
  */
 public class DriveBase_DriveDistance extends Command
 {
-    private double Dist;
-    private double Power;
-    public DriveBase_DriveDistance (double Dist, double Power)
+    private double dist;
+    private boolean done = false;
+    public DriveBase_DriveDistance (double dist)
     {
-        this.Dist = Dist;
-        this.Power = Power;
+        this.dist = dist;
         requires(Robot.driveBase);
     }
-    @Override
-    protected void initialize()
-    {
 
+    @Override
+    public synchronized void start()
+    {
+        super.start();
+        Robot.driveBase.resetEncoder();
     }
 
     @Override
     public void end()
     {
-        Robot.driveBase.set(0,0);
+        Robot.driveBase.drive(0,0);
     }
 
-    @Override
-    protected void interrupted()
-    {
-
-    }
 
     @Override
     public void execute()
     {
-        if (Robot.driveBase.getDist() < Dist)
+        double cur = Robot.driveBase.getDist();
+
+        if(Math.abs(cur - dist)<= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
-            Robot.driveBase.set(0,Power);
+            Robot.driveBase.drive(0,0);
+            done = true;
         }
-        else if (Robot.driveBase.getDist() > Dist)
+        else if (cur < dist)
         {
-            Robot.driveBase.set(0,-Power);
+            Robot.driveBase.drive(0,(cur-dist)*RobotMap.DRIVEBASE_DRIVE_P);
         }
-        else
+        else if (cur > dist)
         {
-            Robot.driveBase.set(0,0);
-            return;
+	        Robot.driveBase.drive(0,(cur-dist)*RobotMap.DRIVEBASE_DRIVE_P);
         }
 
     }
@@ -62,6 +55,6 @@ public class DriveBase_DriveDistance extends Command
 
     @Override
     protected boolean isFinished() {
-        return false;
+        return done;
     }
 }

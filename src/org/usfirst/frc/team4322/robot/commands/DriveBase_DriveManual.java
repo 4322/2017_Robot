@@ -3,7 +3,6 @@ package org.usfirst.frc.team4322.robot.commands;
 import org.usfirst.frc.team4322.robot.OI;
 import org.usfirst.frc.team4322.robot.Robot;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class DriveBase_DriveManual extends Command
@@ -18,7 +17,7 @@ public class DriveBase_DriveManual extends Command
     protected void execute()
     {
         // TODO Auto-generated method stub
-        Robot.driveBase.set(OI.pilot.leftStick.getY(), OI.pilot.rightStick.getX());
+        Robot.driveBase.drive(OI.pilot.leftStick.getY(), OI.pilot.rightStick.getX());
     }
 
     @Override

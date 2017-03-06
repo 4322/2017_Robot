@@ -26,10 +26,10 @@ public class Auton_ReachBaseline extends Command
     {
         if (Robot.driveBase.getDist() < 93.25) // if it hasn't traveled the distance to baseline
         {
-            Robot.driveBase.set(.6, 0); // drive with some arbitrary power
+            Robot.driveBase.drive(.6, 0); // drive with some arbitrary power
         } else
         {
-            Robot.driveBase.set(0, 0); // don't drive
+            Robot.driveBase.drive(0, 0); // don't drive
         }
     }
 

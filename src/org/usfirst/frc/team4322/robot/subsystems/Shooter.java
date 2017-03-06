@@ -60,7 +60,7 @@ public class Shooter extends Subsystem
             // Enable control for Velocity PID
             master.enableControl();
         }
-        // Always set the target RPMs
+        // Always drive the target RPMs
         master.set(rpm);
     }
 

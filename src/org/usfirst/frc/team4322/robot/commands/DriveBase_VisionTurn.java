@@ -9,15 +9,16 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class DriveBase_PIDDrive extends Command
+public class DriveBase_VisionTurn extends Command
 {
 
     private double lastErr, acc;
     private DoubleSupplier err;
-    @DashboardInputField(field="Drive Power: ")
+    @DashboardInputField(field="Autonomous Alignment Drive Power: ")
     public static double drive;
-    
-    public DriveBase_PIDDrive(DoubleSupplier err)
+    private boolean done = false;
+
+    public DriveBase_VisionTurn(DoubleSupplier err)
     {
         this.err = err;
         requires(Robot.driveBase);
@@ -26,7 +27,7 @@ public class DriveBase_PIDDrive extends Command
     @Override
     protected void end()
     {
-        Robot.driveBase.set(0,0);
+        Robot.driveBase.drive(0,0);
     }
 
     @Override
@@ -47,8 +48,8 @@ public class DriveBase_PIDDrive extends Command
         double current = err.getAsDouble();
         if(current <= -.6 || Math.abs(current) < .025)
         {
-            Robot.driveBase.set(0, 0);
-            return;
+            Robot.driveBase.drive(0, 0);
+            done = true;
         }
         SmartDashboard.putNumber("Current Error: ", current);
         double out = current*RobotMap.DRIVEBASE_AIM_P + lastErr*RobotMap.DRIVEBASE_AIM_D;
@@ -60,7 +61,7 @@ public class DriveBase_PIDDrive extends Command
         {
             acc = 0;
         }
-        Robot.driveBase.set(drive,out);
+        Robot.driveBase.drive(drive,out);
         acc += current;
         lastErr = current;
     }
@@ -69,7 +70,7 @@ public class DriveBase_PIDDrive extends Command
     protected boolean isFinished()
     {
         // TODO Auto-generated method stub
-        return false;
+        return done;
     }
 
 }

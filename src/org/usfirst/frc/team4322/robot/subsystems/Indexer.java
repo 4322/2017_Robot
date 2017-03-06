@@ -47,7 +47,7 @@ public class Indexer extends Subsystem
             indexer.disableControl();
         else
             indexer.enableControl();
-        // Always set the target RPMs
+        // Always drive the target RPMs
         indexer.set(pos);
     }
 }

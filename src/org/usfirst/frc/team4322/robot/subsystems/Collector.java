@@ -29,7 +29,7 @@ public class Collector extends Subsystem
 
     public void set(double pos)
     {
-        // Always set the target RPMs
+        // Always drive the target RPMs
         collector.set(pos);
     }
 

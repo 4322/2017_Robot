@@ -18,7 +18,7 @@ public class OI {
         //DRIVER CONTROLS
         pilot = new XboxController(0);
         operator = new XboxController(1);
-        pilot.dPad.whenPressed(new DriveBase_PIDDrive(() -> {
+        pilot.dPad.whenPressed(new DriveBase_VisionTurn(() -> {
             return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
         }));
         pilot.back.whenPressed(new Command_Interrupt());
@@ -42,7 +42,7 @@ public class OI {
         // Right Trigger to stop the Shooter
         operator.rt.whenPressed(new Shooter_Stop());
         // Left Trigger to index and convey
-        operator.lt.whileHeld(new Group_Index());
+        operator.lt.whileHeld(new Group_StartIndex());
         // Prepare to collect a gear
         operator.y.whileHeld(new Group_GrabGear());
         // X button to eject gear

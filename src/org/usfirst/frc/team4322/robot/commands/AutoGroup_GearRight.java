@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * Created by software on 3/5/17.
  */
-public class AutoGroup_GearMiddle extends CommandGroup
+public class AutoGroup_GearRight extends CommandGroup
 {
-    public AutoGroup_GearMiddle()
+    public AutoGroup_GearRight()
     {
         addParallel(new DriveBase_DriveDistance(-90)); //Drive up to peg
         addSequential(new DriveBase_VisionTurn(() -> {

@@ -22,6 +22,7 @@ public class RobotMap
     public static final int PDP_COLLECTOR = 13;
     public static final int PDP_SHOOTER_SLAVE = 14;
     public static final int PDP_SHOOTER_MASTER = 15;
+
     // *******************************
     // ** MOTOR CONTROLLER MAPPINGS **
     // *******************************
@@ -72,14 +73,16 @@ public class RobotMap
     // *********************************
     // ** DRIVEBASE DRIVING MAP VALUES **
     // *********************************
-    @DashboardInputField(field="Drivebase Aim P: ")
+    @DashboardInputField(field="Drivebase Drive P: ")
     public static double DRIVEBASE_DRIVE_P = -1.3;
-    @DashboardInputField(field="Drivebase Aim I: ")
+    @DashboardInputField(field="Drivebase Drive I: ")
     public static double DRIVEBASE_DRIVE_I = -.120;
-    @DashboardInputField(field="Drivebase Aim IZone: ")
+    @DashboardInputField(field="Drivebase Drive IZone: ")
     public static double DRIVEBASE_DRIVE_IZONE = .135;
-    @DashboardInputField(field="Drivebase Aim D: ")
+    @DashboardInputField(field="Drivebase Drive D: ")
     public static double DRIVEBASE_DRIVE_D = -1.30;
+    @DashboardInputField(field="Drivebase Error Tolerance: ")
+    public static double AUTON_DRIVE_TOLERANCE = .5;
     // ************************
     // ** INDEXER MAP VALUES **
     // ************************

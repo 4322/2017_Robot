@@ -67,9 +67,13 @@ public class DriveBase extends Subsystem
         navx.zeroYaw();
     }
     
-    public void set(double pow, double rot)
+    public void drive(double pow, double rot)
     {
         drive.arcadeDrive(pow, -rot, true);
     }
 
+    public void resetEncoder()
+    {
+        leftMaster.setEncPosition(0);
+    }
 }
