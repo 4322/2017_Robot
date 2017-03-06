@@ -28,13 +28,13 @@ public class Conveyor_Convey extends Command
     @Override
     protected boolean isFinished()
     {
-        return false;
+        return true;
     }
 
     @Override
     protected void end()
     {
-
+        Robot.conveyor.set(0);
     }
 
     @Override
