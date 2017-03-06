@@ -10,7 +10,9 @@ public class AutoGroup_GearRight extends CommandGroup
 {
     public AutoGroup_GearRight()
     {
-        addParallel(new DriveBase_DriveDistance(-90)); //Drive up to peg
+        addSequential(new DriveBase_DriveDistance(-90)); //Drive a certain distance
+        addSequential(new DriveBase_Turn(30,.25)); //Turn 30 degrees
+        addParallel(new DriveBase_DriveDistance(-30)); //Drive up to peg
         addSequential(new DriveBase_VisionTurn(() -> {
             return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
         }));
