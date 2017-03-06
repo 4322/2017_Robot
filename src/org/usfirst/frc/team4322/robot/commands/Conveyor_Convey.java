@@ -34,7 +34,7 @@ public class Conveyor_Convey extends Command
     @Override
     protected void end()
     {
-        Robot.conveyor.set(0);
+
     }
 
     @Override
