@@ -18,7 +18,7 @@ public class DriveBase_VisionTurn extends Command
     public static double drive;
     private boolean done = false;
 
-    public DriveBase_VisionTurn(DoubleSupplier err)
+    public DriveBase_VisionTurn( DoubleSupplier err)
     {
         this.err = err;
         requires(Robot.driveBase);

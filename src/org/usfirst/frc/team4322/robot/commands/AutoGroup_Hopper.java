@@ -21,7 +21,7 @@ public class AutoGroup_Hopper extends CommandGroup
 		addSequential(new DriveBase_DriveDistance(27/2)); //Drive up to hopper
 		addSequential(new Vision_RunBoiler());
 		addParallel(new Shooter_Spin());
-		addParallel(new Group_StartIndex()); //start shooting
+		addSequential(new Group_StartIndex()); //start shooting
 
 	}
 }

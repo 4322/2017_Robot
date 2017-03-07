@@ -70,7 +70,9 @@ public class DriveBase extends Subsystem
     public void drive(double pow, double rot)
     {
         drive.arcadeDrive(pow, -rot, true);
+
     }
+
 
     public void resetEncoder()
     {

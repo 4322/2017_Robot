@@ -24,10 +24,11 @@ public class Auton_ReachBaseline extends Command
     // Called repeatedly when this Command is scheduled to run
     protected void execute()
     {
-        if (Robot.driveBase.getDist() < 93.25) // if it hasn't traveled the distance to baseline
+        if (Robot.driveBase.getDist() > -93.25) // if it hasn't traveled the distance to baseline
         {
             Robot.driveBase.drive(.6, 0); // drive with some arbitrary power
-        } else
+        }
+        else
         {
             Robot.driveBase.drive(0, 0); // don't drive
         }

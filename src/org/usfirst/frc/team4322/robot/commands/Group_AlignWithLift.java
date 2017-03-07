@@ -10,11 +10,11 @@ public class Group_AlignWithLift extends CommandGroup
 {
     public Group_AlignWithLift()
     {
-//        double xDist = SmartDashboard.getNumber("Vision Distance (in): ",0)*Math.cos(SmartDashboard.getNumber("Vision Angle X: ", 0)); // Distance and Vision Angle X are just filler keys for now
-//        double yDist = SmartDashboard.getNumber("Vision Distance (in): ", 0)*Math.sin(SmartDashboard.getNumber("Vision Angle X: ", 0));
-//        addSequential(new DriveBase_Turn(SmartDashboard.getNumber("Vision Angle X: ",0), 0.6));
-//        addSequential(new DriveBase_DriveDistance(xDist, 0.6));
-//        addSequential(new DriveBase_Turn(90, 0.6)); // TODO: Is gyro angle in degrees or radians?
-//        addSequential(new DriveBase_DriveDistance(yDist, 0.6));
+        double xDist = SmartDashboard.getNumber("Vision Distance (in): ",0)*Math.cos(SmartDashboard.getNumber("Vision Angle X: ", 0)); // Distance and Vision Angle X are just filler keys for now
+        double yDist = SmartDashboard.getNumber("Vision Distance (in): ", 0)*Math.sin(SmartDashboard.getNumber("Vision Angle X: ", 0));
+        addSequential(new DriveBase_Turn(SmartDashboard.getNumber("Vision Angle X: ",0), 0.6));
+        addSequential(new DriveBase_DriveDistance(xDist));
+        addSequential(new DriveBase_Turn(90, 0.6));
+        addSequential(new DriveBase_DriveDistance(yDist));
     }
 }
