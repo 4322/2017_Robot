@@ -155,6 +155,7 @@ public class Robot extends IterativeRobot
     {
         SmartDashboard.putNumber("Speed: ",Robot.driveBase.getSpeed());
         SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
+        SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         SmartDashboard.putNumber("Shooter Power Draw Master: ",pdp.getCurrent(RobotMap.PDP_SHOOTER_MASTER));
         SmartDashboard.putNumber("Shooter Power Draw Slave: ",pdp.getCurrent(RobotMap.PDP_SHOOTER_SLAVE));
         SmartDashboard.putNumber("Climper Power Draw: ",pdp.getCurrent(RobotMap.PDP_CLIMBER));
