@@ -52,7 +52,7 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return ticksToDist*leftMaster.getPosition();
+        return ticksToDist*leftMaster.getPosition()  / (4 * Math.PI);
     }
 
     public double getSpeed() { return leftMaster.getEncVelocity(); }
@@ -76,8 +76,8 @@ public class DriveBase extends Subsystem
 
     public void resetEncoder()
     {
-        leftMaster.setEncPosition(Integer.MAX_VALUE);
-        leftMaster.setPosition(Integer.MAX_VALUE);
+        leftMaster.setEncPosition(0);
+        leftMaster.setPosition(0);
         try {
             Thread.sleep(30);
         } catch (InterruptedException e) {
