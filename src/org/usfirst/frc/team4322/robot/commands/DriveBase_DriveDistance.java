@@ -49,28 +49,28 @@ public class DriveBase_DriveDistance extends Command
     public void execute()
     {
         //Vision stuff
-        if (isUsingVisionTurn)
-        {
-            double current = errTurn.getAsDouble();
-            if(current <= -.6 || Math.abs(current) < .025)
-            {
-                outTurn = 0;
-            }
-            else {
-                outTurn = current * RobotMap.DRIVEBASE_AIM_P + lastErr * RobotMap.DRIVEBASE_AIM_D;
-                if (Math.abs(current) <= RobotMap.DRIVEBASE_AIM_IZONE) {
-                    outTurn += RobotMap.DRIVEBASE_AIM_I * acc;
-                } else {
-                    accTurn = 0;
-                }
-                accTurn += current;
-                lastErrTurn = current;
-            }
-        }
-        else
-        {
-            outTurn = 0;
-        }
+//        if (isUsingVisionTurn)
+//        {
+//            double current = errTurn.getAsDouble();
+//            if(current <= -.6 || Math.abs(current) < .025)
+//            {
+//                outTurn = 0;
+//            }
+//            else {
+//                outTurn = current * RobotMap.DRIVEBASE_AIM_P + lastErr * RobotMap.DRIVEBASE_AIM_D;
+//                if (Math.abs(current) <= RobotMap.DRIVEBASE_AIM_IZONE) {
+//                    outTurn += RobotMap.DRIVEBASE_AIM_I * acc;
+//                } else {
+//                    accTurn = 0;
+//                }
+//                accTurn += current;
+//                lastErrTurn = current;
+//            }
+//        }
+//        else
+//        {
+//            outTurn = 0;
+//        }
 
         //Drive distance PID
         double cur = Robot.driveBase.getDist();
