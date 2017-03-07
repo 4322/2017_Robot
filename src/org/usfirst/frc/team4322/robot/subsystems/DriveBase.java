@@ -19,7 +19,7 @@ public class DriveBase extends Subsystem
     private AHRS navx;
     private RobotDrive drive;
     private static final double ticksToDist = Math.PI/64;
-
+    double offset = 0.0;
 
     public DriveBase()
     {
@@ -52,7 +52,7 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return leftMaster.getPosition() * (6 * Math.PI);
+        return ticksToDist*(leftMaster.getEncPosition() - offset);
     }
 
     public double getSpeed() { return leftMaster.getEncVelocity(); }
@@ -76,8 +76,7 @@ public class DriveBase extends Subsystem
 
     public void resetEncoder()
     {
-        leftMaster.setEncPosition(0);
-        leftMaster.setPosition(0);
+        offset = leftMaster.getEncPosition();
         try {
             Thread.sleep(30);
         } catch (InterruptedException e) {
