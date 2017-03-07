@@ -29,13 +29,13 @@ public class DriveBase extends Subsystem
         leftMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
         leftMaster.setCloseLoopRampRate(48);
         leftMaster.setVoltageRampRate(48);
-        leftMaster.configEncoderCodesPerRev(1);
+//        leftMaster.configEncoderCodesPerRev(1);
         rightMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
         rightMaster.changeControlMode(TalonControlMode.PercentVbus);
         rightMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
         rightMaster.setCloseLoopRampRate(48);
         rightMaster.setVoltageRampRate(48);
-        rightMaster.configEncoderCodesPerRev(1);
+//        rightMaster.configEncoderCodesPerRev(1);
         leftSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR);
         leftSlave.changeControlMode(TalonControlMode.Follower);
         leftSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
@@ -53,7 +53,8 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return (leftMaster.getEncPosition() - offset) / ticksToDist;
+//        return (leftMaster.getEncPosition() - offset) / ticksToDist;
+        return leftMaster.getEncPosition();
     }
 
     public double getSpeed() { return leftMaster.getEncVelocity(); }
