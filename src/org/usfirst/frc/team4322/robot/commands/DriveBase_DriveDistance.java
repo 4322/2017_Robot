@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4322.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
 
@@ -35,8 +36,8 @@ public class DriveBase_DriveDistance extends Command
     public void execute()
     {
         double cur = Robot.driveBase.getDist();
-
-        if(Math.abs(cur - dist)<= RobotMap.AUTON_DRIVE_TOLERANCE)
+        SmartDashboard.putNumber("Drive Error: ",cur-dist);
+        if(true )
         {
             Robot.driveBase.drive(0,0);
             done = true;
