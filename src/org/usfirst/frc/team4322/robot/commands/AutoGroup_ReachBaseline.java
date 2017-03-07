@@ -9,6 +9,6 @@ public class AutoGroup_ReachBaseline extends CommandGroup
 {
     public AutoGroup_ReachBaseline()
     {
-        addSequential(new DriveBase_DriveDistance(90));
+        addSequential(new DriveBase_DriveDistance(-90));
     }
 }
