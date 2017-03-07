@@ -114,6 +114,8 @@ public class Robot extends IterativeRobot
     {
 
         Scheduler.getInstance().run();
+        Robot.driveBase.resetEncoder();
+
 
     }
 
