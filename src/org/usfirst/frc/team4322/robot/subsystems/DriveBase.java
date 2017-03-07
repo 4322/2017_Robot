@@ -53,7 +53,7 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return (leftMaster.getEncPosition() - offset) * (ticksToDist);
+        return (leftMaster.getEncPosition() - offset) / (ticksToDist);
     }
 
     public double getSpeed() { return leftMaster.getEncVelocity(); }
@@ -73,7 +73,6 @@ public class DriveBase extends Subsystem
         drive.arcadeDrive(pow, -rot, true);
 
     }
-
 
     public void resetEncoder()
     {

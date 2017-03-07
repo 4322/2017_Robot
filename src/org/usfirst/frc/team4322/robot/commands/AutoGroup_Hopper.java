@@ -16,7 +16,7 @@ public class AutoGroup_Hopper extends CommandGroup
 		}));
 		addSequential(new GearGrabber_EjectGear()); //Put gear on peg
 		addSequential(new DriveBase_DriveDistance(6)); //Back up a bit
-		addSequential(new DriveBase_Turn(90,0.25)); //Turn 90 degrees
+		addSequential(new DriveBase_Turn(90)); //Turn 90 degrees
 		addParallel(new HopperFlopper_LoadHopper()); //Ready for hopper
 		addSequential(new DriveBase_DriveDistance(27/2)); //Drive up to hopper
 		addSequential(new Vision_RunBoiler());

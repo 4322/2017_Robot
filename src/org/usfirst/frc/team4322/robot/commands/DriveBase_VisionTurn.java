@@ -65,7 +65,6 @@ public class DriveBase_VisionTurn extends Command
         acc += current;
         lastErr = current;
     }
-
     @Override
     protected boolean isFinished()
     {
