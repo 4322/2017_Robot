@@ -140,6 +140,7 @@ public class Robot extends IterativeRobot
     public void autonomousPeriodic()
     {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
     }
 
     public void teleopInit()
