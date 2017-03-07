@@ -76,7 +76,7 @@ public class DriveBase extends Subsystem
 
     public void resetEncoder()
     {
-        leftMaster.setEncPosition(0);
+        leftMaster.setPosition(0);
         try {
             Thread.sleep(30);
         } catch (InterruptedException e) {
