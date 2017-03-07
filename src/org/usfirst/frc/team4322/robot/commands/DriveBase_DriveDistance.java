@@ -34,7 +34,6 @@ public class DriveBase_DriveDistance extends Command
     @Override
     public void execute()
     {
-        Robot.driveBase.resetEncoder();
         double cur = Robot.driveBase.getDist();
 
         if(Math.abs(cur - dist)<= RobotMap.AUTON_DRIVE_TOLERANCE)
@@ -44,11 +43,11 @@ public class DriveBase_DriveDistance extends Command
         }
         else if (cur < dist)
         {
-            Robot.driveBase.drive((cur-dist)*RobotMap.DRIVEBASE_DRIVE_P, 0);
+            Robot.driveBase.drive(-(cur-dist)*RobotMap.DRIVEBASE_DRIVE_P, 0);
         }
         else if (cur > dist)
         {
-	        Robot.driveBase.drive((cur-dist)*RobotMap.DRIVEBASE_DRIVE_P,0);
+	        Robot.driveBase.drive(-(cur-dist)*RobotMap.DRIVEBASE_DRIVE_P,0);
         }
 
     }
