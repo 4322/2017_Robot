@@ -49,7 +49,7 @@ public class DriveBase_DriveDistance extends Command
         }
         else if (cur > dist)
         {
-	        Robot.driveBase.drive(.5,0);
+	        Robot.driveBase.drive(-.5,0);
         }
 
     }
