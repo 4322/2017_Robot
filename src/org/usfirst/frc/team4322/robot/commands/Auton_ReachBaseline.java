@@ -25,7 +25,7 @@ public class Auton_ReachBaseline extends Command
     protected void execute()
     {
         Robot.driveBase.resetEncoder();
-        if (Robot.driveBase.getDist() > -93.25) // if it hasn't traveled the distance to baseline
+        if (Robot.driveBase.getDist() < 93.25) // if it hasn't traveled the distance to baseline
         {
             Robot.driveBase.drive(.6, 0); // drive with some arbitrary power
         }
