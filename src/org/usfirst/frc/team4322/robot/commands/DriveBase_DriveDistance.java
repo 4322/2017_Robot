@@ -22,7 +22,8 @@ public class DriveBase_DriveDistance extends Command
     public synchronized void start()
     {
         super.start();
-        Robot.driveBase.resetEncoder();
+      Robot.driveBase.resetEncoder();
+      done=false;
     }
 
     @Override
