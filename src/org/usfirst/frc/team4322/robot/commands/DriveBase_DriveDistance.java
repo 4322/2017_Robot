@@ -45,11 +45,11 @@ public class DriveBase_DriveDistance extends Command
         }
         else if (cur < dist)
         {
-            Robot.driveBase.drive(.3,0);
+            Robot.driveBase.drive(.5,0);
         }
         else if (cur > dist)
         {
-	        Robot.driveBase.drive(.3,0);
+	        Robot.driveBase.drive(.5,0);
         }
 
     }
