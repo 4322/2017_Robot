@@ -18,7 +18,7 @@ public class DriveBase extends Subsystem
     private CANTalon leftMaster,leftSlave,rightMaster,rightSlave;
     private AHRS navx;
     private RobotDrive drive;
-    private static final double ticksToDist = Math.PI/64;
+    private static final double ticksToDist = 4*Math.PI;
     double offset = 0.0;
 
     public DriveBase()
@@ -52,7 +52,7 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return (leftMaster.getEncPosition() - offset);
+        return (leftMaster.getEncPosition() - offset) / ticksToDist;
     }
 
     public double getSpeed() { return leftMaster.getEncVelocity(); }
