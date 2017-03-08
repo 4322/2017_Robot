@@ -44,15 +44,10 @@ public class DriveBase_DriveDistance extends Command
             Robot.driveBase.drive(0,0);
             done = true;
         }
-        else if (cur < dist)
+        else
         {
-            Robot.driveBase.drive(-.5,-Robot.driveBase.getAngle()*RobotMap.DRIVEBASE_DRIVE_P);
+            Robot.driveBase.drive(RobotMap.DRIVEBASE_DRIVE_P*(cur-dist), -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
         }
-        else if (cur > dist)
-        {
-	        Robot.driveBase.drive(.5,-Robot.driveBase.getAngle()*RobotMap.DRIVEBASE_DRIVE_P);
-        }
-
     }
 
 
