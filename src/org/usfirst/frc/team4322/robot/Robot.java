@@ -112,6 +112,7 @@ public class Robot extends IterativeRobot
 
     public void disabledPeriodic()
     {
+        SmartDashboard.putNumber("Navx Yaw: ",Robot.driveBase.getAngle());
 
         Scheduler.getInstance().run();
         Robot.driveBase.resetEncoder();
