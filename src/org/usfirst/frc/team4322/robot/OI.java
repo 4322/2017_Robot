@@ -33,6 +33,10 @@ public class OI {
         // start to end vision
         pilot.start.whenPressed(new Vision_Stop());
 
+        //TEMPORARY BUTTON
+        pilot.x.whenPressed(new AutoGroup_ReachBaseline());
+        //END OF TEMPORARY BUTTON
+
 
         //OPERATOR CONTROLS
         // A button for double-barrel RPM
