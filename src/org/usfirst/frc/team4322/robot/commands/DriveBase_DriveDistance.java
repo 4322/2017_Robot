@@ -10,7 +10,7 @@ import org.usfirst.frc.team4322.robot.RobotMap;
  */
 public class DriveBase_DriveDistance extends Command
 {
-    private double dist;
+    private double dist,last,cur;
     private boolean done = false;
     private int counter = 0;
     public DriveBase_DriveDistance (double dist)
@@ -39,20 +39,22 @@ public class DriveBase_DriveDistance extends Command
     @Override
     public void execute()
     {
-        double cur = Robot.driveBase.getDist();
+        last=cur-dist;
+        cur = Robot.driveBase.getDist();
         SmartDashboard.putNumber("Drive Error: ",cur-dist);
         if(Math.abs(cur-dist )<= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
             counter++;
-            if(counter==3)
+            if(counter==7)
                 done = true;
 
         }
         else
         {
             counter=0;
-            Robot.driveBase.drive(RobotMap.DRIVEBASE_DRIVE_P*(cur-dist), -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
+
+            Robot.driveBase.drive(RobotMap.DRIVEBASE_DRIVE_P*(cur-dist)+RobotMap.DRIVEBASE_DRIVE_D*last, -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
         }
     }
 
