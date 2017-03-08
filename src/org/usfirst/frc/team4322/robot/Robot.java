@@ -88,7 +88,7 @@ public class Robot extends IterativeRobot
 
         }
         autoChooser = new SendableChooser();
-        autoChooser.addDefault("Do Nothing: ", new AutoGroup_DoNothing());
+        autoChooser.addDefault("Do Nothing: ", new DriveBase_Turn(90));
         autoChooser.addObject("Reach Baseline: ", new AutoGroup_ReachBaseline());
         autoChooser.addObject("Gear Middle: ", new AutoGroup_GearMiddle());
         autoChooser.addObject("Gear Left: ", new AutoGroup_GearLeft());
