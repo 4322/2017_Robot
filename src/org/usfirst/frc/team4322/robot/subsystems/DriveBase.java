@@ -29,13 +29,13 @@ public class DriveBase extends Subsystem
         leftMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
         leftMaster.setCloseLoopRampRate(48);
         leftMaster.setVoltageRampRate(48);
-        leftMaster.configEncoderCodesPerRev(1024);
+        leftMaster.configEncoderCodesPerRev(256);
         rightMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
         rightMaster.changeControlMode(TalonControlMode.PercentVbus);
         rightMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
         rightMaster.setCloseLoopRampRate(48);
         rightMaster.setVoltageRampRate(48);
-        rightMaster.configEncoderCodesPerRev(1024);
+        rightMaster.configEncoderCodesPerRev(256);
         leftSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR);
         leftSlave.changeControlMode(TalonControlMode.Follower);
         leftSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
