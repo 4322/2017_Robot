@@ -63,24 +63,24 @@ public class RobotMap
     // ** DRIVEBASE AIMING MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Aim P: ")
-    public static double DRIVEBASE_AIM_P = -1.3;
+    public static double DRIVEBASE_AIM_P = -.6;
     @DashboardInputField(field="Drivebase Aim I: ")
-    public static double DRIVEBASE_AIM_I = -.120;
+    public static double DRIVEBASE_AIM_I = 0;
     @DashboardInputField(field="Drivebase Aim IZone: ")
-    public static double DRIVEBASE_AIM_IZONE = .135;
+    public static double DRIVEBASE_AIM_IZONE = 0;
     @DashboardInputField(field="Drivebase Aim D: ")
-    public static double DRIVEBASE_AIM_D = -1.30;
+    public static double DRIVEBASE_AIM_D = 0;
     // *********************************
     // ** DRIVEBASE DRIVING MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Drive P: ")
-    public static double DRIVEBASE_DRIVE_P = .4;
+    public static double DRIVEBASE_DRIVE_P = .03;
     @DashboardInputField(field="Drivebase Drive I: ")
     public static double DRIVEBASE_DRIVE_I = .000;
     @DashboardInputField(field="Drivebase Drive IZone: ")
-    public static double DRIVEBASE_DRIVE_IZONE = .135;
+    public static double DRIVEBASE_DRIVE_IZONE = 0;
     @DashboardInputField(field="Drivebase Drive D: ")
-    public static double DRIVEBASE_DRIVE_D = 0;
+    public static double DRIVEBASE_DRIVE_D = 0.01;
     @DashboardInputField(field="Drivebase Error Tolerance: ")
     public static double AUTON_DRIVE_TOLERANCE = .5;
     // ************************
