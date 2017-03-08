@@ -44,8 +44,8 @@ public class DriveBase_Turn extends Command
         double err = angle - Robot.driveBase.getAngle();
         SmartDashboard.putNumber("Drive Error: ",err);
 
-        double out = err * RobotMap.DRIVEBASE_AIM_P + acc*RobotMap.DRIVEBASE_AIM_I + lastErr*RobotMap.DRIVEBASE_AIM_D;
-        if(Math.abs(err)<=2)
+        double out = -err * RobotMap.DRIVEBASE_AIM_P + acc*RobotMap.DRIVEBASE_AIM_I + lastErr*RobotMap.DRIVEBASE_AIM_D;
+        if(Math.abs(err)<=RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
             acc = 0;
@@ -62,6 +62,6 @@ public class DriveBase_Turn extends Command
     @Override
     public boolean isFinished()
     {
-        return done;
+        return false;
     }
 }
