@@ -84,14 +84,14 @@ public class DriveBase_DriveDistance extends Command
 //            done = true;
 //        }
 //        else
-            if (cur < dist)
-        {
-            Robot.driveBase.drive(out,outTurn);
-        }
-        else if (cur > dist)
-        {
+//            if (cur < dist)
+//        {
+//            Robot.driveBase.drive(out,outTurn);
+//        }
+//        else if (cur > dist)
+//        {
 	        Robot.driveBase.drive(out,outTurn);
-        }
+//        }
         acc += err;
         lastErr = err;
     }
