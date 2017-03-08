@@ -77,7 +77,7 @@ public class DriveBase_DriveDistance extends Command
         err = (dist-cur);
         out = -err*(RobotMap.DRIVEBASE_DRIVE_P/10) - acc*(RobotMap.DRIVEBASE_DRIVE_I/100) + lastErr*RobotMap.DRIVEBASE_DRIVE_D;
         SmartDashboard.putNumber("Drive Error: ",cur-dist);
-        if(Math.abs(err)<=2)
+        if(Math.abs(err) == 0)
         {
             Robot.driveBase.drive(0,0);
             acc = 0;
