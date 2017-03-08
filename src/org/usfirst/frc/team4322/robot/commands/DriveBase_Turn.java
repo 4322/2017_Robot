@@ -41,7 +41,7 @@ public class DriveBase_Turn extends Command
     @Override
     public void execute()
     {
-        double err = -(angle - Robot.driveBase.getAngle());
+        double err = (angle - Robot.driveBase.getAngle());
         SmartDashboard.putNumber("Drive Error: ",err);
 
         double out = err * RobotMap.DRIVEBASE_AIM_P + acc*RobotMap.DRIVEBASE_AIM_I + lastErr*RobotMap.DRIVEBASE_AIM_D;
