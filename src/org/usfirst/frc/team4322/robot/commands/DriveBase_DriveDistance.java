@@ -23,6 +23,7 @@ public class DriveBase_DriveDistance extends Command
     {
         super.start();
       Robot.driveBase.resetEncoder();
+      Robot.driveBase.resetNavX();
       done=false;
     }
 
@@ -45,11 +46,11 @@ public class DriveBase_DriveDistance extends Command
         }
         else if (cur < dist)
         {
-            Robot.driveBase.drive(-.5,0);
+            Robot.driveBase.drive(-.5,-Robot.driveBase.getAngle()*RobotMap.DRIVEBASE_DRIVE_P);
         }
         else if (cur > dist)
         {
-	        Robot.driveBase.drive(.5,0);
+	        Robot.driveBase.drive(.5,-Robot.driveBase.getAngle()*RobotMap.DRIVEBASE_DRIVE_P);
         }
 
     }
