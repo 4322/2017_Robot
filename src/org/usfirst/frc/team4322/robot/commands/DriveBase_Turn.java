@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4322.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
 
@@ -41,6 +42,8 @@ public class DriveBase_Turn extends Command
     public void execute()
     {
         double err = angle - Robot.driveBase.getAngle();
+        SmartDashboard.putNumber("Drive Error: ",err);
+
         double out = err * RobotMap.DRIVEBASE_AIM_P + acc*RobotMap.DRIVEBASE_AIM_I + lastErr*RobotMap.DRIVEBASE_AIM_D;
         if(Math.abs(err)<=2)
         {
