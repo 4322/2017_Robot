@@ -12,6 +12,7 @@ public class DriveBase_DriveDistance extends Command
 {
     private double dist;
     private boolean done = false;
+    private int counter = 0;
     public DriveBase_DriveDistance (double dist)
     {
         this.dist = dist;
@@ -25,6 +26,7 @@ public class DriveBase_DriveDistance extends Command
       Robot.driveBase.resetEncoder();
       Robot.driveBase.resetNavX();
       done=false;
+      counter = 0;
     }
 
     @Override
@@ -42,10 +44,14 @@ public class DriveBase_DriveDistance extends Command
         if(Math.abs(cur-dist )<= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
-            done = true;
+            counter++;
+            if(counter==3)
+                done = true;
+
         }
         else
         {
+            counter=0;
             Robot.driveBase.drive(RobotMap.DRIVEBASE_DRIVE_P*(cur-dist), -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
         }
     }
