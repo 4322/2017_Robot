@@ -46,7 +46,7 @@ public class DriveBase_Turn extends Command
         {
             Robot.driveBase.drive(0,0);
             acc = 0;
-            done = true;
+            done = false;
         }
         else
         {
