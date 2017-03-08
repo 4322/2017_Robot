@@ -76,7 +76,7 @@ public class RobotMap
     @DashboardInputField(field="Drivebase Drive P: ")
     public static double DRIVEBASE_DRIVE_P = .1;
     @DashboardInputField(field="Drivebase Drive I: ")
-    public static double DRIVEBASE_DRIVE_I = .001;
+    public static double DRIVEBASE_DRIVE_I = .000;
     @DashboardInputField(field="Drivebase Drive IZone: ")
     public static double DRIVEBASE_DRIVE_IZONE = .135;
     @DashboardInputField(field="Drivebase Drive D: ")
