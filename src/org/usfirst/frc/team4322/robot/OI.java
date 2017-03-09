@@ -18,9 +18,9 @@ public class OI {
         //DRIVER CONTROLS
         pilot = new XboxController(0);
         operator = new XboxController(1);
-        pilot.lt.whenPressed(new DriveBase_VisionTurn(() -> {
-            return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
-        }));
+//        pilot.lt.whenPressed(new DriveBase_VisionTurn(() -> {
+//            return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
+//        }));
         pilot.back.whenPressed(new Command_Interrupt());
 
 
