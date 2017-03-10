@@ -3,6 +3,7 @@ package org.usfirst.frc.team4322.robot.subsystems;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4322.robot.Robot;
+import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.commands.Conveyor_Stop;
 
 /**
@@ -12,7 +13,7 @@ public class Conveyor extends Subsystem {
     private Talon conveyer;
     public Conveyor()
     {
-        conveyer = new Talon(2);
+        conveyer = new Talon(RobotMap.CONVEYOR_MOTORCONTROLLER_PORT);
     }
     public void set(double pow)
     {

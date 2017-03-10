@@ -47,10 +47,6 @@ public class OI {
         // X button to eject gear
         operator.x.whileHeld(new GearGrabber_EjectGear());
         operator.x.whenReleased(new GearGrabber_RetractGrabber());
-        //Left Bumper to CLIMP
-        operator.lb.whileHeld(new Climper_Climp());
-        //Right Bumper to UNCLIMP
-        operator.rb.whileHeld(new Climper_Unclimp());
     }
 }
 

@@ -1,10 +1,9 @@
 package org.usfirst.frc.team4322.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4322.robot.RobotMap;
-import org.usfirst.frc.team4322.robot.commands.Climper_Stop;
+import org.usfirst.frc.team4322.robot.commands.Climper_Climp;
 
 public class Climper extends Subsystem
 {
@@ -21,7 +20,7 @@ public class Climper extends Subsystem
     @Override
     protected void initDefaultCommand()
     {
-        setDefaultCommand(new Climper_Stop());
+        setDefaultCommand(new Climper_Climp());
     }
 
 }
