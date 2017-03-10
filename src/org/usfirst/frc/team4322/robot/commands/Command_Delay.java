@@ -14,7 +14,7 @@ public class Command_Delay extends Command
 	public Command_Delay(int millis)
 	{
 		//target = seconds * 50; //50 ticks to second.
-		target = System.currentTimeMillis() + millis * 1000;
+		target = System.currentTimeMillis() + millis;
 	}
 
 	@Override
