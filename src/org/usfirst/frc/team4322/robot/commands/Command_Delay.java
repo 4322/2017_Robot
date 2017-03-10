@@ -9,12 +9,18 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Command_Delay extends Command
 {
 
-	long target = 0;
+	long target,delay;
 
 	public Command_Delay(int millis)
 	{
-		//target = seconds * 50; //50 ticks to second.
-		target = System.currentTimeMillis() + millis;
+		delay = 0;
+	}
+
+	@Override
+	public synchronized void start() {
+		super.start();
+		target = System.currentTimeMillis() + delay;
+
 	}
 
 	@Override
