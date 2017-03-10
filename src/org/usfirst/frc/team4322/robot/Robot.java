@@ -94,7 +94,9 @@ public class Robot extends IterativeRobot
         autoChooser.addObject("Gear Left: ", new AutoGroup_GearLeft());
         autoChooser.addObject("Gear Right: ", new AutoGroup_GearRight());
         autoChooser.addObject("Hopper + Shoot: ", new AutoGroup_Hopper());
-
+        autoChooser.addObject("Shoot and Drive", new AutoGroup_ShootNotStupid());
+        autoChooser.addObject("Reach Baseline (Stupid)",new AutoGroup_ThisIsStupid());
+        autoChooser.addObject("Shoot and Drive (Stupid)", new AutoGroup_ShootStupid());
         SmartDashboard.putData("AUTO MODES: ", autoChooser);
         //Link Classes for the @DashboardInputField magic
         MapSynchronizer.getInstance().link(RobotMap.class);
