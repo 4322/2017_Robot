@@ -25,11 +25,11 @@ public class DriveBase extends Subsystem
     public DriveBase()
     {
         leftMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
-        leftMaster.changeControlMode(TalonControlMode.Follower);
-        leftSlave.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
-        leftSlave.setCloseLoopRampRate(48);
-        leftSlave.setVoltageRampRate(48);
-        leftSlave.configEncoderCodesPerRev(256);
+        leftMaster.changeControlMode(TalonControlMode.PercentVbus);
+        leftMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+        leftMaster.setCloseLoopRampRate(48);
+        leftMaster.setVoltageRampRate(48);
+        leftMaster.configEncoderCodesPerRev(256);
         rightMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
         rightMaster.changeControlMode(TalonControlMode.PercentVbus);
         rightMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
@@ -37,7 +37,7 @@ public class DriveBase extends Subsystem
         rightMaster.setVoltageRampRate(48);
         rightMaster.configEncoderCodesPerRev(256);
         leftSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR);
-        leftSlave.changeControlMode(TalonControlMode.PercentVbus);
+        leftSlave.changeControlMode(TalonControlMode.Follower);
         leftSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
         rightSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_SLAVE_ADDR);
         rightSlave.changeControlMode(TalonControlMode.Follower);
@@ -53,10 +53,10 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return (leftSlave.getPosition()) * (ticksToDist);
+        return (leftMaster.getPosition()) * (ticksToDist);
     }
 
-    public double getSpeed() { return leftSlave.getEncVelocity(); }
+    public double getSpeed() { return leftMaster.getEncVelocity(); }
 
     public double getAngle()
     {
@@ -67,7 +67,7 @@ public class DriveBase extends Subsystem
     {
         navx.zeroYaw();
     }
-    
+
     public void drive(double pow, double rot)
     {
         drive.arcadeDrive(pow, -rot, true);
@@ -76,9 +76,9 @@ public class DriveBase extends Subsystem
 
     public void resetEncoder()
     {
-        leftSlave.setPosition(0);
-        leftSlave.setEncPosition(0);
-        offset = leftSlave.getEncPosition();
+        leftMaster.setPosition(0);
+        leftMaster.setEncPosition(0);
+        offset = leftMaster.getEncPosition();
         try {
             Thread.sleep(30);
         } catch (InterruptedException e) {
