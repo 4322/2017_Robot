@@ -25,8 +25,8 @@ public class DriveBase extends Subsystem
     public DriveBase()
     {
         leftMaster = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
-        leftMaster.changeControlMode(TalonControlMode.PercentVbus);
-        leftMaster.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
+        leftMaster.changeControlMode(TalonControlMode.Follower);
+        leftSlave.setFeedbackDevice(CANTalon.FeedbackDevice.QuadEncoder);
         leftMaster.setCloseLoopRampRate(48);
         leftMaster.setVoltageRampRate(48);
         leftMaster.configEncoderCodesPerRev(256);
@@ -37,7 +37,7 @@ public class DriveBase extends Subsystem
         rightMaster.setVoltageRampRate(48);
         rightMaster.configEncoderCodesPerRev(256);
         leftSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_SLAVE_ADDR);
-        leftSlave.changeControlMode(TalonControlMode.Follower);
+        leftSlave.changeControlMode(TalonControlMode.PercentVbus);
         leftSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_LEFT_MASTER_ADDR);
         rightSlave = new CANTalon(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_SLAVE_ADDR);
         rightSlave.changeControlMode(TalonControlMode.Follower);
@@ -53,10 +53,10 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return (leftMaster.getPosition()) * (ticksToDist);
+        return (leftSlave.getPosition()) * (ticksToDist);
     }
 
-    public double getSpeed() { return leftMaster.getEncVelocity(); }
+    public double getSpeed() { return leftSlave.getEncVelocity(); }
 
     public double getAngle()
     {
@@ -76,9 +76,9 @@ public class DriveBase extends Subsystem
 
     public void resetEncoder()
     {
-        leftMaster.setPosition(0);
-        leftMaster.setEncPosition(0);
-        offset = leftMaster.getEncPosition();
+        leftSlave.setPosition(0);
+        leftSlave.setEncPosition(0);
+        offset = leftSlave.getEncPosition();
         try {
             Thread.sleep(30);
         } catch (InterruptedException e) {
