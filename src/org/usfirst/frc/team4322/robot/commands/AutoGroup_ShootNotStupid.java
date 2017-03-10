@@ -13,6 +13,7 @@ public class AutoGroup_ShootNotStupid extends CommandGroup
         addSequential(new Shooter_Spin(),2);
         addSequential(new Group_StartIndex(),8);
 	    addParallel(new Group_StopIndex(),.1);
+        addParallel(new Shooter_Stop(),.1);
 	    addSequential(new DriveBase_FMSDrive(100));
     }
 }
