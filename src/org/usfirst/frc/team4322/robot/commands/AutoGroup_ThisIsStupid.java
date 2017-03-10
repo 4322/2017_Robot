@@ -9,6 +9,6 @@ public class AutoGroup_ThisIsStupid extends CommandGroup
 {
     public AutoGroup_ThisIsStupid()
     {
-        addSequential(new DriveBase_StupidDriveDistance(100));
+        addSequential(new DriveBase_StupidDriveDistance(400));
     }
 }

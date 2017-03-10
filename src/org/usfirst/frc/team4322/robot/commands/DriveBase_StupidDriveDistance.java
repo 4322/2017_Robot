@@ -23,13 +23,12 @@ public class DriveBase_StupidDriveDistance extends Command
     public synchronized void start()
     {
         super.start();
-        done=false;
-        counter = 0;
     }
 
     @Override
     public void end()
     {
+        done = false;
         Robot.driveBase.drive(0,0);
     }
 
@@ -40,8 +39,10 @@ public class DriveBase_StupidDriveDistance extends Command
 
 	    Robot.driveBase.drive(-0.6,0);
 	    counter+=1;
-	    if(counter>=max)
-		    done = true;
+	    if(counter>=max) {
+            done = true;
+            counter = 0;
+        }
     }
 
 
