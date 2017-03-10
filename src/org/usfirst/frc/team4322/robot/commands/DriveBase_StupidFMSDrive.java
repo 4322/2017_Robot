@@ -15,7 +15,7 @@ public class DriveBase_StupidFMSDrive extends Command
     private int counter = 0, max = 0;
     public DriveBase_StupidFMSDrive(int ticks)
     {
-        counter = max = ticks;
+        max = ticks;
         requires(Robot.driveBase);
     }
 
@@ -23,13 +23,12 @@ public class DriveBase_StupidFMSDrive extends Command
     public synchronized void start()
     {
         super.start();
-        done=false;
-        counter = 0;
     }
 
     @Override
     public void end()
     {
+        done = false;
         Robot.driveBase.drive(0,0);
     }
 
@@ -39,9 +38,12 @@ public class DriveBase_StupidFMSDrive extends Command
     {
 
 	    Robot.driveBase.drive(DriverStation.getInstance().getAlliance() == DriverStation.Alliance.Blue ? .6 : -.6,0);
-	    counter++;
-	    if(counter==max)
-		    done = true;
+        counter+=1;
+        if(counter>=max) {
+            done = true;
+            counter = 0;
+        }
+
     }
 
 
