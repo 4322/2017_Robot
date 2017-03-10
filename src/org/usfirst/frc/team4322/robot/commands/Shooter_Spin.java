@@ -16,7 +16,7 @@ public class Shooter_Spin extends Command
     @Override
     public void execute()
     {
-        Robot.shooter.set(RobotMap.SHOOTER_RPM_DOUBLE);
+        Robot.shooter.set(RobotMap.SHOOTER_RPM);
         SmartDashboard.putNumber("Shooter Actual RPM: ", Robot.shooter.get());
     }
     
