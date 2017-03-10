@@ -13,7 +13,7 @@ public class Command_Delay extends Command
 
 	public Command_Delay(int millis)
 	{
-		delay = 0;
+		delay = millis;
 	}
 
 	@Override
