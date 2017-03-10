@@ -12,6 +12,6 @@ public class AutoGroup_ShootStupid extends CommandGroup
         addSequential(new Shooter_Spin(),2);
         addSequential(new Group_StartIndex(),8);
 	    addParallel(new Group_StopIndex(),.1);
-	    addSequential(new DriveBase_StupidDriveDistance(400));
+	    addSequential(new DriveBase_StupidFMSDrive(400));
     }
 }
