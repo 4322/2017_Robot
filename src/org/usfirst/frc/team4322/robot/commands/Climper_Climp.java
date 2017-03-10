@@ -1,6 +1,7 @@
 package org.usfirst.frc.team4322.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team4322.robot.OI;
 import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.Robot;
 
@@ -16,7 +17,7 @@ public class Climper_Climp extends Command
     @Override
     public void execute()
     {
-        Robot.climper.set(1);
+        Robot.climper.set(OI.operator.leftStick.getY());
     }
     @Override
     public void end()
@@ -25,6 +26,6 @@ public class Climper_Climp extends Command
     }
     @Override
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 }

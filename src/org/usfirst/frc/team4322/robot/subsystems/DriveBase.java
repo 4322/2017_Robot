@@ -19,7 +19,6 @@ public class DriveBase extends Subsystem
     private CANTalon leftMaster,leftSlave,rightMaster,rightSlave;
     private AHRS navx;
     private RobotDrive drive;
-//    private static final double ticksToDist = 0.4*Math.PI;
     private static final double ticksToDist = 4*Math.PI;
     double offset = 0.0;
 
