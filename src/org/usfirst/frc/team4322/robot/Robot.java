@@ -90,7 +90,7 @@ public class Robot extends IterativeRobot
         autoChooser = new SendableChooser();
         autoChooser.addDefault("Do Nothing: ", new AutoGroup_DoNothing());
         autoChooser.addObject("Reach Baseline: ", new AutoGroup_ReachBaseline());
-        autoChooser.addObject("Gear Middle: ", new AutoGroup_GearMiddle());
+        autoChooser.addObject("Gear Middle: (HIGHLY EXPERIMENTAL COLLISION SENSING)", new AutoGroup_GearMiddle());
         autoChooser.addObject("Gear Left: ", new AutoGroup_GearLeft());
         autoChooser.addObject("Gear Right: ", new AutoGroup_GearRight());
         autoChooser.addObject("Hopper + Shoot: ", new AutoGroup_Hopper());

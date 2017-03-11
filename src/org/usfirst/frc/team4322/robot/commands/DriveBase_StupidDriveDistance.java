@@ -8,13 +8,19 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 /**
  * Created by software on 2/2/17.
  */
-public class DriveBase_StupidDriveDistance extends Command
-{
-    private boolean done = false;
+public class DriveBase_StupidDriveDistance extends Command {
+    private boolean done = false, backwards = false;
     private int counter = 0, max = 0;
+
     public DriveBase_StupidDriveDistance(int ticks)
     {
+        this(ticks,false);
+    }
+
+    public DriveBase_StupidDriveDistance(int ticks,boolean bw)
+    {
         max =  ticks;
+        backwards = bw;
         counter = 0;
         requires(Robot.driveBase);
     }
@@ -37,7 +43,7 @@ public class DriveBase_StupidDriveDistance extends Command
     public void execute()
     {
 
-	    Robot.driveBase.drive(-0.6,0);
+	    Robot.driveBase.drive(backwards ? 0.6 : -0.6,0);
 	    counter+=1;
 	    if(counter>=max) {
             done = true;

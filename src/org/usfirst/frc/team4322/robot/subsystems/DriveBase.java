@@ -58,6 +58,10 @@ public class DriveBase extends Subsystem
 
     public double getSpeed() { return leftMaster.getEncVelocity(); }
 
+    public double getRoll() {
+        return navx.getRawAccelZ();
+    }
+
     public double getAngle()
     {
         return navx.getYaw();
@@ -73,6 +77,7 @@ public class DriveBase extends Subsystem
         drive.arcadeDrive(pow, -rot, true);
 
     }
+
 
     public void resetEncoder()
     {

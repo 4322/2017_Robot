@@ -12,8 +12,9 @@ public class AutoGroup_GearMiddle extends CommandGroup
     public AutoGroup_GearMiddle()
     {
 
-        addSequential(new DriveBase_DriveDistance(90)); //Drive up to peg
+//        addSequential(new DriveBase_DriveDistance(90)); //Drive up to peg
+        addSequential(new DriveBase_ReallyStupidDrive()); //cancer
         addSequential(new GearGrabber_EjectGear()); //Put gear on peg
-        addSequential(new DriveBase_DriveDistance(-6)); //Back up a bit
+        addSequential(new DriveBase_StupidDriveDistance(10,true)); //Back up a bit
     }
 }
