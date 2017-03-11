@@ -43,7 +43,7 @@ public class RobotMap
     // ** SHOOTER MAP VALUES **
     // ************************
     @DashboardInputField(field="Shooter Target RPM: ")
-    public static double SHOOTER_RPM = 2850;
+    public static double SHOOTER_RPM = 2700; //at 69" from boiler lol
     @DashboardInputField(field="Shooter P: ")
     public static double SHOOTER_P = 0.4;
     @DashboardInputField(field="Shooter I: ")
