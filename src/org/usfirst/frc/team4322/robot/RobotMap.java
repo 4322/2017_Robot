@@ -61,13 +61,13 @@ public class RobotMap
     // ** DRIVEBASE AIMING MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Aim P: ")
-    public static double DRIVEBASE_AIM_P = .0125;
+    public static double DRIVEBASE_AIM_P = .0115;
     @DashboardInputField(field="Drivebase Aim I: ")
-    public static double DRIVEBASE_AIM_I = 0;
+    public static double DRIVEBASE_AIM_I = 0.001;
     @DashboardInputField(field="Drivebase Aim IZone: ")
-    public static double DRIVEBASE_AIM_IZONE = 0;
+    public static double DRIVEBASE_AIM_IZONE = 2;
     @DashboardInputField(field="Drivebase Aim D: ")
-    public static double DRIVEBASE_AIM_D = 0.0025;
+    public static double DRIVEBASE_AIM_D = 0.0035;
     // *********************************
     // ** DRIVEBASE DRIVING MAP VALUES **
     // *********************************

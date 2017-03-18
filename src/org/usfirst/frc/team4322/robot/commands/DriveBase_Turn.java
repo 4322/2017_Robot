@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4322.robot.commands;
 
+import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.robot.Robot;
@@ -48,6 +49,7 @@ public class DriveBase_Turn extends Command
         SmartDashboard.putNumber("Turn Error: ",err);
         SmartDashboard.putNumber("Robot Yaw:",Robot.driveBase.getAngle());
         double out = err * RobotMap.DRIVEBASE_AIM_P + acc*RobotMap.DRIVEBASE_AIM_I + lastErr*RobotMap.DRIVEBASE_AIM_D;
+        out += (err <= RobotMap.DRIVEBASE_AIM_IZONE) ? acc* RobotMap.DRIVEBASE_AIM_I : (acc=0);
         if(Math.abs(err)<=RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
