@@ -57,7 +57,7 @@ public class DriveBase_DriveDistance extends Command
             counter=0;
             double out = RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last;
             out += Math.copySign(.33,out);
-            Robot.driveBase.drive(-out, -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
+            Robot.driveBase.drive(out, -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
         }
     }
 
