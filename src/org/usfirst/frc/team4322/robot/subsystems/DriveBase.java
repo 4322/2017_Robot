@@ -21,6 +21,7 @@ public class DriveBase extends Subsystem
     private RobotDrive drive;
     private static final double ticksToDist = 4*Math.PI;
     double offset = 0.0;
+    double offsetNavX = 0;
 
     public DriveBase()
     {
@@ -64,12 +65,13 @@ public class DriveBase extends Subsystem
 
     public double getAngle()
     {
-        return navx.getYaw();
+        return (navx.getYaw() - offsetNavX);
     }
 
     public void resetNavX()
     {
-        navx.zeroYaw();
+        offsetNavX = navx.getYaw();
+
     }
 
     public void drive(double pow, double rot)
