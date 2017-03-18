@@ -12,6 +12,7 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 public class DriveBase_Turn extends Command
 {
     private double angle, lastErr, acc;
+    private int counter =0 ;
     private boolean done = false;
     public DriveBase_Turn(double angle)
     {
@@ -34,6 +35,7 @@ public class DriveBase_Turn extends Command
         Robot.driveBase.resetNavX();
         Robot.driveBase.resetNavX();
         Robot.driveBase.resetNavX();
+        counter = 0;
     }
 
     @Override
@@ -54,10 +56,13 @@ public class DriveBase_Turn extends Command
         {
             Robot.driveBase.drive(0,0);
             acc = 0;
-            done = false;
+            counter++;
+            if(counter == 7)
+                done = true;
         }
         else
         {
+            counter = 0;
             Robot.driveBase.drive(0, out);
         }
         acc += err;
@@ -67,6 +72,6 @@ public class DriveBase_Turn extends Command
     @Override
     public boolean isFinished()
     {
-        return false;
+        return done;
     }
 }
