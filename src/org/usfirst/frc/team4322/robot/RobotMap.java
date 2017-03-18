@@ -85,7 +85,7 @@ public class RobotMap
     // ** DRIVEBASE NAVX MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Navx P: ")
-    public static double DRIVEBASE_NAVX_P = .0009175;
+    public static double DRIVEBASE_NAVX_P = .0008175;
     @DashboardInputField(field="Drivebase Navx I: ")
     public static double DRIVEBASE_NAVX_I = 0;
     @DashboardInputField(field="Drivebase Navx IZone: ")

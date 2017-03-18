@@ -21,7 +21,7 @@ public class AutoGroup_GearBoiler extends CommandGroup
 //        addParallel(new GearGrabber_EjectGear()); //Put gear on peg
 //        addSequential(new Command_Delay(500));
 //        addSequential(new DriveBase_DriveDistance(6)); //Back up a bit
-        addSequential(new DriveBase_DriveDistance(-8));
+        addSequential(new DriveBase_DriveDistance(-16));
         addSequential(new DriveBase_Turn(-60));
         addSequential(new DriveBase_DriveDistance(-80));
     }
