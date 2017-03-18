@@ -36,7 +36,7 @@ public class DriveBase_DriveDashboard extends Command
     @Override
     public void execute()
     {
-        Robot.driveBase.drive(SmartDashboard.getNumber("Drive Power: "),0);
+        Robot.driveBase.drive(0, SmartDashboard.getNumber("Drive Power: "));
     }
 
 
