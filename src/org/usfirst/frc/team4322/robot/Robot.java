@@ -100,6 +100,7 @@ public class Robot extends IterativeRobot
 //        autoChooser.addObject("Reach Baseline (Stupid)",new AutoGroup_ThisIsStupid());
 //        autoChooser.addObject("Shoot and Drive (Stupid)", new AutoGroup_ShootStupid());
         SmartDashboard.putData("AUTO MODES: ", autoChooser);
+        SmartDashboard.putNumber("Drive Power: ",0.0);
         //Link Classes for the @DashboardInputField magic
         MapSynchronizer.getInstance().link(RobotMap.class);
         MapSynchronizer.getInstance().link(DriveBase_VisionTurn.class);
@@ -171,6 +172,7 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Collector Power Draw: ",pdp.getCurrent(RobotMap.PDP_COLLECTOR));
         SmartDashboard.putNumber("Total Power Draw: ",pdp.getTotalCurrent());
         Scheduler.getInstance().run();
+
     }
 
     /**
