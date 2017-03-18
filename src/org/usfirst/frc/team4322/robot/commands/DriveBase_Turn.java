@@ -35,6 +35,7 @@ public class DriveBase_Turn extends Command
         Robot.driveBase.resetNavX();
         Robot.driveBase.resetNavX();
         Robot.driveBase.resetNavX();
+        done = false;
         counter = 0;
     }
 
