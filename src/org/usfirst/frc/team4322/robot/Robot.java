@@ -120,6 +120,7 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         Scheduler.getInstance().run();
         Robot.driveBase.resetEncoder();
+        Robot.driveBase.resetNavX();
 
 
     }
