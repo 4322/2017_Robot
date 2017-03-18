@@ -23,6 +23,6 @@ public class AutoGroup_GearBoiler extends CommandGroup
 //        addSequential(new DriveBase_DriveDistance(6)); //Back up a bit
         addSequential(new DriveBase_DriveDistance(-8));
         addSequential(new DriveBase_Turn(-60));
-        addSequential(new DriveBase_DriveDistance(-90));
+        addSequential(new DriveBase_DriveDistance(-80));
     }
 }
