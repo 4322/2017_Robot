@@ -12,11 +12,17 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 public class DriveBase_DriveDistance extends Command
 {
     private double dist,last,cur;
+    private boolean usesNavx;
     private boolean done = false;
     private int counter = 0;
     public DriveBase_DriveDistance (double dist)
     {
+        this(dist,true);
+    }
+    public DriveBase_DriveDistance (double dist, boolean usesNavx)
+    {
         this.dist = dist;
+        this.usesNavx = usesNavx;
         requires(Robot.driveBase);
     }
 
@@ -32,7 +38,8 @@ public class DriveBase_DriveDistance extends Command
     @Override
     public void end()
     {
-        Robot.driveBase.drive(0,0);      done=false;
+        Robot.driveBase.drive(0,0);
+        done=false;
         counter = 0;
         last=0;      Robot.driveBase.resetEncoder();
         Robot.driveBase.resetNavX();
@@ -58,8 +65,7 @@ public class DriveBase_DriveDistance extends Command
             counter=0;
             double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
-            double outRot = -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P;
-            outRot += Math.copySign(.4,outRot);
+            double outRot = usesNavx ? ((-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
             Robot.driveBase.drive(out, outRot);
         }
     }
