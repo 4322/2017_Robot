@@ -72,7 +72,7 @@ public class RobotMap
     // ** DRIVEBASE DRIVING MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Drive P: ")
-    public static double DRIVEBASE_DRIVE_P = .028;
+    public static double DRIVEBASE_DRIVE_P = .02775;
     @DashboardInputField(field="Drivebase Drive I: ")
     public static double DRIVEBASE_DRIVE_I = .000;
     @DashboardInputField(field="Drivebase Drive IZone: ")
@@ -85,7 +85,7 @@ public class RobotMap
     // ** DRIVEBASE NAVX MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Navx P: ")
-    public static double DRIVEBASE_NAVX_P = .0008175;
+    public static double DRIVEBASE_NAVX_P = .0006175;
     @DashboardInputField(field="Drivebase Navx I: ")
     public static double DRIVEBASE_NAVX_I = 0;
     @DashboardInputField(field="Drivebase Navx IZone: ")
