@@ -81,6 +81,20 @@ public class RobotMap
     public static double DRIVEBASE_DRIVE_D = 0.015;
     @DashboardInputField(field="Drivebase Error Tolerance: ")
     public static double AUTON_DRIVE_TOLERANCE = .750;
+    // *********************************
+    // ** DRIVEBASE NAVX MAP VALUES **
+    // *********************************
+    @DashboardInputField(field="Drivebase Navx P: ")
+    public static double DRIVEBASE_NAVX_P = .0009175;
+    @DashboardInputField(field="Drivebase Navx I: ")
+    public static double DRIVEBASE_NAVX_I = 0;
+    @DashboardInputField(field="Drivebase Navx IZone: ")
+    public static double DRIVEBASE_NAVX_IZONE = 0;
+    @DashboardInputField(field="Drivebase Navx D: ")
+    public static double DRIVEBASE_NAVX_D = 0;
+    @DashboardInputField(field="Drivebase Navx Tolerance: ")
+    public static double AUTON_NAVX_TOLERANCE = .750;
+
     // ************************
     // ** INDEXER MAP VALUES **
     // ************************
