@@ -47,13 +47,16 @@ public class DriveBase_Turn extends Command
     public void execute()
     {
         double err = (angle - Robot.driveBase.getAngle());
-        if (err >= 180)
+        if (Math.abs(err) > (360/2))
         {
-            err -= 360;
-        }
-        else if (err <= 180)
-        {
-            err += 360;
+            if (err > 0)
+            {
+                err -= 360;
+            }
+            else
+            {
+                err += 360;
+            }
         }
         SmartDashboard.putNumber("Turn Error: ",err);
         SmartDashboard.putNumber("Robot Yaw:",Robot.driveBase.getAngle());
