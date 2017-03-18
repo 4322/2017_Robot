@@ -80,7 +80,7 @@ public class RobotMap
     @DashboardInputField(field="Drivebase Drive D: ")
     public static double DRIVEBASE_DRIVE_D = 0.015;
     @DashboardInputField(field="Drivebase Error Tolerance: ")
-    public static double AUTON_DRIVE_TOLERANCE = .5;
+    public static double AUTON_DRIVE_TOLERANCE = .750;
     // ************************
     // ** INDEXER MAP VALUES **
     // ************************
