@@ -41,8 +41,8 @@ public class DriveBase_DriveDistance extends Command
     {
         last=cur-dist;
         cur = Robot.driveBase.getDist();
-        SmartDashboard.putNumber("Drive Error: ",dist-cur);
-        if(Math.abs(dist-cur )<= RobotMap.AUTON_DRIVE_TOLERANCE)
+        SmartDashboard.putNumber("Drive Error: ",cur-dist);
+        if(Math.abs(cur-dist )<= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
             counter++;
@@ -54,7 +54,7 @@ public class DriveBase_DriveDistance extends Command
         {
             counter=0;
 
-            Robot.driveBase.drive((cur<dist) ?  Math.min(.7,RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last) :  Math.max(-.7,RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last), -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
+            Robot.driveBase.drive((cur<dist) ?  Math.min(.7,RobotMap.DRIVEBASE_DRIVE_P*(cur-dist)+RobotMap.DRIVEBASE_DRIVE_D*last) :  Math.max(-.7,RobotMap.DRIVEBASE_DRIVE_P*(cur-dist)+RobotMap.DRIVEBASE_DRIVE_D*last), -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
         }
     }
 
