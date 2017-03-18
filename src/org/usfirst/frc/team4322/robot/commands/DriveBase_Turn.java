@@ -46,7 +46,7 @@ public class DriveBase_Turn extends Command
     {
         double err = (angle - Robot.driveBase.getAngle());
         SmartDashboard.putNumber("Turn Error: ",err);
-
+        SmartDashboard.putNumber("Robot Yaw:",Robot.driveBase.getAngle());
         double out = err * RobotMap.DRIVEBASE_AIM_P + acc*RobotMap.DRIVEBASE_AIM_I + lastErr*RobotMap.DRIVEBASE_AIM_D;
         if(Math.abs(err)<=RobotMap.AUTON_DRIVE_TOLERANCE)
         {
