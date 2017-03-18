@@ -25,15 +25,16 @@ public class DriveBase_DriveDistance extends Command
         super.start();
       Robot.driveBase.resetEncoder();
       Robot.driveBase.resetNavX();
-      done=false;
-      counter = 0;
-      last=0;
+
     }
 
     @Override
     public void end()
     {
-        Robot.driveBase.drive(0,0);
+        Robot.driveBase.drive(0,0);      done=false;
+        counter = 0;
+        last=0;      Robot.driveBase.resetEncoder();
+        Robot.driveBase.resetNavX();
     }
 
 
@@ -43,7 +44,7 @@ public class DriveBase_DriveDistance extends Command
         last=cur-dist;
         cur = Robot.driveBase.getDist();
         SmartDashboard.putNumber("Drive Error: ",cur-dist);
-        if(Math.abs(dist) - Math.abs(cur) <= RobotMap.AUTON_DRIVE_TOLERANCE)
+        if(Math.abs(Math.abs(dist) - Math.abs(cur)) <= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
             counter++;
