@@ -28,6 +28,7 @@ public class DriveBase_DriveDistance extends Command
       done=false;
       counter = 0;
       last=0;
+        Robot.driveBase.drive(.25,0);
     }
 
     @Override
