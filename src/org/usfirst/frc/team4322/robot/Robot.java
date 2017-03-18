@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.dashboard.*;
@@ -60,6 +61,7 @@ public class Robot extends IterativeRobot
     {
         //Start Logger
         RobotLogger.getInstance().update(false);
+        MapSynchronizer.getInstance().link(RobotLogger.class);
         //Start Subsystems (Mind Dependencies!)
         driveBase = new DriveBase();
         shooter = new Shooter();
@@ -80,6 +82,7 @@ public class Robot extends IterativeRobot
         try
         {
             Manifest mf = new JarFile(Robot.class.getProtectionDomain().getCodeSource().getLocation().getFile()).getManifest();
+            RobotLogger.getInstance().info("Starting Build %s constructed at %s.",mf.getMainAttributes().getValue("Build-Hash"),mf.getMainAttributes().getValue("Build-Time"));
             SmartDashboard.putString("Build Hash:",mf.getMainAttributes().getValue("Build-Hash"));
             SmartDashboard.putString("Build Time:",mf.getMainAttributes().getValue("Build-Time"));
         }
@@ -115,7 +118,6 @@ public class Robot extends IterativeRobot
     public void disabledPeriodic()
     {
         SmartDashboard.putNumber("Navx Yaw: ",Robot.driveBase.getAngle());
-
         Scheduler.getInstance().run();
         Robot.driveBase.resetEncoder();
 
