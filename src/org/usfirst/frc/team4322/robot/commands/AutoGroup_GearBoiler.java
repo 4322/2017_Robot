@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4322.robot.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -11,7 +12,7 @@ public class AutoGroup_GearBoiler extends CommandGroup
     public AutoGroup_GearBoiler()
     {
         addSequential(new DriveBase_DriveDistance(90)); //Drive a certain distance
-        addSequential(new DriveBase_Turn(60)); //Turn 30 degrees
+        addSequential(new DriveBase_Turn(DriverStation.getInstance().getAlliance() == DriverStation.Alliance.Blue ? 60 : -60)); //Turn 30 degrees
         addSequential(new Command_Delay(250));
         addSequential(new DriveBase_DriveDistance(8)); //Drive up to peg
 //        addSequential(new DriveBase_VisionTurn(() -> {
