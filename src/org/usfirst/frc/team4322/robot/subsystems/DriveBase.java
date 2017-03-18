@@ -81,6 +81,7 @@ public class DriveBase extends Subsystem
 
     public void resetEncoder()
     {
+        leftMaster.reverseSensor(true);
         leftMaster.setPosition(0);
         leftMaster.setEncPosition(0);
         offset = leftMaster.getEncPosition();
