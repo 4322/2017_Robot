@@ -31,6 +31,8 @@ public class DriveBase_Turn extends Command
     {
         Robot.driveBase.drive(0,0);
         Robot.driveBase.resetNavX();
+        Robot.driveBase.resetNavX();
+        Robot.driveBase.resetNavX();
     }
 
     @Override
