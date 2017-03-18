@@ -2,6 +2,7 @@ package org.usfirst.frc.team4322.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.opencv.core.Mat;
 import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
 
@@ -55,7 +56,7 @@ public class DriveBase_DriveDistance extends Command
         else
         {
             counter=0;
-            double out = RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last;
+            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
             Robot.driveBase.drive(out, -Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_AIM_P);
         }
