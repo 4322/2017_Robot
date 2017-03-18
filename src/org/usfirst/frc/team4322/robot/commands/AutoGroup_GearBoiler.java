@@ -12,7 +12,7 @@ public class AutoGroup_GearBoiler extends CommandGroup
     {
         addSequential(new DriveBase_DriveDistance(90)); //Drive a certain distance
         addSequential(new DriveBase_Turn(60)); //Turn 30 degrees
-        addParallel(new DriveBase_DriveDistance(12)); //Drive up to peg
+        addSequential(new DriveBase_DriveDistance(12)); //Drive up to peg
 //        addSequential(new DriveBase_VisionTurn(() -> {
 //            return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
 //        }));
