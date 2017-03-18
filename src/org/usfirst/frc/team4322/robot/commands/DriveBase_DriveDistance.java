@@ -43,8 +43,8 @@ public class DriveBase_DriveDistance extends Command
     {
         last=cur-dist;
         cur = Robot.driveBase.getDist();
-        SmartDashboard.putNumber("Drive Error: ",cur-dist);
-        if(Math.abs(Math.abs(dist) - Math.abs(cur)) <= RobotMap.AUTON_DRIVE_TOLERANCE)
+        SmartDashboard.putNumber("Drive Error: ",dist-cur);
+        if(Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
             counter++;
