@@ -24,7 +24,7 @@ public class DriveBase_Turn extends Command
     public synchronized void start()
     {
         super.start();
-
+        Robot.driveBase.resetNavX();
     }
 
 
@@ -32,6 +32,7 @@ public class DriveBase_Turn extends Command
     public void end()
     {
         Robot.driveBase.drive(0,0);
+        Robot.driveBase.resetNavX();
         done = false;
         counter = 0;
     }
