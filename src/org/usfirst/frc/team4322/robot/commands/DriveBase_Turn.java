@@ -12,7 +12,7 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 public class DriveBase_Turn extends Command
 {
     private double angle, lastErr, acc;
-    private int counter =0 ;
+    private int counter = 0;
     private boolean done = false;
     public DriveBase_Turn(double angle)
     {

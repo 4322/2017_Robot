@@ -65,7 +65,7 @@ public class RobotMap
     @DashboardInputField(field="Drivebase Aim I: ")
     public static double DRIVEBASE_AIM_I = 0.001;
     @DashboardInputField(field="Drivebase Aim IZone: ")
-    public static double DRIVEBASE_AIM_IZONE = 2;
+    public static double DRIVEBASE_AIM_IZONE = 5;
     @DashboardInputField(field="Drivebase Aim D: ")
     public static double DRIVEBASE_AIM_D = 0.003;
     // *********************************
