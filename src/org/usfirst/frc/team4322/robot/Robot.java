@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4322.dashboard.*;
@@ -94,12 +93,12 @@ public class Robot extends IterativeRobot
         autoChooser.addDefault("Do Nothing: ", new AutoGroup_DoNothing());
         autoChooser.addObject("Reach Baseline: ", new AutoGroup_ReachBaseline());
         autoChooser.addObject("Gear Middle: (HIGHLY EXPERIMENTAL COLLISION SENSING)", new AutoGroup_GearMiddle());
-        autoChooser.addObject("Gear Left: ", new AutoGroup_GearLeft());
-        autoChooser.addObject("Gear Right: ", new AutoGroup_GearRight());
+        autoChooser.addObject("Gear Retrieval: ", new AutoGroup_GearRetrieval());
+        autoChooser.addObject("Gear Boiler: ", new AutoGroup_GearBoiler());
         autoChooser.addObject("Hopper + Shoot: ", new AutoGroup_Hopper());
         autoChooser.addObject("Shoot and Drive", new AutoGroup_ShootNotStupid());
-        autoChooser.addObject("Reach Baseline (Stupid)",new AutoGroup_ThisIsStupid());
-        autoChooser.addObject("Shoot and Drive (Stupid)", new AutoGroup_ShootStupid());
+//        autoChooser.addObject("Reach Baseline (Stupid)",new AutoGroup_ThisIsStupid());
+//        autoChooser.addObject("Shoot and Drive (Stupid)", new AutoGroup_ShootStupid());
         SmartDashboard.putData("AUTO MODES: ", autoChooser);
         //Link Classes for the @DashboardInputField magic
         MapSynchronizer.getInstance().link(RobotMap.class);

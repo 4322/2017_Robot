@@ -6,9 +6,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * Created by software on 3/5/17.
  */
-public class AutoGroup_GearRight extends CommandGroup
+public class AutoGroup_GearBoiler extends CommandGroup
 {
-    public AutoGroup_GearRight()
+    public AutoGroup_GearBoiler()
     {
         addSequential(new DriveBase_DriveDistance(90)); //Drive a certain distance
         addSequential(new DriveBase_Turn(60)); //Turn 30 degrees
