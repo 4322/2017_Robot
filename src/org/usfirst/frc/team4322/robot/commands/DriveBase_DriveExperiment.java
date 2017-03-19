@@ -10,13 +10,13 @@ import org.usfirst.frc.team4322.robot.RobotMap;
  */
 public class DriveBase_DriveExperiment extends Command
 {
-    private double dist,dist2,angle,last,cur;
+    private double dist1,dist2,angle,last,cur;
     private boolean usesNavx;
     private boolean done = false;
     private int counter = 0;
-    public DriveBase_DriveExperiment(double dist, double dist2, double angle, boolean usesNavx)
+    public DriveBase_DriveExperiment(double dist1, double dist2, double angle, boolean usesNavx)
     {
-        this.dist = dist;
+        this.dist1 = dist1;
         this.dist2 = dist2;
         this.angle = angle;
         this.usesNavx = usesNavx;
@@ -58,6 +58,7 @@ public class DriveBase_DriveExperiment extends Command
     @Override
     public void execute()
     {
+        double dist = dist1+dist2;
         last=cur-dist;
         cur = Robot.driveBase.getDist();
         SmartDashboard.putNumber("Drive Error: ",dist-cur);
@@ -74,7 +75,7 @@ public class DriveBase_DriveExperiment extends Command
             counter=0;
             double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
-            double outRot = usesNavx ? ((Math.atan(Math.tan(angle*Math.PI/180)/(1+Math.pow(Math.E,-RobotMap.TURN_GAIN*(cur-(dist+dist2)))) * 180 / Math.PI)-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
+            double outRot = usesNavx ? ((Math.atan(Math.tan(angle*Math.PI/180)/(1+Math.pow(Math.E,-RobotMap.TURN_GAIN*(cur-(dist1+dist2)))) * 180 / Math.PI)-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
             Robot.driveBase.drive(out, outRot);
         }
     }
