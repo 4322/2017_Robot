@@ -150,6 +150,7 @@ public class Robot extends IterativeRobot
     {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
+        SmartDashboard.putData(Scheduler.getInstance());
     }
 
     public void teleopInit()
@@ -172,7 +173,7 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Collector Power Draw: ",pdp.getCurrent(RobotMap.PDP_COLLECTOR));
         SmartDashboard.putNumber("Total Power Draw: ",pdp.getTotalCurrent());
         Scheduler.getInstance().run();
-
+        SmartDashboard.putData(Scheduler.getInstance());
     }
 
     /**

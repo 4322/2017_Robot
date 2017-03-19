@@ -27,6 +27,12 @@ public class DriveBase_DriveDistance extends Command
     }
 
     @Override
+    protected void initialize()
+    {
+
+    }
+
+    @Override
     public synchronized void start()
     {
         super.start();
@@ -43,6 +49,12 @@ public class DriveBase_DriveDistance extends Command
         counter = 0;
         last=0;      Robot.driveBase.resetEncoder();
         Robot.driveBase.resetNavX();
+    }
+
+    @Override
+    protected void interrupted()
+    {
+
     }
 
 

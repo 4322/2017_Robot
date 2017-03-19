@@ -8,7 +8,8 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 /**
  * Created by software on 2/2/17.
  */
-public class DriveBase_StupidDriveDistance extends Command {
+public class DriveBase_StupidDriveDistance extends Command
+{
     private boolean done = false, backwards = false;
     private int counter = 0, max = 0;
 
