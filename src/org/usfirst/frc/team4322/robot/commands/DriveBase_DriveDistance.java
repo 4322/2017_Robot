@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.opencv.core.Mat;
 import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
+import org.usfirst.frc.team4322.robot.subsystems.DriveBase;
 
 /**
  * Created by software on 2/2/17.
@@ -12,7 +13,7 @@ import org.usfirst.frc.team4322.robot.RobotMap;
 public class DriveBase_DriveDistance extends Command
 {
     private double dist,last,cur;
-    private boolean usesNavx, usesCeiling;
+    private boolean usesNavx, usesCeiling, caresAboutBacktrack;
     private boolean done = false;
     private int counter = 0;
     public DriveBase_DriveDistance (double dist)
@@ -23,11 +24,16 @@ public class DriveBase_DriveDistance extends Command
     {
         this(dist,usesNavx,true);
     }
-    public DriveBase_DriveDistance (double dist, boolean usesNavx, boolean usesCeiling)
+    public DriveBase_DriveDistance(double dist, boolean usesNavx, boolean usesCeiling)
+    {
+        this(dist,usesNavx,usesCeiling,true);
+    }
+    public DriveBase_DriveDistance (double dist, boolean usesNavx, boolean usesCeiling, boolean caresAboutBacktrack)
     {
         this.dist = dist;
         this.usesNavx = usesNavx;
         this.usesCeiling = usesCeiling;
+        this.caresAboutBacktrack = caresAboutBacktrack;
         requires(Robot.driveBase);
     }
 
@@ -69,7 +75,7 @@ public class DriveBase_DriveDistance extends Command
         last=cur-dist;
         cur = Robot.driveBase.getDist();
         SmartDashboard.putNumber("Drive Error: ",dist-cur);
-        if(Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE)
+        if(caresAboutBacktrack ? (Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE) : Math.abs(cur) < Math.abs(dist))
         {
             Robot.driveBase.drive(0,0);
             counter++;
