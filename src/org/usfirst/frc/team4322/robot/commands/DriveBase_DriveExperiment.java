@@ -61,7 +61,7 @@ public class DriveBase_DriveExperiment extends Command
         last=cur-(dist+dist2);
         cur = Robot.driveBase.getDist();
         SmartDashboard.putNumber("Drive Error: ",dist+dist2-cur);
-        if(Math.abs(cur) >= dist+dist2)
+        if(Math.abs(dist+dist2-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
             counter++;
@@ -72,7 +72,7 @@ public class DriveBase_DriveExperiment extends Command
         else
         {
             counter=0;
-            double out = -(RobotMap.DRIVEBASE_DRIVE_P*((dist+dist2)-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
+            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist+dist2-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
             double outRot = usesNavx ? ((Math.atan(Math.tan(angle*Math.PI/180)/(1+Math.pow(Math.E,(-RobotMap.TURN_GAIN)*(cur-(dist+dist2)))) * 180 / Math.PI)-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
             Robot.driveBase.drive(out, outRot);
