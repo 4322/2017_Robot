@@ -9,6 +9,6 @@ public class AutoGroup_DoNothing extends CommandGroup
 {
     public AutoGroup_DoNothing()
     {
-        addSequential(new DriveBase_Turn(60));
+        addSequential(new DriveBase_DriveExperiment(0,0,60, true));
     }
 }
