@@ -97,7 +97,7 @@ public class Robot extends IterativeRobot
         autoChooser.addObject("Gear Boiler: ", new AutoGroup_GearBoiler());
         autoChooser.addObject("Hopper + Shoot: ", new AutoGroup_Hopper());
         autoChooser.addObject("Shoot and Drive", new AutoGroup_ShootNotStupid());
-        autoChooser.addObject("Experimental Smooth Turning", new DriveBase_DriveExperiment(90,6, 60, true));
+        autoChooser.addObject("Experimental Smooth Turning", new DriveBase_DriveExperiment(84,6, 60, true));
 //        autoChooser.addObject("Reach Baseline (Stupid)",new AutoGroup_ThisIsStupid());
 //        autoChooser.addObject("Shoot and Drive (Stupid)", new AutoGroup_ShootStupid());
         SmartDashboard.putData("AUTO MODES: ", autoChooser);
