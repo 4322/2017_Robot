@@ -10,14 +10,14 @@ import org.usfirst.frc.team4322.robot.RobotMap;
  */
 public class DriveBase_DriveExperiment extends Command
 {
-    private double dist,dist2,angle,last,cur;
+    private double dist,angle,last,cur;
     private boolean usesNavx;
     private boolean done = false;
     private int counter = 0;
-    public DriveBase_DriveExperiment(double dist, double dist2, double angle, boolean usesNavx)
+    public DriveBase_DriveExperiment(double dist, double angle, boolean usesNavx)
     {
         this.dist = dist;
-        this.dist2 = dist2;
+
         this.angle = angle;
         this.usesNavx = usesNavx;
         requires(Robot.driveBase);
@@ -58,10 +58,10 @@ public class DriveBase_DriveExperiment extends Command
     @Override
     public void execute()
     {
-        last=cur-(dist+dist2);
+        last=cur-(dist);
         cur = Robot.driveBase.getDist();
-        SmartDashboard.putNumber("Drive Error: ",dist+dist2-cur);
-        if(Math.abs(dist+dist2-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE)
+        SmartDashboard.putNumber("Drive Error: ",dist-cur);
+        if(Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE)
         {
             Robot.driveBase.drive(0,0);
             counter++;
@@ -72,9 +72,9 @@ public class DriveBase_DriveExperiment extends Command
         else
         {
             counter=0;
-            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist+dist2-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
+            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
-            double outRot = usesNavx ? ((Math.atan(Math.tan(angle*Math.PI/180)/(1+Math.pow(Math.E,(-RobotMap.TURN_GAIN)*(cur-(dist+dist2)))) * 180 / Math.PI)-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
+            double outRot = usesNavx ? ((Math.atan(Math.tan(angle*Math.PI/180)/(1+Math.pow(Math.E,(-RobotMap.TURN_GAIN)*(cur-(dist)))) * 180 / Math.PI)-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
             Robot.driveBase.drive(out, outRot);
         }
     }
