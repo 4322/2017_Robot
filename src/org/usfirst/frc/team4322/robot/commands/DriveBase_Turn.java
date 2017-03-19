@@ -47,7 +47,7 @@ public class DriveBase_Turn extends Command
     public void execute()
     {
         double err = (angle - Robot.driveBase.getAngle());
-        if (Math.abs(err) > (360/2))
+        if (Math.abs(err) > (360/2)) // shamelessly stolen from wpilib's pid controller
         {
             if (err > 0)
             {
