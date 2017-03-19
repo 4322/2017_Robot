@@ -94,7 +94,8 @@ public class RobotMap
     public static double DRIVEBASE_NAVX_D = 0;
     @DashboardInputField(field="Drivebase Navx Tolerance: ")
     public static double AUTON_NAVX_TOLERANCE = .750;
-
+    @DashboardInputField(field="Smooth Turn Gain: ")
+    public static double TURN_GAIN=5.6;
     // ************************
     // ** INDEXER MAP VALUES **
     // ************************
