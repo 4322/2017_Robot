@@ -58,7 +58,7 @@ public class DriveBase_DriveExperiment extends Command
     @Override
     public void execute()
     {
-        double totalDist = dist+dist2;
+        double totalDist = dist;
         last=cur-totalDist;
         cur = Robot.driveBase.getDist();
         SmartDashboard.putNumber("Drive Error: ",totalDist-cur);
@@ -73,7 +73,7 @@ public class DriveBase_DriveExperiment extends Command
         else
         {
             counter=0;
-            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(totalDist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
+            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
             double outRot = usesNavx ? ((Math.atan(Math.tan(angle*Math.PI/180)/(1+Math.pow(Math.E,-5.6*(cur-(dist)))) * 180 / Math.PI)-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
             Robot.driveBase.drive(out, outRot);
