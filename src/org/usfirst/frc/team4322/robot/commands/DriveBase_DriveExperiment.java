@@ -58,7 +58,7 @@ public class DriveBase_DriveExperiment extends Command
     @Override
     public void execute()
     {
-        double dist = dist1+dist2;
+        double dist = dist1+dist2+2.96;
         last=cur-dist;
         cur = Robot.driveBase.getDist();
         SmartDashboard.putNumber("Drive Error: ",dist-cur);

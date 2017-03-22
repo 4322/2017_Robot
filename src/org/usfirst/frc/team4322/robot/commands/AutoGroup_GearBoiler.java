@@ -12,7 +12,7 @@ public class AutoGroup_GearBoiler extends CommandGroup
     public AutoGroup_GearBoiler()
     {
 //        addSequential(new DriveBase_DriveDistance(90, true)); //Drive a certain distance
-//        addSequential(new DriveBase_Turn(60)); //Turn 30 degrees
+//        addSequential(new DriveBase_FMSTurn(60)); //Turn 30 degrees
 //        addSequential(new DriveBase_DriveDistance(6, false)); //Drive up to peg
 addSequential(new DriveBase_DriveExperiment(90,6,60,true));
 //        addSequential(new DriveBase_VisionTurn(() -> {
@@ -21,11 +21,11 @@ addSequential(new DriveBase_DriveExperiment(90,6,60,true));
 
 
         addSequential(new DriveBase_DriveDistance(-16,false, true, false)); // Back up a bit
-        addSequential(new DriveBase_Turn(-60)); // Straighten out
+        addSequential(new DriveBase_FMSTurn(-60)); // Straighten out
 
 //        addSequential(new DriveBase_DriveDistance(54,true, true,false)); // Drive to line
-//        addSequential(new DriveBase_Turn(45)); // turn some angle
+//        addSequential(new DriveBase_FMSTurn(45)); // turn some angle
 //        addSequential(new DriveBase_DriveDistance(200,true,false, false)); // DRIVE ALL THE WAY
-//        addSequential(new DriveBase_Turn(-45)); // face the retrieval zone
+//        addSequential(new DriveBase_FMSTurn(-45)); // face the retrieval zone
     }
 }

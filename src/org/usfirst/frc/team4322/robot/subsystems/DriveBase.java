@@ -54,10 +54,10 @@ public class DriveBase extends Subsystem
 
     public double getDist()
     {
-        return (leftMaster.getPosition()) * (ticksToDist);
+        return ((leftMaster.getPosition() * ticksToDist ) + (rightMaster.getPosition() * ticksToDist)) / 2;
     }
 
-    public double getSpeed() { return leftMaster.getEncVelocity(); }
+    public double getSpeed() {return leftMaster.getEncVelocity(); }
 
     public double getRoll() {
         return navx.getRawAccelZ();

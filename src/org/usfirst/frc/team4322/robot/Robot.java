@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4322.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.command.Command;
@@ -105,6 +106,7 @@ public class Robot extends IterativeRobot
         //Link Classes for the @DashboardInputField magic
         MapSynchronizer.getInstance().link(RobotMap.class);
         MapSynchronizer.getInstance().link(DriveBase_VisionTurn.class);
+        CameraServer.getInstance().startAutomaticCapture();
     }
 
     /**
