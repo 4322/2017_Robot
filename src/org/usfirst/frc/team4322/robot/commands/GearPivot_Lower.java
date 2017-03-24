@@ -12,6 +12,7 @@ public class GearPivot_Lower extends Command
     public GearPivot_Lower()
     {
         requires(Robot.gearPivot);
+        Robot.gearPivot.reset();
     }
 
     @Override
