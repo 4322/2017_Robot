@@ -56,7 +56,7 @@ public class Robot extends IterativeRobot
     public static AutoChooser autoSwitch;
 
 
-    public String[] autoNames = {"Do Nothing","Reach Baseline","Shoot + Drive","Gear Middle","Gear Boiler","Gear Retrieval","Hopper + Shoot","Über"};
+    public String[] autoNames = {"Do Nothing","Reach Baseline","Shoot + Drive","Gear Middle","Gear Boiler","Gear Retrieval","Hopper + Shoot","Über","Do Nothing","Do Nothing"};
     public Command[] autoCommands;
     /**
      * This function is run when the robot is first started up and should be
@@ -81,7 +81,7 @@ public class Robot extends IterativeRobot
         pdp = new PowerDistributionPanel(0);
         //Start OI
         oi = new OI();
-        Command[] tmp = {new AutoGroup_DoNothing(), new AutoGroup_ShootNotStupid(), new AutoGroup_GearMiddle(), new AutoGroup_GearBoiler(), new AutoGroup_GearRetrieval(), new AutoGroup_Hopper(), new AutoGroup_Über()};
+        Command[] tmp = {new AutoGroup_DoNothing(), new AutoGroup_ShootNotStupid(), new AutoGroup_GearMiddle(), new AutoGroup_GearBoiler(), new AutoGroup_GearRetrieval(), new AutoGroup_Hopper(), new AutoGroup_Über(),new AutoGroup_DoNothing(), new AutoGroup_DoNothing()};
         autoCommands = tmp;
         autoSwitch = new AutoChooser();
 
