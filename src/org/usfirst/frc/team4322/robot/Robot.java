@@ -54,7 +54,7 @@ public class Robot extends IterativeRobot
     //Autonomous
     public static Command autonomousCommand;
     public static SendableChooser autoChooser;
-   
+    public static AutoChooser autoSwitch;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -128,7 +128,7 @@ public class Robot extends IterativeRobot
         Scheduler.getInstance().run();
         Robot.driveBase.resetEncoder();
         Robot.driveBase.resetNavX();
-
+        SmartDashboard.putNumber("Auto Switch: ",autoSwitch.get());
 
     }
 
