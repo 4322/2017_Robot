@@ -42,9 +42,9 @@ public class OI {
         // Left Trigger to index and convey
         operator.lt.whileHeld(new Group_StartIndex());
         // Prepare to collect a gear
-        operator.y.whileHeld(new GearPivot_Lower());
+        operator.y.whenPressed(new GearPivot_Lower());
         // X button to eject gear
-        operator.x.whileHeld(new GearPivot_Raise());
+        operator.x.whenPressed(new GearPivot_Raise());
 
     }
 }

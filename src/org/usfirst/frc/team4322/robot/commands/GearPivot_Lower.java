@@ -12,7 +12,6 @@ public class GearPivot_Lower extends Command
     public GearPivot_Lower()
     {
         requires(Robot.gearPivot);
-        Robot.gearPivot.reset();
     }
 
     @Override
@@ -24,6 +23,13 @@ public class GearPivot_Lower extends Command
     @Override
     protected boolean isFinished()
     {
-        return false;
+        return Robot.gearPivot.get() >= 175;
+    }
+
+    @Override
+    protected void end()
+    {
+        super.end();
+        Robot.gearPivot.reset();
     }
 }
