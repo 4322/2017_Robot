@@ -80,7 +80,7 @@ public class Robot extends IterativeRobot
         oi = new OI();
 
         autoChooser = null;
-
+        autoSwitch = new AutoChooser();
 
         try
         {
