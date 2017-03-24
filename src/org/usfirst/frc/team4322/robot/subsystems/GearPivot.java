@@ -12,11 +12,14 @@ public class GearPivot extends Subsystem
 
     private Victor victor;
     private Counter encoder;
+    private AnalogTrigger trig;
 
     public GearPivot()
     {
         victor = new Victor(RobotMap.GEAR_PIVOT_VICTOR_PORT);
-        encoder = new Counter(new AnalogTrigger(0));
+        trig = new AnalogTrigger(0);
+        trig.setLimitsVoltage(3.2,4.7);
+        encoder = new Counter(trig);
     }
 
     @Override
