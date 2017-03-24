@@ -43,10 +43,10 @@ public class OI {
         // Left Trigger to index and convey
         operator.lt.whileHeld(new Group_StartIndex());
         // Prepare to collect a gear
-        operator.y.whileHeld(new Group_GrabGear());
+        operator.y.whileHeld(new GearPivot_Lower());
         // X button to eject gear
-        operator.x.whileHeld(new GearGrabber_EjectGear());
-        operator.x.whenReleased(new GearGrabber_RetractGrabber());
+        operator.x.whileHeld(new GearPivot_Raise());
+
     }
 }
 
