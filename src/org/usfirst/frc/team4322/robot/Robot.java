@@ -53,8 +53,11 @@ public class Robot extends IterativeRobot
     public static PowerDistributionPanel pdp;
     //Autonomous
     public static Command autonomousCommand;
-    public static SendableChooser autoChooser;
     public static AutoChooser autoSwitch;
+
+
+    public String[] autoNames = {"Do Nothing","Reach Baseline","Shoot + Drive","Gear Middle","Gear Boiler","Gear Retrieval","Hopper + Shoot","Über"};
+    public Command[] autoCommands = {new AutoGroup_DoNothing(), new AutoGroup_ShootNotStupid(), new AutoGroup_GearMiddle(), new AutoGroup_GearBoiler(), new AutoGroup_GearRetrieval(), new AutoGroup_Hopper(), new AutoGroup_Über()};
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -78,8 +81,7 @@ public class Robot extends IterativeRobot
         pdp = new PowerDistributionPanel(0);
         //Start OI
         oi = new OI();
-
-        autoChooser = null;
+        
         autoSwitch = new AutoChooser();
 
         try
@@ -93,18 +95,6 @@ public class Robot extends IterativeRobot
         {
 
         }
-        autoChooser = new SendableChooser();
-        autoChooser.addDefault("Do Nothing: ", new AutoGroup_DoNothing());
-        autoChooser.addObject("Reach Baseline: ", new AutoGroup_ReachBaseline());
-        autoChooser.addObject("Gear Middle: (HIGHLY EXPERIMENTAL COLLISION SENSING)", new AutoGroup_GearMiddle());
-        autoChooser.addObject("Gear Retrieval: ", new AutoGroup_GearRetrieval());
-        autoChooser.addObject("Gear Boiler: ", new AutoGroup_GearBoiler());
-        autoChooser.addObject("Hopper + Shoot: ", new AutoGroup_Hopper());
-        autoChooser.addObject("Shoot and Drive", new AutoGroup_ShootNotStupid());
-        autoChooser.addObject("Experimental Smooth Turning", new DriveBase_DriveExperiment(90, 6,60, true));
-//        autoChooser.addObject("Reach Baseline (Stupid)",new AutoGroup_ThisIsStupid());
-//        autoChooser.addObject("Shoot and Drive (Stupid)", new AutoGroup_ShootStupid());
-        SmartDashboard.putData("AUTO MODES: ", autoChooser);
         SmartDashboard.putNumber("Drive Power: ",0.0);
         //Link Classes for the @DashboardInputField magic
         MapSynchronizer.getInstance().link(RobotMap.class);
@@ -129,6 +119,7 @@ public class Robot extends IterativeRobot
         Robot.driveBase.resetEncoder();
         Robot.driveBase.resetNavX();
         SmartDashboard.putNumber("Auto Switch: ",autoSwitch.get());
+        SmartDashboard.putString("Selected Auto: ",autoNames[autoSwitch.get()]);
 
     }
 
@@ -145,7 +136,7 @@ public class Robot extends IterativeRobot
      */
     public void autonomousInit()
     {
-        autonomousCommand = ((Command)autoChooser.getSelected());
+        autonomousCommand = autoCommands[autoSwitch.get()];
         autonomousCommand.start();
     }
 
