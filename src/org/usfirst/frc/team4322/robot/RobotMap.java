@@ -36,6 +36,7 @@ public class RobotMap
     public static final int COLLECTOR_MOTORCONTROLLER_ADDR = 40;
     public static final int HOPPER_FLOPPER_RELAY_PORT = 0;
     public static final int GEAR_GRABBER_SPARK_PORT = 1;
+    public static final int GEAR_PIVOT_VICTOR_PORT = 2;
     public static final int CLIMPER_MOTORCONTROLLER_PORT = 0;
 	public static final int CONVEYOR_MOTORCONTROLLER_PORT = 2;
 

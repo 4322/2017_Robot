@@ -41,6 +41,8 @@ public class Robot extends IterativeRobot
     public static Vision vision;
     // GearGrabber Subsystem Class
     public static GearGrabber gearGrabber;
+    // GearPivot Subsystem Class
+    public static GearPivot gearPivot;
     // Collector Subsystem Class
     public static Collector collector;
     // HopperFlopper Subsystem Class
@@ -69,6 +71,7 @@ public class Robot extends IterativeRobot
         climper = new Climper();
         vision = new Vision();
         gearGrabber = new GearGrabber();
+        gearPivot = new GearPivot();
         collector = new Collector();
         hopperFlopper = new HopperFlopper();
         conveyor = new Conveyor();
@@ -175,6 +178,7 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Climper Power Draw: ",pdp.getCurrent(RobotMap.PDP_CLIMBER));
         SmartDashboard.putNumber("Collector Power Draw: ",pdp.getCurrent(RobotMap.PDP_COLLECTOR));
         SmartDashboard.putNumber("Total Power Draw: ",pdp.getTotalCurrent());
+        SmartDashboard.putNumber("Door Motor Counts: ",gearPivot.get());
         Scheduler.getInstance().run();
         SmartDashboard.putData(Scheduler.getInstance());
     }
