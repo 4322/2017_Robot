@@ -2,7 +2,8 @@ package org.usfirst.frc.team4322.robot.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogTrigger;
 import edu.wpi.first.wpilibj.Counter;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.commands.GearPivot_Hold;
@@ -10,16 +11,18 @@ import org.usfirst.frc.team4322.robot.commands.GearPivot_Hold;
 public class GearPivot extends Subsystem
 {
 
-    private Victor victor;
+    private Spark spark;
     private Counter encoder;
     private AnalogTrigger trig;
-
+    private DigitalInput limit;
+    public boolean high = false;
     public GearPivot()
     {
-        victor = new Victor(RobotMap.GEAR_PIVOT_VICTOR_PORT);
+        spark = new Spark(RobotMap.GEAR_PIVOT_SPARK_PORT);
         trig = new AnalogTrigger(0);
         trig.setLimitsVoltage(3.2,3.4);
         encoder = new Counter(trig);
+        limit = new DigitalInput(5);
     }
 
     @Override
@@ -30,9 +33,13 @@ public class GearPivot extends Subsystem
 
     public void set(double val)
     {
-        victor.set(val);
+        spark.set(val);
     }
 
+    public boolean home()
+    {
+        return limit.get();
+    }
     public int get()
     {
         return encoder.get();

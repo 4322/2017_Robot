@@ -35,16 +35,15 @@ public class OI {
         //OPERATOR CONTROLS
         // A button for double-barrel RPM
         operator.a.whenPressed(new Shooter_Spin());
-        // Flop the HopperFlopper
-        operator.b.whenPressed(new HopperFlopper_LoadHopper());
         // Right Trigger to stop the Shooter
         operator.rt.whenPressed(new Shooter_Stop());
         // Left Trigger to index and convey
         operator.lt.whileHeld(new Group_StartIndex());
         // Prepare to collect a gear
-        operator.x.whenPressed(new GearPivot_Lower());
+        operator.x.whileHeld(new Group_GrabGear());
+        operator.x.whenReleased(new GearPivot_Raise());
         // X button to eject gear
-        operator.y.whenPressed(new GearPivot_Raise());
+        operator.y.whenPressed(new GearGrabber_EjectGear());
 
     }
 }

@@ -45,8 +45,6 @@ public class Robot extends IterativeRobot
     public static GearPivot gearPivot;
     // Collector Subsystem Class
     public static Collector collector;
-    // HopperFlopper Subsystem Class
-    public static HopperFlopper hopperFlopper;
     // Conveyor Subsystem Class
     public static Conveyor conveyor;
     // PDP Instance
@@ -76,7 +74,6 @@ public class Robot extends IterativeRobot
         gearGrabber = new GearGrabber();
         gearPivot = new GearPivot();
         collector = new Collector();
-        hopperFlopper = new HopperFlopper();
         conveyor = new Conveyor();
         pdp = new PowerDistributionPanel(0);
         //Start OI

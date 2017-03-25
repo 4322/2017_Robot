@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  * Created by software on 2/25/17.
  */
-public class Group_GrabGear extends CommandGroup {
-    public Group_GrabGear() {
+public class Group_EjectGear extends CommandGroup {
+    public Group_EjectGear() {
+        addParallel(new GearGrabber_EjectGear());
         addSequential(new GearPivot_Lower());
-        addSequential(new GearGrabber_PrepareForGear());
     }
 }

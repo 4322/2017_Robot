@@ -1,29 +1,35 @@
 package org.usfirst.frc.team4322.robot.commands;
 
-import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4322.robot.Robot;
 
 /**
  * Created by software on 2/19/17.
  */
-public class GearGrabber_HoldGear extends Command
+public class GearPivot_Home extends Command
 {
 
-    public GearGrabber_HoldGear()
+    public GearPivot_Home()
     {
-        requires(Robot.gearGrabber);
+        requires(Robot.gearPivot);
     }
 
     @Override
     protected void execute()
     {
-        Robot.gearGrabber.set(Relay.Value.kOff);
+        Robot.gearPivot.set(0.5);
     }
 
     @Override
     protected boolean isFinished()
     {
-        return false;
+        return Robot.gearPivot.home();
+    }
+
+    @Override
+    protected void end()
+    {
+        super.end();
+        Robot.gearPivot.reset();
     }
 }

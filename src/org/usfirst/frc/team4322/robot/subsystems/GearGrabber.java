@@ -1,6 +1,6 @@
 package org.usfirst.frc.team4322.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.commands.GearGrabber_HoldGear;
@@ -8,11 +8,11 @@ import org.usfirst.frc.team4322.robot.commands.GearGrabber_HoldGear;
 public class GearGrabber extends Subsystem
 {
 
-    private Spark spark;
+    private Relay spike;
 
     public GearGrabber()
     {
-        spark = new Spark(RobotMap.GEAR_GRABBER_SPARK_PORT);
+        spike = new Relay(RobotMap.GEAR_GRABBER_RELAY_PORT);
     }
     @Override
     protected void initDefaultCommand()
@@ -20,9 +20,9 @@ public class GearGrabber extends Subsystem
         setDefaultCommand(new GearGrabber_HoldGear());
     }
 
-    public void set(double val)
+    public void set(Relay.Value val)
     {
-        spark.set(val);
+        spike.set(val);
     }
 
 }

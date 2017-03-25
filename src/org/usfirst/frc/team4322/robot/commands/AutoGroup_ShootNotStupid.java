@@ -10,6 +10,7 @@ public class AutoGroup_ShootNotStupid extends CommandGroup
 {
     public AutoGroup_ShootNotStupid()
     {
+        addSequential(new Group_HomePivot());
         addSequential(new Shooter_Spin(),2);
         addSequential(new Group_StartIndex(),8);
 	    addParallel(new Group_StopIndex(),.1);

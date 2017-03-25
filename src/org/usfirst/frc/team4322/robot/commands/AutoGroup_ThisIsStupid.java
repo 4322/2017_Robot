@@ -9,6 +9,7 @@ public class AutoGroup_ThisIsStupid extends CommandGroup
 {
     public AutoGroup_ThisIsStupid()
     {
+        addSequential(new Group_HomePivot());
         addSequential(new DriveBase_StupidDriveDistance(150));
     }
 }

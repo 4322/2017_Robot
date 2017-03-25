@@ -15,6 +15,15 @@ public class GearPivot_Lower extends Command
     }
 
     @Override
+    public synchronized void start() {
+        super.start();
+        if(!Robot.gearPivot.high)
+        {
+            this.cancel();
+        }
+    }
+
+    @Override
     protected void execute()
     {
         Robot.gearPivot.set(-1.0);
@@ -31,5 +40,6 @@ public class GearPivot_Lower extends Command
     {
         super.end();
         Robot.gearPivot.reset();
+        Robot.gearPivot.high = false;
     }
 }
