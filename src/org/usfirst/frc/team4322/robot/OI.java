@@ -43,7 +43,7 @@ public class OI {
         operator.x.whileHeld(new Group_GrabGear());
         operator.x.whenReleased(new Group_RaisePivot());
         // X button to eject gear
-        operator.y.whileHeld(new GearGrabber_EjectGear());
+        operator.y.whileHeld(new Group_EjectGear());
         operator.b.whenPressed(new Group_HomePivot());
 
     }
