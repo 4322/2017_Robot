@@ -41,9 +41,9 @@ public class OI {
         operator.lt.whileHeld(new Group_StartIndex());
         // Prepare to collect a gear
         operator.x.whileHeld(new Group_GrabGear());
-        operator.x.whenReleased(new GearPivot_Raise());
+        operator.x.whenReleased(new Group_RaisePivot());
         // X button to eject gear
-        operator.y.whenPressed(new GearGrabber_EjectGear());
+        operator.y.whileHeld(new GearGrabber_EjectGear());
         operator.b.whenPressed(new Group_HomePivot());
 
     }

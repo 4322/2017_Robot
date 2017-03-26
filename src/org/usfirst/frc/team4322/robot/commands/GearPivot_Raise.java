@@ -32,7 +32,7 @@ public class GearPivot_Raise extends Command
     @Override
     protected boolean isFinished()
     {
-        return Robot.gearPivot.get() >= 40;
+        return Robot.gearPivot.get() >= 37;
     }
 
     @Override
