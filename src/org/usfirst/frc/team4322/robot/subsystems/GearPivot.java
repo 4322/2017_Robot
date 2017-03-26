@@ -38,7 +38,7 @@ public class GearPivot extends Subsystem
 
     public boolean home()
     {
-        return limit.get();
+        return !limit.get();
     }
     public int get()
     {
