@@ -9,7 +9,7 @@ public class Group_RaisePivot extends CommandGroup
 {
     public Group_RaisePivot()
     {
-        addParallel(new GearPivot_Raise());
+        addSequential(new GearPivot_Raise());
         addSequential(new GearPivot_Home());
         addSequential(new GearPivot_HomeToHigh());
     }
