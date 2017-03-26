@@ -29,8 +29,7 @@ public class GearPivot_Lower extends Command
     {
         if(Robot.gearPivot.get()  >= 40)
         {
-            Robot.gearPivot.reset();
-            Robot.gearPivot.high = false;
+
             Robot.gearPivot.set(0);
         }
         else
@@ -40,6 +39,8 @@ public class GearPivot_Lower extends Command
     @Override
     protected boolean isFinished()
     {
+        Robot.gearPivot.reset();
+        Robot.gearPivot.high = false;
         return false;
     }
 
