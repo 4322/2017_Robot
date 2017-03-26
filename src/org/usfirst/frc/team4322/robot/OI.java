@@ -44,6 +44,7 @@ public class OI {
         operator.x.whenReleased(new GearPivot_Raise());
         // X button to eject gear
         operator.y.whenPressed(new GearGrabber_EjectGear());
+        operator.b.whenPressed(new Group_HomePivot());
 
     }
 }
