@@ -17,16 +17,18 @@ public class GearPivot_Lower extends Command
     @Override
     public synchronized void start() {
         super.start();
-        if(!Robot.gearPivot.high)
-        {
-            this.cancel();
-        }
+
     }
 
     @Override
     protected void execute()
 
     {
+
+        if(Robot.gearPivot.high == false)
+        {
+            this.cancel();
+        }
         if(Robot.gearPivot.get()  >= 40)
         {
 
