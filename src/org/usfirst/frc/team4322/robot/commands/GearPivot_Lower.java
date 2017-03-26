@@ -39,14 +39,14 @@ public class GearPivot_Lower extends Command
     @Override
     protected boolean isFinished()
     {
-        Robot.gearPivot.reset();
-        Robot.gearPivot.high = false;
         return false;
     }
 
     @Override
     protected void end()
     {
+        Robot.gearPivot.reset();
+        Robot.gearPivot.high = false;
         super.end();
     }
 }
