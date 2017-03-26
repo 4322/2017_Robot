@@ -17,7 +17,7 @@ public class GearPivot_Raise extends Command
     @Override
     public synchronized void start() {
         super.start();
-        if(!Robot.gearPivot.high)
+        if(Robot.gearPivot.high)
         {
             this.cancel();
         }

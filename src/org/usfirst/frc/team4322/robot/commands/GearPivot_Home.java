@@ -17,7 +17,15 @@ public class GearPivot_Home extends Command
     @Override
     protected void execute()
     {
-        Robot.gearPivot.set(0.5);
+        if(!Robot.gearPivot.home())
+        {
+            Robot.gearPivot.set(0.5);   // <- this should not happen if we are already home
+                                        // This may not be needed if the command framework checks isFinished() before the first execute().
+        }
+        else
+        {
+            Robot.gearPivot.set(0);
+        }
     }
 
     @Override
