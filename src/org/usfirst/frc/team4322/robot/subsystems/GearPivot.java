@@ -22,7 +22,7 @@ public class GearPivot extends Subsystem
         trig = new AnalogTrigger(0);
         trig.setLimitsVoltage(3.2,3.4);
         encoder = new Counter(trig);
-        limit = new DigitalInput(5);
+        limit = new DigitalInput(4);
     }
 
     @Override
