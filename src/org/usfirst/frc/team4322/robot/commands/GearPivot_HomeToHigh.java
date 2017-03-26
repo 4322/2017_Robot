@@ -17,13 +17,13 @@ public class GearPivot_HomeToHigh extends Command
     @Override
     protected void execute()
     {
-        Robot.gearPivot.set(-0.5);
+        Robot.gearPivot.set(-0.25);
     }
 
     @Override
     protected boolean isFinished()
     {
-        return Robot.gearPivot.get() == 5;
+        return Robot.gearPivot.get() == 2;
     }
 
     @Override

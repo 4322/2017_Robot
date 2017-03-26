@@ -18,7 +18,7 @@ public class GearGrabber_EjectGear extends Command
     @Override
     protected void execute()
     {
-        Robot.gearGrabber.set(Relay.Value.kReverse);
+        Robot.gearGrabber.set(Relay.Value.kForward);
     }
 
     @Override
