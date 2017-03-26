@@ -25,21 +25,27 @@ public class GearPivot_Lower extends Command
 
     @Override
     protected void execute()
+
     {
-        Robot.gearPivot.set(-1);
+        if(Robot.gearPivot.get()  >= 40)
+        {
+            Robot.gearPivot.reset();
+            Robot.gearPivot.high = false;
+            Robot.gearPivot.set(0);
+        }
+        else
+            Robot.gearPivot.set(-1);
     }
 
     @Override
     protected boolean isFinished()
     {
-        return Robot.gearPivot.get() >= 20;
+        return false;
     }
 
     @Override
     protected void end()
     {
         super.end();
-        Robot.gearPivot.reset();
-        Robot.gearPivot.high = false;
     }
 }
