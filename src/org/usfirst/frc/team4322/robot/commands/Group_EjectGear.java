@@ -9,6 +9,6 @@ public class Group_EjectGear extends CommandGroup {
     public Group_EjectGear() {
         addParallel(new GearGrabber_EjectGear());
         addParallel(new GearPivot_Lower());
-        addParallel(new DriveBase_DriveDistance(-10));
+        addSequential(new DriveBase_DriveDistance(-10));
     }
 }
