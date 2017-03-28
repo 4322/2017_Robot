@@ -2,6 +2,8 @@ package org.usfirst.frc.team4322.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team4322.logging.RobotLogger;
+import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.commands.Climper_Climp;
 
