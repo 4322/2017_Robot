@@ -136,6 +136,7 @@ public class Robot extends IterativeRobot
     {
         autonomousCommand = autoCommands[autoSwitch.get()];
         autonomousCommand.start();
+        RobotLogger.getInstance().update(false);
     }
 
     /**
@@ -147,13 +148,14 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         SmartDashboard.putData(Scheduler.getInstance());
         RobotLogger.getInstance().log("Command running: ", autonomousCommand.getName());
-        RobotLogger.getInstance().update(false);
+
     }
 
     public void teleopInit()
     {
         new Group_StopIndex().start();
         new Shooter_Stop().start();
+        RobotLogger.getInstance().update(false);
     }
 
     /**
@@ -173,8 +175,7 @@ public class Robot extends IterativeRobot
         Scheduler.getInstance().run();
         SmartDashboard.putData(Scheduler.getInstance());
         SmartDashboard.putBoolean("Limit Switch Pivot: ",gearPivot.home());
-        RobotLogger.getInstance().update(false);
-        RobotLogger.getInstance().log("Command running: ", Scheduler.getInstance().getName());
+
     }
 
     /**
