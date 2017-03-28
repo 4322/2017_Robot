@@ -144,6 +144,7 @@ public class Robot extends IterativeRobot
      */
     public void autonomousPeriodic()
     {
+        RobotLogger.getInstance().update(false);
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         SmartDashboard.putData(Scheduler.getInstance());
@@ -163,6 +164,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopPeriodic()
     {
+        RobotLogger.getInstance().update(false);
         SmartDashboard.putNumber("Speed: ",Robot.driveBase.getSpeed());
         SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
@@ -173,7 +175,7 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Total Power Draw: ",pdp.getTotalCurrent());
         SmartDashboard.putNumber("Door Motor Counts: ",gearPivot.get());
         Scheduler.getInstance().run();
-        SmartDashboard.putData("Scheduler: ", Scheduler.getInstance());
+        RobotLogger.getInstance().log("Command: " + Scheduler.getInstance().getName());
         SmartDashboard.putBoolean("Limit Switch Pivot: ",gearPivot.home());
 
     }
