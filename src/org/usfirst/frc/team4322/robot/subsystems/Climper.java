@@ -14,6 +14,7 @@ public class Climper extends Subsystem
     public Climper()
     {
         lift = new Talon(RobotMap.CLIMPER_MOTORCONTROLLER_PORT);
+
     }
     public void set(double pow)
     {

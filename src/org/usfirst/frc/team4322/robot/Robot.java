@@ -53,7 +53,6 @@ public class Robot extends IterativeRobot
     public static Command autonomousCommand;
     public static AutoChooser autoSwitch;
 
-
     public String[] autoNames = {"Do Nothing","Reach Baseline","Shoot + Drive","Gear Middle","Gear Boiler","Gear Retrieval","Hopper + Shoot","Über","Do Nothing","Do Nothing"};
     public Command[] autoCommands;
     /**
@@ -81,6 +80,7 @@ public class Robot extends IterativeRobot
         Command[] tmp = {new AutoGroup_DoNothing(), new AutoGroup_ShootNotStupid(), new AutoGroup_GearMiddle(), new AutoGroup_GearBoiler(), new AutoGroup_GearRetrieval(), new AutoGroup_Hopper(), new AutoGroup_Über(),new AutoGroup_DoNothing(), new AutoGroup_DoNothing()};
         autoCommands = tmp;
         autoSwitch = new AutoChooser();
+        RobotLogger.getInstance().log("Test oiuehoewhguierhoigw");
 
         try
         {
