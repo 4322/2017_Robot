@@ -134,6 +134,7 @@ public class Robot extends IterativeRobot
      */
     public void autonomousInit()
     {
+        //RobotLogger can only log stuff in robotInit for some dumb reason
         autonomousCommand = autoCommands[autoSwitch.get()];
         autonomousCommand.start();
         RobotLogger.getInstance().info("Autonomous started.");
@@ -148,6 +149,7 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         SmartDashboard.putData(Scheduler.getInstance());
         RobotLogger.getInstance().log("Command running: " + autonomousCommand.getName());
+        RobotLogger.getInstance().update(false);
 
     }
 
@@ -162,6 +164,7 @@ public class Robot extends IterativeRobot
      */
     public void teleopPeriodic()
     {
+
         SmartDashboard.putNumber("Speed: ",Robot.driveBase.getSpeed());
         SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
@@ -174,6 +177,7 @@ public class Robot extends IterativeRobot
         Scheduler.getInstance().run();
         RobotLogger.getInstance().log("Command: " + Scheduler.getInstance().getName());
         SmartDashboard.putBoolean("Limit Switch Pivot: ",gearPivot.home());
+        RobotLogger.getInstance().update(false);
 
     }
 
