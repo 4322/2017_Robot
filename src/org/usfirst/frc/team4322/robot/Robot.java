@@ -63,6 +63,7 @@ public class Robot extends IterativeRobot
     {
         //Start Logger
         RobotLogger.getInstance().update(false);
+        RobotLogger.getInstance().info("Robot Logger Initialized.");
         MapSynchronizer.getInstance().link(RobotLogger.class);
         //Start Subsystems (Mind Dependencies!)
         driveBase = new DriveBase();
@@ -80,7 +81,6 @@ public class Robot extends IterativeRobot
         Command[] tmp = {new AutoGroup_DoNothing(), new AutoGroup_ShootNotStupid(), new AutoGroup_GearMiddle(), new AutoGroup_GearBoiler(), new AutoGroup_GearRetrieval(), new AutoGroup_Hopper(), new AutoGroup_Über(),new AutoGroup_DoNothing(), new AutoGroup_DoNothing()};
         autoCommands = tmp;
         autoSwitch = new AutoChooser();
-        RobotLogger.getInstance().log("Test oiuehoewhguierhoigw");
 
         try
         {
