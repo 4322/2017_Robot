@@ -147,7 +147,7 @@ public class Robot extends IterativeRobot
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         SmartDashboard.putData(Scheduler.getInstance());
-        RobotLogger.getInstance().log("Command running: ", autonomousCommand.getName());
+        RobotLogger.getInstance().log("Command running: " + autonomousCommand.getName());
 
     }
 
