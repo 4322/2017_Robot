@@ -173,7 +173,7 @@ public class Robot extends IterativeRobot
         SmartDashboard.putNumber("Total Power Draw: ",pdp.getTotalCurrent());
         SmartDashboard.putNumber("Door Motor Counts: ",gearPivot.get());
         Scheduler.getInstance().run();
-        SmartDashboard.putData(Scheduler.getInstance());
+        SmartDashboard.putData("Scheduler: ", Scheduler.getInstance());
         SmartDashboard.putBoolean("Limit Switch Pivot: ",gearPivot.home());
 
     }
