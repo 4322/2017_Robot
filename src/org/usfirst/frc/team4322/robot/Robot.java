@@ -136,7 +136,6 @@ public class Robot extends IterativeRobot
     {
         autonomousCommand = autoCommands[autoSwitch.get()];
         autonomousCommand.start();
-        RobotLogger.getInstance().update(false);
     }
 
     /**
@@ -144,7 +143,6 @@ public class Robot extends IterativeRobot
      */
     public void autonomousPeriodic()
     {
-        RobotLogger.getInstance().update(false);
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         SmartDashboard.putData(Scheduler.getInstance());
@@ -156,7 +154,6 @@ public class Robot extends IterativeRobot
     {
         new Group_StopIndex().start();
         new Shooter_Stop().start();
-        RobotLogger.getInstance().update(false);
     }
 
     /**
@@ -164,7 +161,6 @@ public class Robot extends IterativeRobot
      */
     public void teleopPeriodic()
     {
-        RobotLogger.getInstance().update(false);
         SmartDashboard.putNumber("Speed: ",Robot.driveBase.getSpeed());
         SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
