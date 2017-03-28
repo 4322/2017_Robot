@@ -136,6 +136,7 @@ public class Robot extends IterativeRobot
     {
         autonomousCommand = autoCommands[autoSwitch.get()];
         autonomousCommand.start();
+        RobotLogger.getInstance().info("Autonomous started.");
     }
 
     /**
