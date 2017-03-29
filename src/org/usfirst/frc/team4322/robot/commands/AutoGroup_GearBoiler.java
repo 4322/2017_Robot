@@ -21,7 +21,7 @@ public class AutoGroup_GearBoiler extends CommandGroup
 //            return SmartDashboard.getNumber("Vision Center X: ", 0.5) - .5;
 //        }));
 
-        addSequential(new DriveBase_DriveDistance(-16,false, true, false)); // Back up a bit
+        addSequential(new DriveBase_DriveDistance(-16,false, 0.8, false)); // Back up a bit
         addSequential(new DriveBase_FMSTurn(-60)); // Straighten out
 
 //        addSequential(new DriveBase_DriveDistance(54,true, true,false)); // Drive to line

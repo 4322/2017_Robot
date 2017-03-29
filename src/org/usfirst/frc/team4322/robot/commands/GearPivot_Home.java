@@ -19,12 +19,12 @@ public class GearPivot_Home extends Command
     {
         if(!Robot.gearPivot.home())
         {
-            Robot.gearPivot.set(0.5);   // <- this should not happen if we are already home
+            Robot.gearPivot.set(0.6);   // <- this should not happen if we are already home
                                         // This may not be needed if the command framework checks isFinished() before the first execute().
         }
         else
         {
-            Robot.gearPivot.set(0);
+            Robot.gearPivot.set(-0.1);
         }
     }
 

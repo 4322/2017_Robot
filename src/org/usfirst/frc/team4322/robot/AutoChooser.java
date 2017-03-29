@@ -9,10 +9,10 @@ public class AutoChooser {
     private DigitalInput d0, d1, d2, d3;
 
     public AutoChooser() {
-        d0 = new DigitalInput(0);
-        d1 = new DigitalInput(1);
-        d2 = new DigitalInput(2);
-        d3 = new DigitalInput(3);
+        d0 = new DigitalInput(RobotMap.AUTO_SELECTOR_DIO_PORT_0);
+        d1 = new DigitalInput(RobotMap.AUTO_SELECTOR_DIO_PORT_1);
+        d2 = new DigitalInput(RobotMap.AUTO_SELECTOR_DIO_PORT_2);
+        d3 = new DigitalInput(RobotMap.AUTO_SELECTOR_DIO_PORT_3);
     }
 
     public int get()

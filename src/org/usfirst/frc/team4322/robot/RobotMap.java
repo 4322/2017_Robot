@@ -39,6 +39,21 @@ public class RobotMap
     public static final int CLIMPER_MOTORCONTROLLER_PORT = 0;
 	public static final int CONVEYOR_MOTORCONTROLLER_PORT = 2;
 
+    // ******************
+    // ** DIO MAPPINGS **
+    // ******************
+    public static final int AUTO_SELECTOR_DIO_PORT_0 = 0;
+    public static final int AUTO_SELECTOR_DIO_PORT_1 = 1;
+    public static final int AUTO_SELECTOR_DIO_PORT_2 = 2;
+    public static final int AUTO_SELECTOR_DIO_PORT_3 = 3;
+    public static final int GEAR_PIVOT_LIMIT_DIO_PORT = 4;
+
+    // *********************
+    // ** ANALOG MAPPINGS **
+    // *********************
+    public static final int GEAR_PIVOT_ENCODER_ANALOG_PORT = 0;
+
+
     // ************************
     // ** SHOOTER MAP VALUES **
     // ************************
@@ -56,8 +71,13 @@ public class RobotMap
     public static int SHOOTER_IZ = 65;
 //    @DashboardInputField(field="Shooter R: ")
     public static double SHOOTER_R = 0.00;
-    
-    // *********************************
+
+    // ***********************************
+    // ** DRIVEBASE TALON CONFIG VALUES **
+    // ***********************************
+    public static final int DRIVEBASE_TALON_RAMP_RATE = 48;
+    public static final int DRIVEBASE_ENCODER_COUNTS_PER_REV = 256;
+
     // ** DRIVEBASE AIMING MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Aim P: ")
@@ -113,4 +133,6 @@ public class RobotMap
     public static int INDEXER_IZ = 100;
 //    @DashboardInputField(field="Indexer R: ")
     public static double INDEXER_R = 0.00;
+
+
 }

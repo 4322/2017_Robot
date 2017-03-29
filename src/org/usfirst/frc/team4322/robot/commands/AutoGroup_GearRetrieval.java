@@ -17,12 +17,12 @@ public class AutoGroup_GearRetrieval extends CommandGroup
         addSequential(new DriveBase_FMSTurn(60)); //Turn 30 degrees
         addSequential(new DriveBase_DriveDistance(3, false)); //Drive up to peg
         addSequential(new Group_EjectGear()); //Put gear on peg
-        addSequential(new DriveBase_DriveDistance(-16,false, true, false)); // Back up a bit
+        addSequential(new DriveBase_DriveDistance(-16,false, 0.8, false)); // Back up a bit
         addSequential(new DriveBase_FMSTurn(-60)); // Straighten out
 
-        addSequential(new DriveBase_DriveDistance(54,true, true,false)); // Drive to line
+        addSequential(new DriveBase_DriveDistance(54,true, 0.8,false)); // Drive to line
         addSequential(new DriveBase_FMSTurn(45)); // turn some angle
-        addSequential(new DriveBase_DriveDistance(200,true,false, false)); // DRIVE ALL THE WAY
+        addSequential(new DriveBase_DriveDistance(200,true,1, false)); // DRIVE ALL THE WAY
 
     }
 }

@@ -13,27 +13,27 @@ import org.usfirst.frc.team4322.robot.subsystems.DriveBase;
  */
 public class DriveBase_DriveDistance extends Command
 {
-    private double dist,last,cur;
-    private boolean usesNavx, usesCeiling, caresAboutBacktrack;
+    private double dist,last,cur,ceiling;
+    private boolean usesNavx, caresAboutBacktrack;
     private boolean done = false;
     private int counter = 0;
     public DriveBase_DriveDistance (double dist)
     {
-        this(dist,true,true);
+        this(dist,true,0.8);
     }
     public DriveBase_DriveDistance (double dist, boolean usesNavx)
     {
-        this(dist,usesNavx,true);
+        this(dist,usesNavx,0.8);
     }
-    public DriveBase_DriveDistance(double dist, boolean usesNavx, boolean usesCeiling)
+    public DriveBase_DriveDistance(double dist, boolean usesNavx, double ceiling)
     {
-        this(dist,usesNavx,usesCeiling,true);
+        this(dist,usesNavx,ceiling,true);
     }
-    public DriveBase_DriveDistance (double dist, boolean usesNavx, boolean usesCeiling, boolean caresAboutBacktrack)
+    public DriveBase_DriveDistance (double dist, boolean usesNavx, double ceiling, boolean caresAboutBacktrack)
     {
         this.dist = dist;
         this.usesNavx = usesNavx;
-        this.usesCeiling = usesCeiling;
+        this.ceiling = ceiling;
         this.caresAboutBacktrack = caresAboutBacktrack;
         requires(Robot.driveBase);
     }
@@ -80,10 +80,10 @@ public class DriveBase_DriveDistance extends Command
         RobotLogger.getInstance().log("Current error: %f.",dist-cur);
         RobotLogger.getInstance().update(false);
         SmartDashboard.putNumber("Drive Error: ",dist-cur);
-        if(caresAboutBacktrack ? (Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE) : Math.abs(cur) >= Math.abs(dist))
+        if(arrived()) // Are we there yet?
         {
-            Robot.driveBase.drive(0,0);
-            counter++;
+            Robot.driveBase.drive(0,0); // Stop
+            counter++; //increment end counter
             if(counter==7)
                 done = true;
 
@@ -91,14 +91,46 @@ public class DriveBase_DriveDistance extends Command
         else
         {
             counter=0;
-            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
-            out += Math.copySign(.33,out);
-            out = usesCeiling ? (out > 0.7) ? 0.7 : ((out < -0.7) ? -.7 : out) : out; // (ಥ﹏ಥ) (ʘᗩʘ')
-            double outRot = usesNavx ? ((-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
-            Robot.driveBase.drive(out, outRot);
+            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last); //PD Controller
+            out += Math.copySign(.33,out); // Feed forward
+            out = clamp(out,ceiling); // clamp to ceiling
+            double outRot = 0;
+            if(usesNavx)
+            {
+                outRot = ((-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P)); // P controller
+                outRot += Math.copySign(.395,-Robot.driveBase.getAngle()); // feed forward
+            }
+            Robot.driveBase.drive(out, outRot); //drive
         }
     }
 
+    public double clamp(double val,double max)
+    {
+        if(val > max)
+        {
+            return max;
+        }
+        else if(val < -max)
+        {
+            return -max;
+        }
+        else
+        {
+            return val;
+        }
+    }
+
+    private boolean arrived()
+    {
+        if(caresAboutBacktrack)
+        {
+            return (Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE);
+        }
+        else
+        {
+            return Math.abs(cur) >= Math.abs(dist);
+        }
+    }
 
     @Override
     protected boolean isFinished() {

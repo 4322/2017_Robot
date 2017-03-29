@@ -46,7 +46,38 @@ public class DriveBase_Turn extends Command
     @Override
     public void execute()
     {
-        double err = (angle - Robot.driveBase.getAngle());
+        double err = getErrContinuous(angle - Robot.driveBase.getAngle()); // Get error
+        SmartDashboard.putNumber("Turn Error: ",err);
+        SmartDashboard.putNumber("Robot Yaw:",Robot.driveBase.getAngle());
+        double out = err * RobotMap.DRIVEBASE_AIM_P/100 + lastErr*RobotMap.DRIVEBASE_AIM_D/100; //PD Portion
+        out += Math.copySign(.4,out); //Feed forward
+        if(Math.abs(err) <= RobotMap.DRIVEBASE_AIM_IZONE)
+        {
+            out += acc* RobotMap.DRIVEBASE_AIM_I/100;
+        }
+        else
+        {
+            acc = 0;
+        }
+        if(Math.abs(err)<=RobotMap.AUTON_DRIVE_TOLERANCE*2) // we have finished the turn
+        {
+            Robot.driveBase.drive(0,0); // stop driving
+            acc = 0; //reset accumulator
+            counter++; // increment counter
+            if(counter == 7)
+                done = true;
+        }
+        else
+        {
+            counter = 0;
+            Robot.driveBase.drive(0, out); // do the turn
+        }
+        acc += err;
+        lastErr = err;
+    }
+
+    private double getErrContinuous(double err)
+    {
         if (Math.abs(err) > (360/2)) // shamelessly stolen from wpilib's pid controller
         {
             if (err > 0)
@@ -58,26 +89,7 @@ public class DriveBase_Turn extends Command
                 err += 360;
             }
         }
-        SmartDashboard.putNumber("Turn Error: ",err);
-        SmartDashboard.putNumber("Robot Yaw:",Robot.driveBase.getAngle());
-        double out = err * RobotMap.DRIVEBASE_AIM_P/100 + lastErr*RobotMap.DRIVEBASE_AIM_D/100;
-        out += Math.copySign(.4,out) + ((err <= RobotMap.DRIVEBASE_AIM_IZONE) ? acc* RobotMap.DRIVEBASE_AIM_I/100 : (acc=0));
-
-        if(Math.abs(err)<=RobotMap.AUTON_DRIVE_TOLERANCE*2)
-        {
-            Robot.driveBase.drive(0,0);
-            acc = 0;
-            counter++;
-            if(counter == 7)
-                done = true;
-        }
-        else
-        {
-            counter = 0;
-            Robot.driveBase.drive(0, out);
-        }
-        acc += err;
-        lastErr = err;
+        return err;
     }
 
     @Override

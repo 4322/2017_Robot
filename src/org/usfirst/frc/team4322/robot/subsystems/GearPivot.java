@@ -19,10 +19,10 @@ public class GearPivot extends Subsystem
     public GearPivot()
     {
         spark = new Spark(RobotMap.GEAR_PIVOT_SPARK_PORT);
-        trig = new AnalogTrigger(0);
+        trig = new AnalogTrigger(RobotMap.GEAR_PIVOT_ENCODER_ANALOG_PORT);
         trig.setLimitsVoltage(3.2,3.4);
         encoder = new Counter(trig);
-        limit = new DigitalInput(4);
+        limit = new DigitalInput(RobotMap.GEAR_PIVOT_LIMIT_DIO_PORT);
     }
 
     @Override
