@@ -27,7 +27,7 @@ public class GearPivot_Lower extends Command
     protected void execute()
 
     {
-        if(Robot.gearPivot.get()  >= 49)
+        if(Robot.gearPivot.get()  >= 44)
         {
 
             Robot.gearPivot.set(0);
@@ -39,7 +39,7 @@ public class GearPivot_Lower extends Command
     @Override
     protected boolean isFinished()
     {
-        return Robot.gearPivot.get()  >= 44;
+        return false;
     }
 
     @Override
