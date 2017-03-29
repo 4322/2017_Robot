@@ -111,7 +111,6 @@ public class Robot extends IterativeRobot
 
     public void disabledPeriodic()
     {
-        SmartDashboard.putNumber("Navx Yaw: ",Robot.driveBase.getAngle());
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         Scheduler.getInstance().run();
         Robot.driveBase.resetEncoder();
@@ -166,6 +165,7 @@ public class Robot extends IterativeRobot
     {
 
         SmartDashboard.putNumber("Speed: ",Robot.driveBase.getSpeed());
+        SmartDashboard.putNumber("Navx Yaw: ",Robot.driveBase.getAngle());
         SmartDashboard.putNumber("Indexer Position: ", Robot.indexer.get());
         SmartDashboard.putNumber("Drivebase Encoder Value",Robot.driveBase.getDist());
         SmartDashboard.putNumber("Shooter Power Draw Master: ",pdp.getCurrent(RobotMap.PDP_SHOOTER_MASTER));

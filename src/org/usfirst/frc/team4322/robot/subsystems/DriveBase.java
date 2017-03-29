@@ -8,7 +8,7 @@ import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.I2C.Port;
+import edu.wpi.first.wpilibj.SPI.Port;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
@@ -45,6 +45,7 @@ public class DriveBase extends Subsystem
             rightSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
             drive = new RobotDrive(leftMaster, rightMaster);
             navx = new AHRS(Port.kMXP);
+
 
             RobotLogger.getInstance().log("DriveBase subsystem initialized.");
         }
