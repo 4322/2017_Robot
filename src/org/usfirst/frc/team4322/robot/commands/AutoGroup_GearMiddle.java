@@ -13,7 +13,7 @@ public class AutoGroup_GearMiddle extends CommandGroup
     {
         addSequential(new Group_HomePivot());
 
-        addSequential(new DriveBase_StupidDriveDistance(300,true));
+        addSequential(new DriveBase_DriveDistance(54,true));
 //        addSequential(new DriveBase_ReallyStupidDrive()); //cancer
         addParallel(new Group_EjectGear()); //Put gear on peg
         addSequential(new Command_Delay(500));
