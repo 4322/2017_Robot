@@ -10,6 +10,6 @@ public class Group_HomePivot extends CommandGroup
     public Group_HomePivot()
     {
         addSequential(new GearPivot_Home());
-        addSequential(new GearPivot_HomeToHigh());
+//        addSequential(new GearPivot_HomeToHigh());
     }
 }

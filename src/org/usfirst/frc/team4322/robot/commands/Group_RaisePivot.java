@@ -11,6 +11,6 @@ public class Group_RaisePivot extends CommandGroup
     {
         addSequential(new GearPivot_Raise());
         addSequential(new GearPivot_Home());
-        addSequential(new GearPivot_HomeToHigh());
+//        addSequential(new GearPivot_HomeToHigh());
     }
 }
