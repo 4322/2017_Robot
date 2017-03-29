@@ -58,7 +58,8 @@ public class DriveBase_DriveDistance extends Command
         Robot.driveBase.drive(0,0);
         done=false;
         counter = 0;
-        last=0;      Robot.driveBase.resetEncoder();
+        last=0;
+        Robot.driveBase.resetEncoder();
         Robot.driveBase.resetNavX();
     }
 
