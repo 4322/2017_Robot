@@ -82,7 +82,7 @@ public class DriveBase extends Subsystem
     }
     public void autoDrive(double pow, double rot)
     {
-        drive.drive(pow,-rot);
+        drive.drive(pow,rot);
     }
 
     public void drive(double pow, double rot)
