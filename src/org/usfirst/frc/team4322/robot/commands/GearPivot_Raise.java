@@ -26,7 +26,7 @@ public class GearPivot_Raise extends Command
     @Override
     protected void execute()
     {
-        Robot.gearPivot.set(.75);
+        Robot.gearPivot.set(1);
     }
 
     @Override
