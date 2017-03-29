@@ -79,6 +79,7 @@ public class DriveBase_DriveDistance extends Command
         RobotLogger.getInstance().log("Target distance: %f",dist);
         RobotLogger.getInstance().log("Current distance: %f.",cur);
         RobotLogger.getInstance().log("Current error: %f.",dist-cur);
+        RobotLogger.getInstance().log("Current Angle: %f",Robot.driveBase.getAngle());
         RobotLogger.getInstance().update(false);
         SmartDashboard.putNumber("Drive Error: ",dist-cur);
         if(arrived()) // Are we there yet?
