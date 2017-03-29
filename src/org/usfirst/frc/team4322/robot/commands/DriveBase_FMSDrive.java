@@ -12,7 +12,7 @@ import org.usfirst.frc.team4322.robot.RobotMap;
  */
 public class DriveBase_FMSDrive extends Command
 {
-	private double dist,last,cur,ceiling;
+	private double dist,last,cur,ceiling,feedForward;
 	private boolean usesNavx, caresAboutBacktrack;
 	private boolean done = false;
 	private int counter = 0;
@@ -30,13 +30,17 @@ public class DriveBase_FMSDrive extends Command
 	}
 	public DriveBase_FMSDrive (double dist, boolean usesNavx, double ceiling, boolean caresAboutBacktrack)
 	{
+		this(dist,usesNavx,ceiling,caresAboutBacktrack,.35);
+	}
+	public DriveBase_FMSDrive (double dist, boolean usesNavx, double ceiling, boolean caresAboutBacktrack, double feedForward)
+	{
 		this.dist = dist;
 		this.usesNavx = usesNavx;
-		this.ceiling=ceiling;
+		this.ceiling = ceiling;
 		this.caresAboutBacktrack = caresAboutBacktrack;
+		this.feedForward = feedForward;
 		requires(Robot.driveBase);
 	}
-
 	@Override
 	protected void initialize()
 	{
@@ -92,7 +96,7 @@ public class DriveBase_FMSDrive extends Command
 		{
 			counter=0;
 			double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last); //PD Controller
-			out += Math.copySign(.33,out); // Feed forward
+			out += Math.copySign(feedForward,out); // Feed forward
 			out = clamp(out,ceiling); // clamp to ceiling
 			double outRot = 0;
 			if(usesNavx)
