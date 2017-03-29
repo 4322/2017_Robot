@@ -14,7 +14,7 @@ public class AutoGroup_GearBoiler extends CommandGroup
         addSequential(new Group_HomePivot());
         addSequential(new DriveBase_DriveDistance(85, true,0.6)); //Drive a certain distance
         addSequential(new DriveBase_FMSTurn(60)); //Turn 30 degrees
-        addSequential(new DriveBase_DriveDistance(50, false,0.7,false)); //Drive up to peg
+        addSequential(new DriveBase_DriveDistance(50, false,0.85,false)); //Drive up to peg
 //        addSequential(new DriveBase_DriveExperiment(90,6,60,true));
         addSequential(new Group_EjectGear());
 //        addSequential(new DriveBase_VisionTurn(() -> {
