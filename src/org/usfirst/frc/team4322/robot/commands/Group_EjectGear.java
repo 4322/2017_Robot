@@ -8,7 +8,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class Group_EjectGear extends CommandGroup {
     public Group_EjectGear() {
         addParallel(new GearGrabber_EjectGear());
-        addSequential(new GearPivot_Lower());
-        addSequential(new Group_RaisePivot());
+        addParallel(new GearPivot_Lower(),1);
+        addSequential(new Command_Delay(750));
+        addParallel(new Group_RaisePivot());
+        addSequential(new DriveBase_StupidDriveDistance(30,true));
+
     }
 }
