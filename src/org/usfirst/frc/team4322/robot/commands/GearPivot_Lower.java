@@ -39,7 +39,7 @@ public class GearPivot_Lower extends Command
     @Override
     protected boolean isFinished()
     {
-        return false;
+        return false; //necessary, not a bug
     }
 
     @Override
