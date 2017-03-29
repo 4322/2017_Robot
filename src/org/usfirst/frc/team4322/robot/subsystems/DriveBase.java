@@ -45,6 +45,7 @@ public class DriveBase extends Subsystem
             rightSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
             drive = new RobotDrive(leftMaster, rightMaster);
             navx = new AHRS(Port.kMXP);
+
             RobotLogger.getInstance().log("DriveBase subsystem initialized.");
         }
         catch (Exception ex)
@@ -79,6 +80,10 @@ public class DriveBase extends Subsystem
         offsetNavX = navx.getYaw();
 
     }
+    public void autoDrive(double pow, double rot)
+    {
+        drive.drive(pow,-rot);
+    }
 
     public void drive(double pow, double rot)
     {
@@ -89,7 +94,7 @@ public class DriveBase extends Subsystem
 
     public void resetEncoder()
     {
-        leftMaster.reverseSensor(false);
+        leftMaster.reverseSensor(true);
         leftMaster.setPosition(0);
         leftMaster.setEncPosition(0);
         offset = leftMaster.getEncPosition();
