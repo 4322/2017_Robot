@@ -31,7 +31,7 @@ public class DriveBase_DriveDistance extends Command
     }
     public DriveBase_DriveDistance (double dist, boolean usesNavx, double ceiling, boolean caresAboutBacktrack)
     {
-        this(dist,usesNavx,ceiling,caresAboutBacktrack,.33);
+        this(dist,usesNavx,ceiling,caresAboutBacktrack,.35);
     }
     public DriveBase_DriveDistance (double dist, boolean usesNavx, double ceiling, boolean caresAboutBacktrack, double feedForward)
     {
