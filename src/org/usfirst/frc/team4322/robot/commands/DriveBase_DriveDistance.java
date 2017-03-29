@@ -13,7 +13,7 @@ import org.usfirst.frc.team4322.robot.subsystems.DriveBase;
  */
 public class DriveBase_DriveDistance extends Command
 {
-    private double dist,last,cur,ceiling;
+    private double dist,last,cur,ceiling,feedForward;
     private boolean usesNavx, caresAboutBacktrack;
     private boolean done = false;
     private int counter = 0;
@@ -31,10 +31,15 @@ public class DriveBase_DriveDistance extends Command
     }
     public DriveBase_DriveDistance (double dist, boolean usesNavx, double ceiling, boolean caresAboutBacktrack)
     {
+        this(dist,usesNavx,ceiling,caresAboutBacktrack,.33);
+    }
+    public DriveBase_DriveDistance (double dist, boolean usesNavx, double ceiling, boolean caresAboutBacktrack, double feedForward)
+    {
         this.dist = dist;
         this.usesNavx = usesNavx;
         this.ceiling = ceiling;
         this.caresAboutBacktrack = caresAboutBacktrack;
+        this.feedForward = feedForward;
         requires(Robot.driveBase);
     }
 
