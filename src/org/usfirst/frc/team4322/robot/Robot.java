@@ -78,7 +78,7 @@ public class Robot extends IterativeRobot
         pdp = new PowerDistributionPanel(0);
         //Start OI
         oi = new OI();
-        Command[] tmp = {new AutoGroup_DoNothing(), new AutoGroup_ShootNotStupid(), new AutoGroup_GearMiddle(), new AutoGroup_GearBoiler(), new AutoGroup_GearRetrieval(), new AutoGroup_Hopper(), new AutoGroup_Über(),new AutoGroup_DoNothing(), new AutoGroup_DoNothing()};
+        Command[] tmp = {new AutoGroup_DoNothing(), new AutoGroup_ReachBaseline(), new AutoGroup_ShootNotStupid(), new AutoGroup_GearMiddle(), new AutoGroup_GearBoiler(), new AutoGroup_GearRetrieval(), new AutoGroup_Hopper(), new AutoGroup_Über(),new AutoGroup_DoNothing(), new AutoGroup_DoNothing()};
         autoCommands = tmp;
         autoSwitch = new AutoChooser();
 
