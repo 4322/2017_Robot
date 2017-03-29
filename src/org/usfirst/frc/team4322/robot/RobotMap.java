@@ -92,13 +92,13 @@ public class RobotMap
     // ** DRIVEBASE DRIVING MAP VALUES **
     // *********************************
     @DashboardInputField(field="Drivebase Drive P: ")
-    public static double DRIVEBASE_DRIVE_P = .032;
+    public static double DRIVEBASE_DRIVE_P = .008;
     @DashboardInputField(field="Drivebase Drive I: ")
     public static double DRIVEBASE_DRIVE_I = 0;
     @DashboardInputField(field="Drivebase Drive IZone: ")
     public static double DRIVEBASE_DRIVE_IZONE = 0;
     @DashboardInputField(field="Drivebase Drive D: ")
-    public static double DRIVEBASE_DRIVE_D = 0.011;
+    public static double DRIVEBASE_DRIVE_D = 0.003;
     @DashboardInputField(field="Drivebase Error Tolerance: ")
     public static double AUTON_DRIVE_TOLERANCE = .750;
     // *********************************
