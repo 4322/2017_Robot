@@ -99,7 +99,7 @@ public class DriveBase_DriveDistance extends Command
         {
             counter=0;
             double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last); //PD Controller
-            out += Math.copySign(.315,out); // Feed forward
+            out += Math.copySign(feedForward,out); // Feed forward
             out = clamp(out,ceiling); // clamp to ceiling
             double outRot = 0;
             if(usesNavx)
