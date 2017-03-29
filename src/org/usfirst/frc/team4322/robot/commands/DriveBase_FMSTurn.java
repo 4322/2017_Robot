@@ -46,7 +46,7 @@ public class DriveBase_FMSTurn extends Command
     @Override
     public void execute()
     {
-        double err = getErrContinuous((DriverStation.getInstance().getAlliance() == DriverStation.Alliance.Blue ? angle : -angle) - Robot.driveBase.getAngle()); // Get error
+        double err = getErrContinuous((DriverStation.getInstance().getAlliance() == DriverStation.Alliance.Blue ? angle : 360-angle) - Robot.driveBase.getAngle()); // Get error
         SmartDashboard.putNumber("Turn Error: ",err);
         SmartDashboard.putNumber("Robot Yaw:",Robot.driveBase.getAngle());
         double out = err * RobotMap.DRIVEBASE_AIM_P/100 + lastErr*RobotMap.DRIVEBASE_AIM_D/100; //PD Portion
