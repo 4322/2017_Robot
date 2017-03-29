@@ -76,7 +76,8 @@ public class DriveBase_DriveDistance extends Command
     {
         last=cur-dist;
         cur = Robot.driveBase.getDist();
-        SmartDashboard.putNumber("current distance: ",cur);
+        RobotLogger.getInstance().log("current distance is %d.",cur);
+        RobotLogger.getInstance().update(false);
         SmartDashboard.putNumber("Drive Error: ",dist-cur);
         if(caresAboutBacktrack ? (Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE) : Math.abs(cur) >= Math.abs(dist))
         {
