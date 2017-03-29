@@ -3,7 +3,6 @@ package org.usfirst.frc.team4322.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.opencv.core.Mat;
-import org.usfirst.frc.team4322.logging.RobotLogger;
 import org.usfirst.frc.team4322.robot.Robot;
 import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.subsystems.DriveBase;
@@ -25,7 +24,7 @@ public class DriveBase_DriveDistance extends Command
     {
         this(dist,usesNavx,true);
     }
-    public DriveBase_DriveDistance (double dist, boolean usesNavx, boolean usesCeiling)
+    public DriveBase_DriveDistance(double dist, boolean usesNavx, boolean usesCeiling)
     {
         this(dist,usesNavx,usesCeiling,true);
     }
@@ -59,8 +58,7 @@ public class DriveBase_DriveDistance extends Command
         Robot.driveBase.drive(0,0);
         done=false;
         counter = 0;
-        last=0;
-        Robot.driveBase.resetEncoder();
+        last=0;      Robot.driveBase.resetEncoder();
         Robot.driveBase.resetNavX();
     }
 
@@ -76,8 +74,6 @@ public class DriveBase_DriveDistance extends Command
     {
         last=cur-dist;
         cur = Robot.driveBase.getDist();
-        RobotLogger.getInstance().log("current distance is %d.",cur);
-        RobotLogger.getInstance().update(false);
         SmartDashboard.putNumber("Drive Error: ",dist-cur);
         if(caresAboutBacktrack ? (Math.abs(dist-cur) <= RobotMap.AUTON_DRIVE_TOLERANCE) : Math.abs(cur) >= Math.abs(dist))
         {
@@ -90,11 +86,11 @@ public class DriveBase_DriveDistance extends Command
         else
         {
             counter=0;
-            double out = (RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
+            double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
             out = usesCeiling ? (out > 0.8) ? 0.8 : ((out < -0.8) ? -.8 : out) : out; // (ಥ﹏ಥ) (ʘᗩʘ')
             double outRot = usesNavx ? ((-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
-            Robot.driveBase.autoDrive(out, outRot);
+            Robot.driveBase.drive(out, outRot);
         }
     }
 
