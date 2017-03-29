@@ -93,7 +93,7 @@ public class DriveBase_DriveDistance extends Command
             counter=0;
             double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last);
             out += Math.copySign(.33,out);
-            out = usesCeiling ? (out > 0.75) ? 0.75 : ((out < -0.75) ? -.75 : out) : out; // (ಥ﹏ಥ) (ʘᗩʘ')
+            out = usesCeiling ? (out > 0.7) ? 0.7 : ((out < -0.7) ? -.7 : out) : out; // (ಥ﹏ಥ) (ʘᗩʘ')
             double outRot = usesNavx ? ((-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P) + Math.copySign(.395,-Robot.driveBase.getAngle())) : 0;
             Robot.driveBase.drive(out, outRot);
         }
