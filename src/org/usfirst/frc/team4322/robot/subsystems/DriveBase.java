@@ -1,7 +1,5 @@
 package org.usfirst.frc.team4322.robot.subsystems;
 
-import edu.wpi.first.wpilibj.AnalogGyro;
-import edu.wpi.first.wpilibj.SPI;
 import org.usfirst.frc.team4322.logging.RobotLogger;
 import org.usfirst.frc.team4322.robot.RobotMap;
 import org.usfirst.frc.team4322.robot.commands.DriveBase_DriveManual;
@@ -46,7 +44,7 @@ public class DriveBase extends Subsystem
             rightSlave.changeControlMode(TalonControlMode.Follower);
             rightSlave.set(RobotMap.DRIVEBASE_MOTORCONTROLLER_RIGHT_MASTER_ADDR);
             drive = new RobotDrive(leftMaster, rightMaster);
-            navx = new AHRS(SPI.Port.kMXP);
+            navx = new AHRS(Port.kMXP);
             RobotLogger.getInstance().log("DriveBase subsystem initialized.");
         }
         catch (Exception ex)
