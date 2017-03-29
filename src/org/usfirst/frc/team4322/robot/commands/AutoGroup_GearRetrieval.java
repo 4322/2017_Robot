@@ -12,7 +12,7 @@ public class AutoGroup_GearRetrieval extends CommandGroup
     public AutoGroup_GearRetrieval()
     {
         addSequential(new Group_HomePivot());
-        addSequential(new DriveBase_DriveDistance(88, true,0.6,true,0.31)); //Drive a certain distance
+        addSequential(new DriveBase_DriveDistance(87, true,0.6,true,0.31)); //Drive a certain distance
         addSequential(new DriveBase_FMSTurn(-60)); //Turn 30 degrees
         addSequential(new DriveBase_DriveDistance(45, false,0.8,false,0.32)); //Drive up to peg
         addSequential(new Group_EjectGear()); //Put gear on peg

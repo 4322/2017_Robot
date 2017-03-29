@@ -33,6 +33,7 @@ public class DriveBase_FMSTurn extends Command
     {
         Robot.driveBase.drive(0,0);
         Robot.driveBase.resetNavX();
+        Robot.driveBase.resetEncoder();
         done = false;
         counter = 0;
     }
