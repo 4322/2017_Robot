@@ -24,6 +24,6 @@ public class GearGrabber_EjectGear extends Command
     @Override
     protected boolean isFinished()
     {
-        return true;
+        return false;
     }
 }
