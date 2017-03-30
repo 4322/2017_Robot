@@ -53,8 +53,6 @@ public class DriveBase_FMSDrive extends Command
 		super.start();
 		Robot.driveBase.resetEncoder();
 		Robot.driveBase.resetNavX();
-		dist = DriverStation.getInstance().getAlliance()== DriverStation.Alliance.Blue ? dist : -dist;
-
 	}
 
 	@Override
@@ -77,7 +75,7 @@ public class DriveBase_FMSDrive extends Command
 	@Override
 	public void execute()
 	{
-		last=cur-dist;
+		last=cur-(DriverStation.getInstance().getAlliance()== DriverStation.Alliance.Blue ? dist : -dist);
 		cur = Robot.driveBase.getDist();
 		RobotLogger.getInstance().log("Target distance: %f",dist);
 		RobotLogger.getInstance().log("Current distance: %f.",cur);
