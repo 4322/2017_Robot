@@ -104,7 +104,7 @@ public class DriveBase_DriveDistance extends Command
             double outRot = 0;
             if(usesNavx)
             {
-                outRot = ((Math.copySign(Robot.driveBase.getAngle(),dist) * RobotMap.DRIVEBASE_NAVX_P)); // P controller
+                outRot = (Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P); // P controller
 //                outRot += Math.copySign(0.1,Robot.driveBase.getAngle()); // feed forward
             }
             Robot.driveBase.autoDrive(out, outRot); //drive
