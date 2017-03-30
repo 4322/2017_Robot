@@ -18,7 +18,7 @@ public class AutoGroup_GearRetrieval extends CommandGroup
         addSequential(new Group_EjectGear()); //Put gear on peg
         addSequential(new DriveBase_DriveDistance(-24,false, 0.8, false)); // Back up a bit
         addSequential(new DriveBase_FMSTurn(60)); // Straighten out
-        addSequential(new DriveBase_DriveDistance(54,true, 1,false,.7)); // DRIVE ALL THE WAY
+        addSequential(new DriveBase_DriveDistance(100,true, 1,false,.94)); // DRIVE ALL THE WAY
 
     }
 }

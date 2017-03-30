@@ -13,7 +13,7 @@ public class Collector_Start extends Command
     @Override
     public void execute()
     {
-        Robot.collector.set(1);
+        Robot.collector.set(-1);
     }
     
     @Override
