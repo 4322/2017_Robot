@@ -11,6 +11,6 @@ public class AutoGroup_ReachBaseline extends CommandGroup
     {
         addSequential(new Group_HomePivot());
 
-        addSequential(new DriveBase_DriveDistance(100));
+        addSequential(new DriveBase_DriveDistance(100, false, 1, false, .7));
     }
 }
