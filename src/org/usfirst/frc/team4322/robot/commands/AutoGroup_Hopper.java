@@ -12,12 +12,12 @@ public class AutoGroup_Hopper extends CommandGroup
 	public AutoGroup_Hopper()
 	{
 		addSequential(new Group_HomePivot());
-		addSequential(new DriveBase_DriveDistance(90)); //Drive a distance
+		addSequential(new DriveBase_DriveDistance(78)); //Drive a distance
 		addSequential(new DriveBase_Turn(90)); //Turn 90 degrees
-		addSequential(new DriveBase_DriveDistance(27/2)); //Drive up to hopper
-		addSequential(new Vision_RunBoiler());
-		addParallel(new Shooter_Spin());
-		addSequential(new Group_StartIndex()); //start shooting
+		addSequential(new DriveBase_DriveDistance(60)); //Drive up to hopper
+//		addSequential(new Vision_RunBoiler());
+//		addParallel(new Shooter_Spin());
+//		addSequential(new Group_StartIndex()); //start shooting
 
 	}
 }
