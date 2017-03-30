@@ -15,7 +15,7 @@ public class GearGrabber_PrepareForGear extends Command {
     }
     @Override
     protected void execute() {
-        Robot.gearGrabber.set(Relay.Value.kReverse);
+        Robot.gearGrabber.set(1);
     }
 
     @Override
