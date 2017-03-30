@@ -54,6 +54,7 @@ public class DriveBase_FMSDrive extends Command
 		Robot.driveBase.resetEncoder();
 		Robot.driveBase.resetNavX();
 		dist = DriverStation.getInstance().getAlliance()== DriverStation.Alliance.Blue ? dist : -dist;
+		feedForward = DriverStation.getInstance().getAlliance()== DriverStation.Alliance.Blue ? feedForward : -feedForward;
 
 	}
 
