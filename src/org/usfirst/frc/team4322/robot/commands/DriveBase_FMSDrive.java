@@ -75,13 +75,14 @@ public class DriveBase_FMSDrive extends Command
 	@Override
 	public void execute()
 	{
-		last=cur-(DriverStation.getInstance().getAlliance()== DriverStation.Alliance.Blue ? dist : -dist);
+		double distflipped = (DriverStation.getInstance().getAlliance()== DriverStation.Alliance.Blue ? dist : -dist);
+		last=cur-distflipped;
 		cur = Robot.driveBase.getDist();
-		RobotLogger.getInstance().log("Target distance: %f",dist);
+		RobotLogger.getInstance().log("Target distance: %f",distflipped);
 		RobotLogger.getInstance().log("Current distance: %f.",cur);
-		RobotLogger.getInstance().log("Current error: %f.",dist-cur);
+		RobotLogger.getInstance().log("Current error: %f.",distflipped-cur);
 		RobotLogger.getInstance().update(false);
-		SmartDashboard.putNumber("Drive Error: ",dist-cur);
+		SmartDashboard.putNumber("Drive Error: ",distflipped-cur);
 		if(arrived()) // Are we there yet?
 		{
 			Robot.driveBase.drive(0,0); // Stop
@@ -93,16 +94,16 @@ public class DriveBase_FMSDrive extends Command
 		else
 		{
 			counter=0;
-			double out = -(RobotMap.DRIVEBASE_DRIVE_P*(dist-cur)+RobotMap.DRIVEBASE_DRIVE_D*last); //PD Controller
+			double out = -(RobotMap.DRIVEBASE_DRIVE_P*(distflipped-cur)+RobotMap.DRIVEBASE_DRIVE_D*last); //PD Controller
 			out += Math.copySign(feedForward,out); // Feed forward
 			out = clamp(out,ceiling); // clamp to ceiling
 			double outRot = 0;
 			if(usesNavx)
 			{
 				outRot = ((-Robot.driveBase.getAngle() * RobotMap.DRIVEBASE_NAVX_P)); // P controller
-				outRot += Math.copySign(.395,-Robot.driveBase.getAngle()); // feed forward
+				outRot += Math.copySign(0,-Robot.driveBase.getAngle()); // feed forward
 			}
-			Robot.driveBase.drive(out, outRot); //drive
+			Robot.driveBase.autoDrive(out, outRot); //drive
 		}
 	}
 
