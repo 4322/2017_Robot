@@ -12,7 +12,7 @@ public class AutoGroup_GearMiddle extends CommandGroup
     public AutoGroup_GearMiddle()
     {
         addSequential(new Group_HomePivot());
-        addSequential(new DriveBase_DriveDistance(77,true,0.6,false));
+        addSequential(new DriveBase_DriveDistance(74,true,0.6,false));
         addSequential(new Group_EjectGear());
     }
 }
