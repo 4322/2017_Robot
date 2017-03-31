@@ -30,7 +30,7 @@ public class GearPivot_Lower extends Command
         if(Robot.gearPivot.get()  >= 48)
         {
 
-            Robot.gearPivot.set(0);
+            Robot.gearPivot.set(-.1);
         }
         else
             Robot.gearPivot.set(-1);
